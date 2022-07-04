@@ -3,6 +3,8 @@ This is the repository for the [Layton Fangame Godot](https://github.com/Layton-
 
 Why? Read [this](../main/Why.md).
 
+Since the readme file is not yet set up, follow the [unity version](https://github.com/Layton-Community/Layton-Fangame#readme) readme.
+
 ## Installation
 
 ### Install Github Desktop
@@ -15,9 +17,16 @@ Why? Read [this](../main/Why.md).
 
 ## Guidelines
 
+### Commits
+Each commits must respect the [convention](https://gist.github.com/qoomon/5dfcdf8eec66a051ecd85625518cfd13#default).
+
 ## Roadmap
 
 ## Links
+- [Github Markdown Document](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
+- [Markdown Cheatsheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
+- [Official Discord Server](https://discord.gg/DSmjVvmBEd)
+- [A list of good README](https://github.com/matiassingers/awesome-readme)
 
 ## Licensing
 > Copyright 2022-present The Layton Fangame Community
