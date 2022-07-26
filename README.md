@@ -3,15 +3,42 @@ This is the repository for the [Layton Fangame Godot](https://github.com/Layton-
 
 Since the readme file is not yet set up, follow the [unity version](https://github.com/Layton-Community/Layton-Fangame#readme) readme.
 
+## Docs
+
+### Programming
+- [Layton Fangame - Implementation structure Unity](https://docs.google.com/document/d/1b9HEG2cvpCl1Iopq0lIBah5j4o6t_Ynb5-Dn7zVfA4w/edit)
+- [trello](https://trello.com/b/Ls7GQyQ2/pl-fangame-programming-tasks)
+
+### Design
+- [Layton General Design Doc](https://docs.google.com/document/d/1Fh_J0bjUq80ZU1TXTLHe1oj1_jA5RH7At2S9jcXilZM/edit)
+
+### Story
+- [UPDATED Story and structure Layton](https://docs.google.com/document/d/1spmAfPzE56oFEDctGHczQPRIiTqORGSwgLkP1R2wbms/edit)
+- [Tips for character designs](https://docs.google.com/document/d/1WiAD5XzrA-8Jv8EuC5dpDqUpaKQobcak7EcTBAx1Sio/edit)
+
+### Art
+- [Art department (LAYTON FANGAME)](https://docs.google.com/document/d/1io2JBYmtMLUNQx-Npz0qANHYHPEVApU1eQMCkU_kiQE/edit)
+- [NPC ideas drawings (LAYTON FANGAME)](https://docs.google.com/document/d/1savOR2kp-bEluQrGeAkQyF9ORE1uMqrZdKep5IRo1EU/edit)
+
+### Puzzles
+- [Puzzles](https://docs.google.com/document/d/1BmuGgWw9yLZ8_GxY79smlyLSPWwF7mzJdcwkefOxApo/edit)
+
+### Music
+- [Music](https://docs.google.com/document/d/15G0nk758InwPZeKjSMOHlgg8IKIlSN2CxchhI_6MyDk/edit)
+- [Music drafts](https://drive.google.com/drive/folders/13P_OtXECN1YwzqESRKYMXIkZAnHmeH8E?usp=sharing)
+- [Professor Layton Fan Game Soundfont V4.sf2](https://drive.google.com/file/d/1y3htyV5heJr0qWfiKBG6s-AYDYds2KPw/view)
+
+### Dialogues
+- [Traduction FR Layton fangame Chapter 1](https://docs.google.com/spreadsheets/d/1F00uOSssAjDKDPxoO7BjV3vGfEtTF0-VVFAqBgYOvs8/edit#gid=0)
+- [Kapitel 1 - Deutsche Übersetzung](https://docs.google.com/document/d/1YovktpkMwB8PRetRfICl2W13HJWoJ6IU6-YEhfk6MDU/edit)
+
 ## Installation
 
-### Install Github Desktop
+- ### Install Github Desktop
 
-### Download Godot v3.4.4
+- ### Download Godot v3.4.4
 
-### Install Visual Studio Community 2022
-
-## Contributing
+- ### Install Visual Studio Community 2022
 
 ## Guidelines
 
@@ -49,5 +76,6 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <table>
   <tr>
     <td align="center"><a href="https://github.com/MrPhnix"><img src="https://avatars.githubusercontent.com/u/76911907" width="100px;" alt=""/><br/><sub><b>Phnix</b></sub></a><br/><a title="Code">💻</a><a title="Documentation">📖</a></td>
+    <td align="center"><a href="https://github.com/jo763"><img src="https://avatars.githubusercontent.com/u/54395698" width="100px;" alt=""/><br/><sub><b>jo763</b></sub></a><br/><a title="Code">💻</a></td>
   </tr>
 </table>
