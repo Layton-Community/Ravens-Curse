@@ -1,8 +1,6 @@
 # Layton Fangame Godot version
 This is the repository for the [Layton Fangame Godot](https://github.com/Layton-Fangame/Layton-Fangame-Godot) Verson.
 
-Why? Read [this](../main/Why.md).
-
 Since the readme file is not yet set up, follow the [unity version](https://github.com/Layton-Community/Layton-Fangame#readme) readme.
 
 ## Installation
