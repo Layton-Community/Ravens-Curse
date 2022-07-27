@@ -3,7 +3,7 @@ This is the repository for the [Layton Fangame Godot](https://github.com/Layton-
 
 Since the readme file is not yet set up, follow the [unity version](https://github.com/Layton-Community/Layton-Fangame#readme) readme.
 
-## Docs
+## Documents
 
 ### Programming
 - [Layton Fangame - Implementation structure Unity](https://docs.google.com/document/d/1b9HEG2cvpCl1Iopq0lIBah5j4o6t_Ynb5-Dn7zVfA4w/edit)
@@ -35,10 +35,19 @@ Since the readme file is not yet set up, follow the [unity version](https://gith
 ## Installation
 
 - ### Install Github Desktop
+  Already familiar with git? Just make sure LFS is installed.
 
-- ### Download Godot v3.4.4
+  Creating an ssh key is tricky for new users.<br>
+  So download [Github Desktop](https://desktop.github.com/), link it to your github account, it will automatically ssh for you and serve as a git repository manager.
+
+- ### Download [Godot v3.4.4](https://godotengine.org/download/windows)
+  Choose the Mono version (C# support).
 
 - ### Install Visual Studio Community 2022
+  You can choose any IDE with C# support but, for simplicity, we will install [Visual Studio](https://visualstudio.microsoft.com/).
+  - A window opens, named: Installation --- Visual Studio Community 2022
+  - Select `.NET desktop development`.
+  - Click on `Install`.
 
 ## Guidelines
 
