@@ -1,0 +1,62 @@
+[
+	{
+        "character_display_name": "Luke", 
+        "pos": "left", 
+        "emotion": "normal", 
+        "character_sprite": "Luke",
+        "en": "Wow, so this is Harborwich, Professor? What a lovely place!", 
+        "fr": "Wouah, alors c'est Harborwich*, Professeur ? Quel endroit ravissant !", 
+        "de": "Wow, das ist also Harborwich, Professor? Was für ein schöner Ort!",
+        "es": "Wow, ¿así que esto es Harborwich profesor? ¡Qué lugar más encantador!"
+    },
+	{
+        "character_display_name": "Layton", 
+        "pos": "left", 
+        "emotion": "normal", 
+        "character_sprite": "Layton",
+        "en": "Indeed it is Luke, and I must agree, it is a charming little town. Now, I believe Sir Falco said his manor was near the harbor at the edge of town.", 
+        "fr": "En effet Luke, c'est une charmante petite ville. Maintenant, je crois que Sir Falco a dit que son manoir était près du port à la périphérie de la ville.", 
+        "de": "In der Tat, Luke. Ich muss dir zustimmen, es ist wirklich eine sehr schöne Stadt. Nun, Herr Falco sagte, seine Villa wäre in der Nähe des Hafens am Rande der Stadt.",
+        "es": "Ya lo creo Luke, sin duda es encantador. Bueno, si no me equivoco el señor Falco dijo que su mansión estaba cerca del puerto a las afueras de la ciudad."
+    },
+	{
+        "character_display_name": "Luke", 
+        "pos": "left", 
+        "emotion": "normal", 
+        "character_sprite": "Luke",
+        "en": "Great! But uh, Professor, where is the harbor exactly?", 
+        "fr": "Génial ! Mais euh, Professeur, où est le port exactement ?", 
+        "de": "Toll! Aber wo ist denn der Hafen genau?",
+        "es": "¡Genial! Pero um, profesor. ¿Dónde está exactamente el puerto?"
+    },
+	{
+        "character_display_name": "Layton", 
+        "pos": "right", 
+        "emotion": "normal", 
+        "character_sprite": "Layton",
+        "en": "Your guess is as good as mine, my boy. Though I suppose we’ll find it soon enough if we keep moving.", 
+        "fr": "Ton intuition est aussi bonne que la mienne, mon garçon. Bien que je suppose que nous le trouverons assez tôt si nous continuons à avancer.", 
+        "de": "Darüber weiß ich gleich (genauso) viel wie du. Wir sollten es jedoch schon bald finden, wenn wir uns nur weiter umgucken. (Weitergehen?)",
+        "es": "Tengo tanta idea como tú muchacho, pero seguramente la encontraremos si empezamos a movernos por el pueblo."
+    },
+	{
+        "character_display_name": "Flora", 
+        "pos": "left", 
+        "emotion": "normal", 
+        "character_sprite": "Flora",
+        "en": "How do we move, anyhow?", 
+        "fr": "Comment fait-on pour se déplacer, d'ailleurs ?", 
+        "de": "Wie bewegen wir uns denn?",
+        "es": "¿Y cómo nos movemos?"
+    },
+	{
+        "character_display_name": "Luke", 
+        "pos": "right", 
+        "emotion": "normal", 
+        "character_sprite": "Luke",
+        "en": "Oh, I suppose you’ve never gone through this, have you Flora? Well.", 
+        "fr": "Oh, c'est vrai que l'on ne t'a jamais expliqué comment faire !", 
+        "de": "Oh, stimmt. Das weißt du ja noch gar nicht, oder Flora? Pass auf.",
+        "es": "Oh es cierto, nunca hemos pasado por esto contigo, ¿verdad Flora? Bueno pues…"
+    }
+]
