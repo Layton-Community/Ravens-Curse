@@ -1,6 +1,6 @@
 extends Node2D
 
-var puzzle_scene = preload("res://Puzzles_General/Puzzles/Puzzle_2.tscn")
+var puzzle_scene = preload("res://Scenes/Puzzles_General/Puzzles/Puzzle_2.tscn")
 var puzzle = puzzle_scene.instance()
 var puzzle_number = Global.current_puzzle
 onready var picarats_number = $HBoxContainer/Picarats_Number

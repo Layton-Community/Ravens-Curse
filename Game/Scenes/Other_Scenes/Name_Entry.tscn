@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Fonts/simply-sans.book.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://GFX/temp_background.png" type="Texture" id=2]
-[ext_resource path="res://OtherScenes/Name_Entry.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/Other_Scenes/Name_Entry.gd" type="Script" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 size = 30

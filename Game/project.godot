@@ -11,13 +11,13 @@ config_version=4
 [application]
 
 config/name="ProfessorLayton"
-run/main_scene="res://OtherScenes/Home_Screen.tscn"
+run/main_scene="res://Scenes/Puzzles_General/PuzzleRoom.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
 Global="*res://GLOBAL.gd"
-CHANGE_SCENE="*res://OtherScenes/Scene_Transition.tscn"
+CHANGE_SCENE="*res://Scenes/Other_Scenes/Scene_Transition.tscn"
 
 [display]
 

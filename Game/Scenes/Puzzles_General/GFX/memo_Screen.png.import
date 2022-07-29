@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/CV002.webp-dafcaea183f996916ed9d086bf1f5c1e.stex"
+path="res://.import/memo_Screen.png-01053d843a5a60454b967aff7bc3bbf8.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Puzzles_General/GFX/CV002.webp"
-dest_files=[ "res://.import/CV002.webp-dafcaea183f996916ed9d086bf1f5c1e.stex" ]
+source_file="res://Scenes/Puzzles_General/GFX/memo_Screen.png"
+dest_files=[ "res://.import/memo_Screen.png-01053d843a5a60454b967aff7bc3bbf8.stex" ]
 
 [params]
 
