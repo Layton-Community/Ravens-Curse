@@ -1,0 +1,55 @@
+[
+  {
+    "ID": "001",
+    "max_picarats": 10,
+    "character_solving": "Luke",
+    "puzzle_name": {
+      "en": "A Grand Journey",
+      "fr": "Un Grand Journey",
+      "de": "Ein Grand Journey",
+      "es": "Uno Grand Journey"
+    },
+    "brief": {
+      "en": "brief",
+      "fr": "brief",
+      "de": "brief",
+      "es": "brief"
+    },
+    "success_msg": {
+      "en": "Congrats",
+      "fr": "Congrats",
+      "de": "Congrats",
+      "es": "Congrats"
+    },
+    "failure_msg": {
+      "en": "Failure",
+      "fr": "Failure",
+      "de": "Failure",
+      "es": "Failure"
+    },
+    "hint1": {
+      "en": "Hint 1",
+      "fr": "Hint 1",
+      "de": "Hint 1",
+      "es": "Hint 1"
+    },
+    "hint2": {
+      "en": "Hint 2",
+      "fr": "Hint 2",
+      "de": "Hint 2",
+      "es": "Hint 2"
+    },
+    "hint3": {
+      "en": "Hint 3",
+      "fr": "Hint 3",
+      "de": "Hint 3",
+      "es": "Hint 3"
+    },
+    "hint4": {
+      "en": "Hint 4",
+      "fr": "Hint 4",
+      "de": "Hint 4",
+      "es": "Hint 4"
+    }
+  }
+]

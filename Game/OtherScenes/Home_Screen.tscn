@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://GFX/Homescreen.png" type="Texture" id=1]
+[ext_resource path="res://OtherScenes/Home_Screen.gd" type="Script" id=2]
+[ext_resource path="res://Fonts/simply-sans.book.ttf" type="DynamicFontData" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 40
+font_data = ExtResource( 3 )
+
+[node name="Home_Screen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+
+[node name="Background" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 1 )
+expand = true
+
+[node name="Button_New_Game" type="Button" parent="."]
+margin_left = 442.0
+margin_top = 263.0
+margin_right = 651.0
+margin_bottom = 319.0
+custom_fonts/font = SubResource( 1 )
+text = "New Game"
+
+[node name="Button_Continue_Game" type="Button" parent="."]
+margin_left = 751.0
+margin_top = 209.0
+margin_right = 960.0
+margin_bottom = 265.0
+custom_fonts/font = SubResource( 1 )
+text = "Continue"
+
+[connection signal="pressed" from="Button_New_Game" to="." method="_on_Button_New_Game_pressed"]
+[connection signal="pressed" from="Button_Continue_Game" to="." method="_on_Button_Continue_Game_pressed"]

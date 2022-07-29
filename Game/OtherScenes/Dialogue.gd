@@ -38,7 +38,6 @@ func _process(delta):
 func read_json() -> Array:
 	var f = File.new()
 	assert(f.file_exists(dialogue_path), "File path does not exist")
-	
 	f.open(dialogue_path, File.READ)
 	var json = f.get_as_text()
 	var output = parse_json(json)

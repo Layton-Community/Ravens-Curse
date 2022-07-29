@@ -10,13 +10,16 @@ onready var memo = $Memo
 var start_picarats = Global.puzzle_max_picarats[puzzle_number]
 var picarats = start_picarats
 var times_wrong = 0
+var puzzle_path = "res://puzzle.json"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#var puzzle = puzzle_scene.instance()
+	read_json()
 	puzzle.position = Vector2(358, 51) 
 	add_child(puzzle)
 	video_player.visible = false
+	
 
 var x = false
 
@@ -42,6 +45,18 @@ func picarats_reduction():
 	if times_wrong >= 2:
 		picarats = start_picarats * 0.25
 	picarats_number.text = str(picarats)
+
+func read_json() -> Array:
+	var f = File.new()
+	assert(f.file_exists(puzzle_path), "File path does not exist")
+	f.open(puzzle_path, File.READ)
+	var json = f.get_as_text()
+	var output = parse_json(json)
+	if typeof(output) == TYPE_ARRAY:
+		print(output)
+		return output
+	else:
+		return []
 
 func _on_Reset_Button_pressed():
 	remove_child(puzzle)

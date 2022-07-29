@@ -1,0 +1,56 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Fonts/simply-sans.book.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://GFX/temp_background.png" type="Texture" id=2]
+[ext_resource path="res://OtherScenes/Name_Entry.gd" type="Script" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 30
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 30
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 30
+font_data = ExtResource( 1 )
+
+[node name="Name_Entry" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+
+[node name="Background" type="TextureRect" parent="."]
+margin_right = 1024.0
+margin_bottom = 600.0
+texture = ExtResource( 2 )
+expand = true
+
+[node name="Display_Msg" type="RichTextLabel" parent="Background"]
+margin_left = 146.0
+margin_top = 284.0
+margin_right = 517.0
+margin_bottom = 330.0
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_fonts/normal_font = SubResource( 1 )
+bbcode_enabled = true
+bbcode_text = "Please enter your name."
+text = "Please enter your name."
+
+[node name="Textbox" type="LineEdit" parent="Background"]
+margin_left = 145.0
+margin_top = 334.0
+margin_right = 614.0
+margin_bottom = 401.0
+custom_fonts/font = SubResource( 2 )
+
+[node name="Button_Confirm" type="Button" parent="Background"]
+margin_left = 687.0
+margin_top = 345.0
+margin_right = 775.0
+margin_bottom = 389.0
+custom_fonts/font = SubResource( 3 )
+text = "Enter"
+
+[connection signal="pressed" from="Background/Button_Confirm" to="." method="_on_Button_Confirm_pressed"]
