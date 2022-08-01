@@ -1,18 +1,19 @@
 extends Control
 
+onready var dialogue_text = $VBoxContainer/Dialogue_Box/TextureRect/Dialogue_Text
+onready var dialogue_text_tween = $VBoxContainer/Dialogue_Box/Tween
+onready var dialogue_icon = $VBoxContainer/Dialogue_Box/DialogueIcon
+
 var language = Global.language
 var dialogue_index = 0
 var finished = false
 var dialogue_speed_constant = 0.013
-onready var dialogue_text = $VBoxContainer/Dialogue_Box/TextureRect/Dialogue_Text
-onready var dialogue_text_tween = $VBoxContainer/Dialogue_Box/Tween
-onready var dialogue_icon = $VBoxContainer/Dialogue_Box/DialogueIcon
-var  press_delay = false
+var press_delay = false
 var character
 var dialogue_path = "res://Dialogue/Test/Test.json"
-
 var pos_left_coords = Vector2(200,-145)
 var pos_right_coords = Vector2(800,-145)
+var characters_left = 30
 
 var left_pos_empty = true
 var right_pos_empty = true
@@ -20,19 +21,19 @@ var right_pos_empty = true
 var dialogue = read_json()
 
 func _ready():
-	load_dialogue()
+	display_dialogue()
 	pass
 
 func _process(delta):
-	if Input.is_action_just_pressed("ui_accept") and press_delay == false:
-		if finished == false and dialogue_text.percent_visible < .75:
+	if Input.is_action_just_pressed("ui_accept"):
+		if finished == false and press_delay == false:
 			dialogue_text_tween.stop(dialogue_text)
 			dialogue_text.percent_visible = 1
 			_on_Tween_tween_completed(2,3)
-			$Timer.start(.5)
+			$Timer.start(.8)
 			press_delay = true
-		elif finished == true:
-			load_dialogue()
+		elif finished == true and press_delay == false:
+			display_dialogue()
 	dialogue_icon.visible = finished
 
 func read_json() -> Array:
@@ -46,25 +47,26 @@ func read_json() -> Array:
 	else:
 		return []
 
-func load_dialogue():
-	$Timer.start(.3)
+func display_dialogue():
+	$Timer.start(.8)
 	press_delay = true
 	if dialogue_index < dialogue.size():
-		character_positions(dialogue[dialogue_index]["pos"], dialogue[dialogue_index]["character_display_name"])
+		var dialogue_dict = dialogue[dialogue_index]
+		var display_msg = dialogue_dict[language]
+		#characters_left = len(display_msg) - dialogue_text.visible_characters
+		#print(characters_left)
+		character_positions(dialogue_dict["pos"], dialogue_dict["character_display_name"])
 		finished = false
-		dialogue_text.bbcode_text = dialogue[dialogue_index][language]
-		dialogue_text.percent_visible = 0
-		var dialogue_print_time = len(dialogue[dialogue_index][language]) * dialogue_speed_constant
-		dialogue_text_tween.interpolate_property(dialogue_text,"percent_visible", 0, 1, dialogue_print_time, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
+		dialogue_text.bbcode_text = display_msg
+		dialogue_text.visible_characters = 0
+		var dialogue_print_time = len(display_msg) * dialogue_speed_constant
+		dialogue_text_tween.interpolate_property(dialogue_text,"visible_characters", 0, len(display_msg), dialogue_print_time, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 		dialogue_text_tween.start()
-		$VBoxContainer/Speaker/TextureRect/Speaker_Name.bbcode_text = "[center]" + dialogue[dialogue_index]["character_sprite"] + "[/center]"
-		
-	else:
-		pass#queue_free()
+		$VBoxContainer/Speaker/TextureRect/Speaker_Name.bbcode_text = "[center]" + dialogue_dict["character_sprite"] + "[/center]"
 	dialogue_index += 1
 	
 func character_positions(position, name):
-	var charater_scene_location = "res://Characters/" + name + ".tscn"
+	var charater_scene_location = "res://Scenes/Characters/" + name + ".tscn"
 	var character_to_spawn = load(charater_scene_location)
 	if position == "left":
 		for child in get_children():

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Clickable_Character.gd" type="Script" id=1]
+
+[node name="Clickable_Character" type="TextureButton"]
+script = ExtResource( 1 )
+
+[connection signal="pressed" from="." to="." method="_on_Clickable_Character_pressed"]
