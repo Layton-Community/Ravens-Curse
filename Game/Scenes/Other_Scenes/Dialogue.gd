@@ -21,6 +21,7 @@ var right_pos_empty = true
 var dialogue = read_json()
 
 func _ready():
+	yield(CHANGE_SCENE.fade_in(), "completed")
 	display_dialogue()
 	pass
 

@@ -23,7 +23,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 975, 178 ), Vector2( 975, 172 ) ]
+"values": [ Vector2( 975, 570 ), Vector2( 975, 576 ) ]
 }
 
 [sub_resource type="Animation" id=3]
@@ -82,16 +82,12 @@ bbcode_enabled = true
 bbcode_text = "[center] Layton [/center]"
 text = " Layton "
 
-[node name="Dialogue_Box" type="Control" parent="VBoxContainer"]
-margin_top = 64.0
-margin_right = 1024.0
-margin_bottom = 273.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
+[node name="Dialogue_Box" type="CanvasLayer" parent="VBoxContainer"]
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer/Dialogue_Box"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_top = 387.0
 texture = ExtResource( 3 )
 expand = true
 stretch_mode = 1
@@ -106,8 +102,6 @@ margin_bottom = -30.0
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 custom_fonts/normal_font = SubResource( 1 )
 bbcode_enabled = true
-bbcode_text = "\"Lennie!\" he said sharply. \"Lennie, for God’ sakes don’t drink so much.\" Lennie continued to snort into the pool. The small man leaned over and shook him by the shoulder. \"Lennie. You gonna be sick like you was last night.\" "
-text = "\"Lennie!\" he said sharply. \"Lennie, for God’ sakes don’t drink so much.\" Lennie continued to snort into the pool. The small man leaned over and shook him by the shoulder. \"Lennie. You gonna be sick like you was last night.\" "
 
 [node name="Tween" type="Tween" parent="VBoxContainer/Dialogue_Box"]
 
