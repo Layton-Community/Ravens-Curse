@@ -68,5 +68,11 @@ func _on_Erase_All_Button_pressed():
 func _on_Rubber_Button_pressed():	
 	line_colour = Color.white
 
+func _on_ColorPicker_color_changed(color):
+	line_colour = color
+	pass # Replace with function body.
 
 
+
+func _on_HSlider_value_changed(value):
+	line_width = value
