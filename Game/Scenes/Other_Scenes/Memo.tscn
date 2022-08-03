@@ -153,11 +153,11 @@ z_index = 100
 z_as_relative = false
 
 [node name="ColorPicker" type="ColorPicker" parent="VBoxContainer/Node2D"]
-margin_left = -15.0
-margin_top = -3.99998
-margin_right = 286.0
-margin_bottom = 432.0
-rect_scale = Vector2( 0.8, 0.8 )
+margin_left = -2.0
+margin_top = -1.0
+margin_right = 299.0
+margin_bottom = 435.0
+rect_scale = Vector2( 0.75, 0.75 )
 presets_enabled = false
 presets_visible = false
 script = ExtResource( 3 )
