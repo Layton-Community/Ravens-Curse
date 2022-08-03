@@ -1,6 +1,7 @@
 extends Node2D
 
 func _ready():
+	$TextureButton.set_position(Vector2(-27,-27))
 	pass
 
 func _on_TextureButton_pressed():
