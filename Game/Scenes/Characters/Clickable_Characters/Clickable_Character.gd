@@ -9,14 +9,10 @@ func _ready():
 	current_scene = get_tree().current_scene.filename
 	pass # Replace with function body.
 
-func a():
-	pass
-
-
 func _on_Button_pressed():
 	print("character clicked") 
 	#dialogue_scene_instance.z_index = 200
 	yield(CHANGE_SCENE.fade_out(), "completed")
 	add_child(dialogue_scene_instance)
-	button.disabled = true
+	#button.disabled = true
 	button.visible = false

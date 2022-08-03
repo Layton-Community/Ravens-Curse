@@ -20,7 +20,6 @@ func _ready():
 	add_child(puzzle)
 	video_player.visible = false
 	
-
 var x = false
 
 func _process(delta):
@@ -62,11 +61,9 @@ func _on_Reset_Button_pressed():
 	remove_child(puzzle)
 	add_child(puzzle)
 
-
 func _on_Quit_Button_pressed():
 	get_tree().quit()
 
 func _on_Memo_Button_pressed():
 	get_tree().paused = true
 	memo.position.y = 0
-
