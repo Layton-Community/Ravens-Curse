@@ -15,4 +15,9 @@ texture = ExtResource( 1 )
 position = Vector2( 2, 74 )
 
 [node name="Hint_Coin" parent="." instance=ExtResource( 3 )]
-position = Vector2( 784, 190 )
+position = Vector2( 806, 210 )
+ID = "001"
+
+[node name="Hint_Coin2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 674, 524 )
+ID = "002"

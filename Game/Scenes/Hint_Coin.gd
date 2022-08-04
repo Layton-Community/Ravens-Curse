@@ -1,4 +1,5 @@
 extends Node2D
+export var ID = "000"
 
 func _ready():
 	$TextureButton.set_position(Vector2(-27,-27))
@@ -6,6 +7,7 @@ func _ready():
 
 func _on_TextureButton_pressed():
 	print("Hint coin pressed")
+	Global.hint_coins_count += 1
 	$TextureButton.set_normal_texture(load("res://GFX/dialogue_icon.png"))
 	$AudioStreamPlayer.play()
 	#$AnimationPlayer.visible = true
