@@ -10,9 +10,6 @@ func _ready():
 	pass # Replace with function body.
 
 func _on_Button_pressed():
-	print("character clicked") 
-	#dialogue_scene_instance.z_index = 200
 	yield(CHANGE_SCENE.fade_out(), "completed")
 	add_child(dialogue_scene_instance)
-	#button.disabled = true
 	button.visible = false

@@ -35,6 +35,7 @@ func _process(delta):
 			press_delay = true
 		elif finished == true and press_delay == false:
 			display_dialogue()
+		
 	dialogue_icon.visible = finished
 
 func read_json() -> Array:
@@ -65,6 +66,8 @@ func display_dialogue():
 		dialogue_text_tween.start()
 		$VBoxContainer/Speaker/TextureRect/Speaker_Name.bbcode_text = "[center]" + dialogue_dict["character_sprite"] + "[/center]"
 	dialogue_index += 1
+	if dialogue_index > dialogue.size():
+		CHANGE_SCENE.change_scene("res://Scenes/Puzzles_General/PuzzleRoom.tscn")
 	
 func character_positions(position, name):
 	var charater_scene_location = "res://Scenes/Characters/" + name + ".tscn"
