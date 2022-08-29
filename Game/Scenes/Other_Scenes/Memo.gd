@@ -73,6 +73,5 @@ func _on_ColorPicker_color_changed(color):
 	pass # Replace with function body.
 
 
-
 func _on_HSlider_value_changed(value):
 	line_width = value
