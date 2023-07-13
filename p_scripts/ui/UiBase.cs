@@ -14,12 +14,18 @@ public partial class UiBase : Control
 	[ExportGroup("Imports")]
 	[Export] protected ColorRect foreground;
 	[Export] protected AnimationPlayer animations;
-		
+	
 	// Member variables
 	
 	public override void _Ready()
 	{
 		animations.PlayAndAdvance(ANIM_FADE_IN, 0);
+	}
+	
+	protected void ShowBarrier()
+	{
+		foreground.Show();
+		foreground.Color = Colors.Transparent;
 	}
 }
 
