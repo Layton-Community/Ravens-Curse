@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://b65axi7awqa8d"]
+
+[ext_resource type="PackedScene" uid="uid://c5d4hyuvs1fwr" path="res://d_scenes/ui/ui_base.tscn" id="1_o8f23"]
+
+[node name="GameLocation" instance=ExtResource("1_o8f23")]
+
+[node name="Background" parent="." index="0"]
+texture = null

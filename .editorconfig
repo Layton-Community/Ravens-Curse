@@ -2,3 +2,5 @@ root = true
 
 [*.cs]
 # dotnet_diagnostic.IDE____.severity = silent
+dotnet_diagnostic.CA1822.severity = silent
+

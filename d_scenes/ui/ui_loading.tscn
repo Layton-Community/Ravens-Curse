@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://c871hinlivynt"]
+
+[ext_resource type="PackedScene" uid="uid://c5d4hyuvs1fwr" path="res://d_scenes/ui/ui_base.tscn" id="1_dgabt"]
+[ext_resource type="Texture2D" uid="uid://bks6ota08grdd" path="res://a_sprites/ui_loading/bg_legal.png" id="2_5gqat"]
+[ext_resource type="Script" path="res://p_scripts/ui/Loading.cs" id="2_ox0uw"]
+[ext_resource type="Texture2D" uid="uid://cux262s3fyrvx" path="res://a_sprites/ui_loading/bg_layton.png" id="3_fyyuv"]
+[ext_resource type="Texture2D" uid="uid://25u2pfw50lxb" path="res://a_sprites/ui_loading/bg_godot.png" id="4_xunoe"]
+
+[node name="UiLoading" node_paths=PackedStringArray("_logosContainer") instance=ExtResource("1_dgabt")]
+script = ExtResource("2_ox0uw")
+logoShowTime = 1.5
+_sceneTitle = "res://d_scenes/ui/ui_title.tscn"
+_logosContainer = NodePath("Middleground")
+
+[node name="BgLegal" type="TextureRect" parent="Middleground" index="0"]
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+texture = ExtResource("2_5gqat")
+
+[node name="BgLayton" type="TextureRect" parent="Middleground" index="1"]
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+texture = ExtResource("3_fyyuv")
+
+[node name="BgGodot" type="TextureRect" parent="Middleground" index="2"]
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+texture = ExtResource("4_xunoe")

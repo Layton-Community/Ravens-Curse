@@ -1,4 +1,6 @@
-builds/
+**/*builds
+**/*save.key
+**/*.old
 
 ####
 
@@ -21,6 +23,7 @@ mono_crash.*.json
 ####
 
 .vscode/*
+!.vscode/NuGet
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json

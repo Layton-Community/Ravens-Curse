@@ -1,0 +1,173 @@
+[gd_scene load_steps=25 format=3 uid="uid://3iul4tlmc60w"]
+
+[ext_resource type="PackedScene" uid="uid://c5d4hyuvs1fwr" path="res://d_scenes/ui/ui_base.tscn" id="1_q872w"]
+[ext_resource type="Texture2D" uid="uid://6gg4ehthf0g0" path="res://a_sprites/ui_ask_name/bg.png" id="2_bht1u"]
+[ext_resource type="Script" path="res://p_scripts/ui/AskName.cs" id="2_k6wf4"]
+[ext_resource type="Texture2D" uid="uid://b0j4jj1e1e58k" path="res://a_sprites/ui_ask_name/bg_dummy_dark.png" id="2_pvgen"]
+[ext_resource type="Texture2D" uid="uid://dk1xmxosxkg3k" path="res://a_sprites/ui_ask_name/bg_layton_dark.png" id="3_wgl5q"]
+[ext_resource type="Texture2D" uid="uid://bpgncmxllgul1" path="res://a_sprites/ui_ask_name/bg_luke_dark.png" id="4_vlaoy"]
+[ext_resource type="Texture2D" uid="uid://bc2j21kvykecu" path="res://a_sprites/ui_ask_name/bg_flowers.png" id="6_spli7"]
+[ext_resource type="Texture2D" uid="uid://bdpbisytbwxgt" path="res://a_sprites/ui_ask_name/bg_panel.png" id="7_lt4p5"]
+[ext_resource type="FontFile" uid="uid://ulsa4jbbxqsw" path="res://a_fonts/roboto_medium.ttf" id="8_vrvow"]
+[ext_resource type="Texture2D" uid="uid://5dm04ngvgmch" path="res://a_sprites/ui_ask_name/bg_field.png" id="9_6mnkv"]
+[ext_resource type="FontFile" uid="uid://dmjgigmwvc4ai" path="res://a_fonts/roboto_mono_medium.ttf" id="10_1y3c4"]
+[ext_resource type="Script" path="res://p_scripts/ui_ask_name/LineEdit.cs" id="11_t2dos"]
+[ext_resource type="AudioStream" uid="uid://bb1fyygt1tlgi" path="res://a_audio/ui_line_edit/sfx_label_input.wav" id="12_e8jl0"]
+[ext_resource type="Script" path="res://p_scripts/ui_ask_name/Caret.cs" id="13_qjmwe"]
+[ext_resource type="PackedScene" uid="uid://c1lfibm6thgmb" path="res://d_scenes/ui_buttons/button_ok.tscn" id="14_2jni3"]
+[ext_resource type="AudioStream" uid="uid://bxl6obmq7nb2r" path="res://a_audio/ui_buttons/sfx_button_back.wav" id="15_ptx7m"]
+[ext_resource type="PackedScene" uid="uid://cviwnn2oxjuii" path="res://d_scenes/ui_buttons/button_back.tscn" id="16_v7fpe"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_s82qy"]
+blend_mode = 2
+
+[sub_resource type="Gradient" id="Gradient_yyi2g"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_cs50y"]
+gradient = SubResource("Gradient_yyi2g")
+
+[sub_resource type="FontVariation" id="FontVariation_yf78u"]
+base_font = ExtResource("10_1y3c4")
+spacing_glyph = 19
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_k8c2i"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r1qpn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_byh5s"]
+
+[node name="UiAskName" node_paths=PackedStringArray("buttonOk", "buttonOkSfxForbidden", "buttonBack", "username") instance=ExtResource("1_q872w")]
+script = ExtResource("2_k6wf4")
+sceneSaves = "res://d_scenes/ui/ui_saves.tscn"
+sceneGame = ""
+buttonOk = NodePath("Middleground/BgPanel/ButtonOk")
+buttonOkSfxForbidden = NodePath("Middleground/BgPanel/ButtonOk/SfxForbidden")
+buttonBack = NodePath("Middleground/BgPanel/ButtonBack")
+username = NodePath("Middleground/BgPanel/BgField/LineEdit")
+
+[node name="Background" parent="." index="0"]
+texture = ExtResource("2_bht1u")
+
+[node name="CanvasGroup" type="CanvasGroup" parent="Background" index="0"]
+metadata/_edit_group_ = true
+
+[node name="BgDummyDark" type="Sprite2D" parent="Background/CanvasGroup" index="0"]
+self_modulate = Color(0.290196, 0.129412, 0, 1)
+position = Vector2(880, 720)
+texture = ExtResource("2_pvgen")
+
+[node name="BgLaytonDark" type="Sprite2D" parent="Background/CanvasGroup" index="1"]
+self_modulate = Color(0.290196, 0.129412, 0, 1)
+position = Vector2(540, 680)
+rotation = -3.14159
+scale = Vector2(1, -1)
+texture = ExtResource("3_wgl5q")
+
+[node name="BgLukeDark" type="Sprite2D" parent="Background/CanvasGroup" index="2"]
+self_modulate = Color(0.290196, 0.129412, 0, 1)
+position = Vector2(340, 720)
+rotation = -3.14159
+scale = Vector2(1, -1)
+texture = ExtResource("4_vlaoy")
+
+[node name="Mask" type="Sprite2D" parent="Background/CanvasGroup" index="3"]
+material = SubResource("CanvasItemMaterial_s82qy")
+position = Vector2(633, 862.5)
+scale = Vector2(13.7188, 5.23438)
+texture = SubResource("GradientTexture2D_cs50y")
+
+[node name="BgFlowers" type="TextureRect" parent="Background" index="1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_spli7")
+metadata/_edit_lock_ = true
+
+[node name="BgPanel" type="TextureRect" parent="Middleground" index="0"]
+layout_mode = 0
+offset_left = 240.0
+offset_top = 80.0
+offset_right = 1040.0
+offset_bottom = 400.0
+texture = ExtResource("7_lt4p5")
+
+[node name="Label" type="Label" parent="Middleground/BgPanel" index="0"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 240.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.203922, 0.203922, 0.203922, 1)
+theme_override_fonts/font = ExtResource("8_vrvow")
+theme_override_font_sizes/font_size = 50
+text = "Please enter your name."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BgField" type="TextureRect" parent="Middleground/BgPanel" index="1"]
+layout_mode = 0
+offset_left = 160.0
+offset_top = 220.0
+offset_right = 647.0
+offset_bottom = 275.0
+texture = ExtResource("9_6mnkv")
+metadata/_edit_group_ = true
+
+[node name="LineEdit" type="LineEdit" parent="Middleground/BgPanel/BgField" index="0" node_paths=PackedStringArray("caret", "sound")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = -16.0
+offset_bottom = 9.0
+grow_horizontal = 2
+grow_vertical = 2
+auto_translate = false
+localize_numeral_system = false
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/caret_width = 0
+theme_override_fonts/font = SubResource("FontVariation_yf78u")
+theme_override_font_sizes/font_size = 49
+theme_override_styles/normal = SubResource("StyleBoxEmpty_k8c2i")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_r1qpn")
+theme_override_styles/read_only = SubResource("StyleBoxEmpty_byh5s")
+max_length = 10
+flat = true
+caret_mid_grapheme = false
+script = ExtResource("11_t2dos")
+caret = NodePath("../Caret")
+sound = NodePath("AudioStreamPlayer")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Middleground/BgPanel/BgField/LineEdit" index="0"]
+stream = ExtResource("12_e8jl0")
+
+[node name="Caret" type="ColorRect" parent="Middleground/BgPanel/BgField" index="1"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 42.0
+offset_right = 45.0
+offset_bottom = 47.0
+color = Color(0.52549, 0.490196, 0.333333, 1)
+script = ExtResource("13_qjmwe")
+
+[node name="ButtonOk" parent="Middleground/BgPanel" index="2" instance=ExtResource("14_2jni3")]
+layout_mode = 0
+offset_left = 820.0
+offset_top = 540.0
+offset_right = 980.0
+offset_bottom = 600.0
+
+[node name="SfxForbidden" type="AudioStreamPlayer" parent="Middleground/BgPanel/ButtonOk" index="2"]
+stream = ExtResource("15_ptx7m")
+
+[node name="ButtonBack" parent="Middleground/BgPanel" index="3" instance=ExtResource("16_v7fpe")]
+layout_mode = 0
+offset_left = -180.0
+offset_top = 540.0
+offset_right = -20.0
+offset_bottom = 600.0

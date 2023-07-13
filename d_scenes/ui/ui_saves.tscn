@@ -1,0 +1,76 @@
+[gd_scene load_steps=10 format=3 uid="uid://c6tpu30740b50"]
+
+[ext_resource type="PackedScene" uid="uid://c5d4hyuvs1fwr" path="res://d_scenes/ui/ui_base.tscn" id="1_lgwql"]
+[ext_resource type="Script" path="res://p_scripts/ui/Saves.cs" id="2_1njle"]
+[ext_resource type="Texture2D" uid="uid://b4pw340kbebki" path="res://a_sprites/ui_saves/bg.png" id="2_hgel5"]
+[ext_resource type="Texture2D" uid="uid://dmiervgc0uvkl" path="res://a_sprites/ui_saves/bg_title.png" id="3_pqy7w"]
+[ext_resource type="FontFile" uid="uid://ulsa4jbbxqsw" path="res://a_fonts/roboto_medium.ttf" id="4_hl4le"]
+[ext_resource type="PackedScene" uid="uid://d1m48y4426xjc" path="res://d_scenes/ui_buttons/button_user_0.tscn" id="5_brbg3"]
+[ext_resource type="PackedScene" uid="uid://cdwecmdi287b7" path="res://d_scenes/ui_buttons/button_user_1.tscn" id="6_avyfm"]
+[ext_resource type="PackedScene" uid="uid://bar0ap8yyqmbv" path="res://d_scenes/ui_buttons/button_user_2.tscn" id="7_uqauf"]
+[ext_resource type="PackedScene" uid="uid://cviwnn2oxjuii" path="res://d_scenes/ui_buttons/button_back.tscn" id="8_v2dxs"]
+
+[node name="UiSaves" node_paths=PackedStringArray("buttonBack") instance=ExtResource("1_lgwql")]
+script = ExtResource("2_1njle")
+sceneTitle = "res://d_scenes/ui/ui_title.tscn"
+sceneAskName = "res://d_scenes/ui/ui_ask_name.tscn"
+sceneGame = ""
+buttonBack = NodePath("Middleground/ButtonBack")
+
+[node name="Background" parent="." index="0"]
+texture = ExtResource("2_hgel5")
+
+[node name="Title" type="TextureRect" parent="Middleground" index="0"]
+layout_mode = 0
+offset_left = 320.0
+offset_top = 80.0
+offset_right = 960.0
+offset_bottom = 160.0
+texture = ExtResource("3_pqy7w")
+
+[node name="Label" type="Label" parent="Middleground/Title" index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.196078, 0.0862745, 0.0431373, 1)
+theme_override_colors/font_outline_color = Color(0.988235, 0.941176, 0.839216, 1)
+theme_override_constants/outline_size = 15
+theme_override_fonts/font = ExtResource("4_hl4le")
+theme_override_font_sizes/font_size = 48
+text = "Choose a save file."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ButtonUser0" parent="Middleground" index="1" node_paths=PackedStringArray("saves") instance=ExtResource("5_brbg3")]
+layout_mode = 0
+offset_left = 320.0
+offset_top = 180.0
+offset_right = 960.0
+offset_bottom = 320.0
+saves = NodePath("../..")
+
+[node name="ButtonUser1" parent="Middleground" index="2" node_paths=PackedStringArray("saves") instance=ExtResource("6_avyfm")]
+layout_mode = 0
+offset_left = 320.0
+offset_top = 340.0
+offset_right = 960.0
+offset_bottom = 480.0
+saves = NodePath("../..")
+
+[node name="ButtonUser2" parent="Middleground" index="3" node_paths=PackedStringArray("saves") instance=ExtResource("7_uqauf")]
+layout_mode = 0
+offset_left = 320.0
+offset_top = 500.0
+offset_right = 960.0
+offset_bottom = 640.0
+saves = NodePath("../..")
+
+[node name="ButtonBack" parent="Middleground" index="4" instance=ExtResource("8_v2dxs")]
+layout_mode = 0
+offset_left = 60.0
+offset_top = 620.0
+offset_right = 220.0
+offset_bottom = 680.0

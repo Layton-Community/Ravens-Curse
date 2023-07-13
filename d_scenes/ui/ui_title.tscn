@@ -1,0 +1,252 @@
+[gd_scene load_steps=20 format=3 uid="uid://7neen2mwejvm"]
+
+[ext_resource type="PackedScene" uid="uid://c5d4hyuvs1fwr" path="res://d_scenes/ui/ui_base.tscn" id="1_u510a"]
+[ext_resource type="Script" path="res://p_scripts/ui/Title.cs" id="2_412di"]
+[ext_resource type="Texture2D" uid="uid://deku16g73ag1y" path="res://a_sprites/ui_title/bg_wave_1.png" id="2_dy85v"]
+[ext_resource type="Texture2D" uid="uid://6yea56o8gyn1" path="res://a_sprites/ui_title/bg_boat.png" id="3_p4p4n"]
+[ext_resource type="Texture2D" uid="uid://b2dg3kqg4dkhj" path="res://a_sprites/ui_title/bg_wave_0.png" id="4_4nfda"]
+[ext_resource type="Texture2D" uid="uid://cjmngi8drkx55" path="res://a_sprites/ui_title/bg_bird.png" id="5_u7wrx"]
+[ext_resource type="Texture2D" uid="uid://dbs3px3i7vygj" path="res://a_sprites/ui_title/bg_wind.png" id="6_hlpdu"]
+[ext_resource type="Texture2D" uid="uid://stc3ttf01ljw" path="res://a_sprites/ui_title/logo_layton_title_en.png" id="7_psiu4"]
+[ext_resource type="Texture2D" uid="uid://d3kyv6sprrjil" path="res://a_sprites/ui_title/btn_play_normal.png" id="8_3bd37"]
+[ext_resource type="Texture2D" uid="uid://bigwf35hpdeji" path="res://a_sprites/ui_title/btn_play_pressed.png" id="9_lpg8t"]
+[ext_resource type="BitMap" uid="uid://imepakmra0ab" path="res://a_sprites/ui_title/btn_mask.png" id="10_la5cr"]
+[ext_resource type="AudioStream" uid="uid://tcayx5qidasr" path="res://a_audio/ui_buttons/sfx_button_play.wav" id="11_bhmck"]
+[ext_resource type="Texture2D" uid="uid://xbhghwm4tmsq" path="res://a_sprites/ui_title/btn_quit_normal.png" id="12_8q8qv"]
+[ext_resource type="Texture2D" uid="uid://b0dsfqu08iya2" path="res://a_sprites/ui_title/btn_quit_pressed.png" id="13_woddg"]
+[ext_resource type="AudioStream" uid="uid://bxl6obmq7nb2r" path="res://a_audio/ui_buttons/sfx_button_back.wav" id="14_t78lf"]
+[ext_resource type="AnimationLibrary" uid="uid://danfsfllrsqbx" path="res://a_animations/ui/anim_ui_base.tres" id="15_wpeo5"]
+[ext_resource type="AnimationLibrary" uid="uid://4pd2biu8g67e" path="res://a_animations/ui/anim_ui_title.tres" id="17_63r6a"]
+
+[sub_resource type="Animation" id="Animation_qyl0f"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Foreground:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Foreground:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Background/BgWind_3:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1240, 240)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Background/BgWave_1:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(640, 640)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Background/BgBoat:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(600, 600)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Background/BgWave_0:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(640, 640)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Background/BgBird:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(160, 240)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Background/BgWind_2:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(40, 400)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Middleground/LogoTitle:modulate")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Middleground/Buttons:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Middleground/Buttons/ButtonPlay/AudioStreamPlayer:playing")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("Middleground/Buttons/ButtonQuit/AudioStreamPlayer:playing")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vabcm"]
+_data = {
+"RESET": SubResource("Animation_qyl0f")
+}
+
+[node name="UiTitle" node_paths=PackedStringArray("logoTitle", "buttonPlay", "buttonPlaySfx", "buttonQuit") instance=ExtResource("1_u510a")]
+script = ExtResource("2_412di")
+sceneSaves = "res://d_scenes/ui/ui_saves.tscn"
+logoTitle = NodePath("Middleground/LogoTitle")
+buttonPlay = NodePath("Middleground/Buttons/ButtonPlay")
+buttonPlaySfx = NodePath("Middleground/Buttons/ButtonPlay/AudioStreamPlayer")
+buttonQuit = NodePath("Middleground/Buttons/ButtonQuit")
+
+[node name="BgWave_1" type="Sprite2D" parent="Background" index="0"]
+position = Vector2(640, 640)
+texture = ExtResource("2_dy85v")
+
+[node name="BgBoat" type="Sprite2D" parent="Background" index="1"]
+position = Vector2(600, 600)
+texture = ExtResource("3_p4p4n")
+
+[node name="BgWave_0" type="Sprite2D" parent="Background" index="2"]
+position = Vector2(640, 640)
+texture = ExtResource("4_4nfda")
+
+[node name="BgBird" type="Sprite2D" parent="Background" index="3"]
+position = Vector2(160, 240)
+texture = ExtResource("5_u7wrx")
+
+[node name="BgWind_2" type="Sprite2D" parent="Background" index="4"]
+position = Vector2(40, 400)
+texture = ExtResource("6_hlpdu")
+
+[node name="BgWind_3" type="Sprite2D" parent="Background" index="5"]
+position = Vector2(1240, 240)
+texture = ExtResource("6_hlpdu")
+
+[node name="LogoTitle" type="Sprite2D" parent="Middleground" index="0"]
+position = Vector2(640, 200)
+texture = ExtResource("7_psiu4")
+
+[node name="Buttons" type="Control" parent="Middleground" index="1"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ButtonPlay" type="TextureButton" parent="Middleground/Buttons" index="0"]
+layout_mode = 0
+offset_left = 800.0
+offset_top = 400.0
+offset_right = 1120.0
+offset_bottom = 480.0
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("8_3bd37")
+texture_pressed = ExtResource("9_lpg8t")
+texture_disabled = ExtResource("8_3bd37")
+texture_click_mask = ExtResource("10_la5cr")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Middleground/Buttons/ButtonPlay" index="0"]
+stream = ExtResource("11_bhmck")
+bus = &"SFX"
+
+[node name="ButtonQuit" type="TextureButton" parent="Middleground/Buttons" index="1"]
+layout_mode = 0
+offset_left = 240.0
+offset_top = 401.0
+offset_right = 560.0
+offset_bottom = 481.0
+mouse_default_cursor_shape = 2
+texture_normal = ExtResource("12_8q8qv")
+texture_pressed = ExtResource("13_woddg")
+texture_disabled = ExtResource("12_8q8qv")
+texture_click_mask = ExtResource("10_la5cr")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Middleground/Buttons/ButtonQuit" index="0"]
+stream = ExtResource("14_t78lf")
+bus = &"SFX"
+
+[node name="AnimationPlayer" parent="." index="3"]
+libraries = {
+"": SubResource("AnimationLibrary_vabcm"),
+"ui_base": ExtResource("15_wpeo5"),
+"ui_title": ExtResource("17_63r6a")
+}

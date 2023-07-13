@@ -1,0 +1,36 @@
+[gd_scene load_steps=2 format=3 uid="uid://lnbinse16mng"]
+
+[ext_resource type="Script" path="res://addons/debug_tools/DebugToolsDock.cs" id="1_mg13h"]
+
+[node name="DebugTools" type="Control" node_paths=PackedStringArray("buttonDeleteSaves", "dialogDeleteSaves")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mg13h")
+buttonDeleteSaves = NodePath("VBoxContainer/ButtonDeleteSaves")
+dialogDeleteSaves = NodePath("VBoxContainer/ConfirmationDialog")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ButtonDeleteSaves" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Delete user saves"
+
+[node name="ConfirmationDialog" type="ConfirmationDialog" parent="VBoxContainer"]
+mode = 2
+initial_position = 5
+size = Vector2i(360, 100)
+unresizable = true
+ok_button_text = "Yes"
+dialog_text = "Do you really want to delete the user saves? "
+dialog_autowrap = true
+cancel_button_text = "No"

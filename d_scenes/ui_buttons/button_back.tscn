@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://cviwnn2oxjuii"]
+
+[ext_resource type="Texture2D" uid="uid://c68kuxfs1anh7" path="res://a_sprites/ui_buttons/btn_back_normal.png" id="1_gtikt"]
+[ext_resource type="Texture2D" uid="uid://c8saep4fl080a" path="res://a_sprites/ui_buttons/btn_back_pressed.png" id="2_jv561"]
+[ext_resource type="Script" path="res://p_scripts/ui_buttons/ButtonLarge.cs" id="3_jxgnn"]
+[ext_resource type="Texture2D" uid="uid://fdwkm7mvcn4l" path="res://a_sprites/ui_buttons/btn_back_text_en.png" id="4_ucglr"]
+[ext_resource type="AudioStream" uid="uid://bxl6obmq7nb2r" path="res://a_audio/ui_buttons/sfx_button_back.wav" id="5_fnuwx"]
+
+[node name="ButtonBack" type="TextureButton" node_paths=PackedStringArray("image", "sound")]
+offset_right = 160.0
+offset_bottom = 60.0
+texture_normal = ExtResource("1_gtikt")
+texture_pressed = ExtResource("2_jv561")
+texture_disabled = ExtResource("1_gtikt")
+script = ExtResource("3_jxgnn")
+image = NodePath("TextureRect")
+sound = NodePath("AudioStreamPlayer")
+metadata/_edit_group_ = true
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 160.0
+offset_bottom = 60.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_ucglr")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_fnuwx")

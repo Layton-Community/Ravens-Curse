@@ -1,0 +1,240 @@
+[gd_scene load_steps=10 format=3 uid="uid://d1m48y4426xjc"]
+
+[ext_resource type="Texture2D" uid="uid://clrv3oyycx74t" path="res://a_sprites/ui_saves/btn_saves_0.png" id="1_kp7vx"]
+[ext_resource type="Script" path="res://p_scripts/ui_buttons/ButtonUser.cs" id="2_rquc4"]
+[ext_resource type="Texture2D" uid="uid://crdakmamegsuk" path="res://a_sprites/icons/icon_game.png" id="3_i0kpq"]
+[ext_resource type="Texture2D" uid="uid://xgolamssq5fh" path="res://a_sprites/ui_saves/btn_saves_0_empty.png" id="4_d2ydr"]
+[ext_resource type="FontFile" uid="uid://ulsa4jbbxqsw" path="res://a_fonts/roboto_medium.ttf" id="5_4guuf"]
+[ext_resource type="Texture2D" uid="uid://cukqtsfopm388" path="res://a_sprites/ui_saves/btn_saves_0_popup.png" id="6_xw86w"]
+[ext_resource type="Texture2D" uid="uid://crk4yarqgq5es" path="res://a_sprites/ui_saves/btn_saves_popup_create_en.png" id="7_o8rxj"]
+[ext_resource type="Texture2D" uid="uid://dmrhxsvkr4ihb" path="res://a_sprites/ui_saves/btn_saves_popup_loading_0_en.png" id="8_ro0rf"]
+[ext_resource type="AudioStream" uid="uid://cjblk13wro778" path="res://a_audio/ui_buttons/sfx_button_user.wav" id="9_gawjb"]
+
+[node name="ButtonUser0" type="TextureButton" node_paths=PackedStringArray("labelId", "labelName", "labelLocation", "labelHours", "labelMinutes", "labelPuzzleFound", "labelPuzzleCompleted", "textureEmpty", "texturePopup", "texturePopupCreate", "texturePopupLoading", "texturePopupSFX")]
+offset_right = 640.0
+offset_bottom = 140.0
+size_flags_vertical = 3
+texture_normal = ExtResource("1_kp7vx")
+script = ExtResource("2_rquc4")
+labelId = NodePath("LabelId")
+labelName = NodePath("LabelName")
+labelLocation = NodePath("LabelLocation")
+labelHours = NodePath("LabelHoursValue")
+labelMinutes = NodePath("LabelMinutesValue")
+labelPuzzleFound = NodePath("LabelPuzzleFound")
+labelPuzzleCompleted = NodePath("LabelPuzzleCompleted")
+textureEmpty = NodePath("TextureEmpty")
+texturePopup = NodePath("TexturePopup")
+texturePopupCreate = NodePath("TexturePopup/TextureTextCreating")
+texturePopupLoading = NodePath("TexturePopup/TextureTextLoading")
+texturePopupSFX = NodePath("TexturePopup/AudioStreamPlayer")
+
+[node name="LabelName" type="Label" parent="."]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 10.0
+offset_right = 368.0
+offset_bottom = 64.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 36
+text = "Name"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LabelLocation" type="Label" parent="."]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 76.0
+offset_right = 368.0
+offset_bottom = 130.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 36
+text = "Location"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LabelMinutes" type="Label" parent="."]
+layout_mode = 0
+offset_left = 555.0
+offset_top = 10.0
+offset_right = 619.0
+offset_bottom = 70.0
+theme_override_colors/font_color = Color(0.988235, 0.941176, 0.839216, 1)
+theme_override_colors/font_outline_color = Color(0.184314, 0.105882, 0.0784314, 1)
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 30
+text = " min"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="LabelMinutesValue" type="Label" parent="."]
+layout_mode = 0
+offset_left = 520.0
+offset_top = 10.0
+offset_right = 554.0
+offset_bottom = 70.0
+theme_override_colors/font_color = Color(0.960784, 0.580392, 0.262745, 1)
+theme_override_colors/font_outline_color = Color(0.184314, 0.105882, 0.0784314, 1)
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 30
+text = "00"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="LabelHours" type="Label" parent="."]
+layout_mode = 0
+offset_left = 469.0
+offset_top = 10.0
+offset_right = 501.0
+offset_bottom = 70.0
+theme_override_colors/font_color = Color(0.988235, 0.941176, 0.839216, 1)
+theme_override_colors/font_outline_color = Color(0.184314, 0.105882, 0.0784314, 1)
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 30
+text = "hr"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="LabelHoursValue" type="Label" parent="."]
+layout_mode = 0
+offset_left = 380.0
+offset_top = 10.0
+offset_right = 462.0
+offset_bottom = 70.0
+theme_override_colors/font_color = Color(0.960784, 0.580392, 0.262745, 1)
+theme_override_colors/font_outline_color = Color(0.184314, 0.105882, 0.0784314, 1)
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 30
+text = "000"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="LabelPuzzleFound" type="Label" parent="."]
+layout_mode = 0
+offset_left = 569.0
+offset_top = 70.0
+offset_right = 620.0
+offset_bottom = 130.0
+theme_override_colors/font_color = Color(0.960784, 0.580392, 0.262745, 1)
+theme_override_colors/font_outline_color = Color(0.184314, 0.105882, 0.0784314, 1)
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 30
+text = "000"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="LabelSlash" type="Label" parent="."]
+layout_mode = 0
+offset_left = 540.0
+offset_top = 70.0
+offset_right = 560.0
+offset_bottom = 130.0
+theme_override_colors/font_color = Color(0.988235, 0.941176, 0.839216, 1)
+theme_override_colors/font_outline_color = Color(0.184314, 0.105882, 0.0784314, 1)
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 30
+text = "/"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LabelPuzzleCompleted" type="Label" parent="."]
+layout_mode = 0
+offset_left = 480.0
+offset_top = 70.0
+offset_right = 531.0
+offset_bottom = 130.0
+theme_override_colors/font_color = Color(0.960784, 0.580392, 0.262745, 1)
+theme_override_colors/font_outline_color = Color(0.184314, 0.105882, 0.0784314, 1)
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 30
+text = "000"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="TexturePuzzleLogo" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 100.0
+offset_top = 10.0
+offset_right = 140.0
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_i0kpq")
+
+[node name="TextureEmpty" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_d2ydr")
+
+[node name="LabelEmpty" type="Label" parent="TextureEmpty"]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 10.0
+offset_right = 630.0
+offset_bottom = 130.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("5_4guuf")
+theme_override_font_sizes/font_size = 40
+text = "Empty"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TexturePopup" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -30.0
+offset_right = 200.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_xw86w")
+
+[node name="TextureTextCreating" type="TextureRect" parent="TexturePopup"]
+visible = false
+texture_filter = 1
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("7_o8rxj")
+
+[node name="TextureTextLoading" type="TextureRect" parent="TexturePopup"]
+visible = false
+texture_filter = 1
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("8_ro0rf")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="TexturePopup"]
+stream = ExtResource("9_gawjb")
+
+[node name="LabelId" type="Label" parent="."]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 52.0
+offset_bottom = 60.0
+theme_override_colors/font_color = Color(0.988235, 0.941176, 0.839216, 1)
+theme_override_colors/font_outline_color = Color(0.184314, 0.105882, 0.0784314, 1)
+theme_override_constants/outline_size = 15
+theme_override_font_sizes/font_size = 30
+text = "1"
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -1,0 +1,22 @@
+[gd_scene load_steps=6 format=3 uid="uid://bar0ap8yyqmbv"]
+
+[ext_resource type="PackedScene" uid="uid://d1m48y4426xjc" path="res://d_scenes/ui_buttons/button_user_0.tscn" id="1_ne8cm"]
+[ext_resource type="Texture2D" uid="uid://cmyolmripv30i" path="res://a_sprites/ui_saves/btn_saves_2.png" id="2_gu6b8"]
+[ext_resource type="Texture2D" uid="uid://bdmr17xrcc1ks" path="res://a_sprites/ui_saves/btn_saves_2_empty.png" id="3_4fgkt"]
+[ext_resource type="Texture2D" uid="uid://c7p80sxwblr53" path="res://a_sprites/ui_saves/btn_saves_2_popup.png" id="4_41w8k"]
+[ext_resource type="Texture2D" uid="uid://8t782y5jmr2k" path="res://a_sprites/ui_saves/btn_saves_popup_loading_2_en.png" id="5_o3l1m"]
+
+[node name="ButtonUser2" instance=ExtResource("1_ne8cm")]
+texture_normal = ExtResource("2_gu6b8")
+
+[node name="TextureEmpty" parent="." index="10"]
+texture = ExtResource("3_4fgkt")
+
+[node name="TexturePopup" parent="." index="11"]
+texture = ExtResource("4_41w8k")
+
+[node name="TextureTextLoading" parent="TexturePopup" index="1"]
+texture = ExtResource("5_o3l1m")
+
+[node name="LabelId" parent="." index="12"]
+text = "3"
