@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://bxl6obmq7nb2r" path="res://a_audio/ui_buttons/sfx_button_back.wav" id="5_fnuwx"]
 
 [node name="ButtonBack" type="TextureButton" node_paths=PackedStringArray("image", "sound")]
+texture_filter = 1
 offset_right = 160.0
 offset_bottom = 60.0
 texture_normal = ExtResource("1_gtikt")

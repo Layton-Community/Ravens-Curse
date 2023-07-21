@@ -7,13 +7,13 @@
 [ext_resource type="Texture2D" uid="uid://b2dg3kqg4dkhj" path="res://a_sprites/ui_title/bg_wave_0.png" id="4_4nfda"]
 [ext_resource type="Texture2D" uid="uid://cjmngi8drkx55" path="res://a_sprites/ui_title/bg_bird.png" id="5_u7wrx"]
 [ext_resource type="Texture2D" uid="uid://dbs3px3i7vygj" path="res://a_sprites/ui_title/bg_wind.png" id="6_hlpdu"]
-[ext_resource type="Texture2D" uid="uid://stc3ttf01ljw" path="res://a_sprites/ui_title/logo_layton_title_en.png" id="7_psiu4"]
-[ext_resource type="Texture2D" uid="uid://d3kyv6sprrjil" path="res://a_sprites/ui_title/btn_play_normal.png" id="8_3bd37"]
-[ext_resource type="Texture2D" uid="uid://bigwf35hpdeji" path="res://a_sprites/ui_title/btn_play_pressed.png" id="9_lpg8t"]
+[ext_resource type="Texture2D" uid="uid://d1n35amsoa1hn" path="res://a_sprites/ui_title/logo_layton_title_en.svg" id="8_4dwtt"]
+[ext_resource type="Texture2D" uid="uid://7fso6fg1m0mp" path="res://a_sprites/ui_title/btn_play_normal.svg" id="9_5ngmb"]
 [ext_resource type="BitMap" uid="uid://imepakmra0ab" path="res://a_sprites/ui_title/btn_mask.png" id="10_la5cr"]
+[ext_resource type="Texture2D" uid="uid://bh7myei7c506i" path="res://a_sprites/ui_title/btn_play_pressed.svg" id="10_pldo4"]
 [ext_resource type="AudioStream" uid="uid://tcayx5qidasr" path="res://a_audio/ui_buttons/sfx_button_play.wav" id="11_bhmck"]
-[ext_resource type="Texture2D" uid="uid://xbhghwm4tmsq" path="res://a_sprites/ui_title/btn_quit_normal.png" id="12_8q8qv"]
-[ext_resource type="Texture2D" uid="uid://b0dsfqu08iya2" path="res://a_sprites/ui_title/btn_quit_pressed.png" id="13_woddg"]
+[ext_resource type="Texture2D" uid="uid://ccutqyddo81a6" path="res://a_sprites/ui_title/btn_quit_normal.svg" id="13_kk3gu"]
+[ext_resource type="Texture2D" uid="uid://dbu2i2xrjn0jg" path="res://a_sprites/ui_title/btn_quit_pressed.svg" id="14_k2skl"]
 [ext_resource type="AudioStream" uid="uid://bxl6obmq7nb2r" path="res://a_audio/ui_buttons/sfx_button_back.wav" id="14_t78lf"]
 [ext_resource type="AnimationLibrary" uid="uid://danfsfllrsqbx" path="res://a_animations/ui/anim_ui_base.tres" id="15_wpeo5"]
 [ext_resource type="AnimationLibrary" uid="uid://4pd2biu8g67e" path="res://a_animations/ui/anim_ui_title.tres" id="17_63r6a"]
@@ -204,7 +204,8 @@ texture = ExtResource("6_hlpdu")
 
 [node name="LogoTitle" type="Sprite2D" parent="Middleground" index="0"]
 position = Vector2(640, 200)
-texture = ExtResource("7_psiu4")
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("8_4dwtt")
 
 [node name="Buttons" type="Control" parent="Middleground" index="1"]
 layout_mode = 3
@@ -213,15 +214,17 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="ButtonPlay" type="TextureButton" parent="Middleground/Buttons" index="0"]
+texture_filter = 1
 layout_mode = 0
 offset_left = 800.0
 offset_top = 400.0
 offset_right = 1120.0
 offset_bottom = 480.0
+scale = Vector2(0.5, 0.5)
 mouse_default_cursor_shape = 2
-texture_normal = ExtResource("8_3bd37")
-texture_pressed = ExtResource("9_lpg8t")
-texture_disabled = ExtResource("8_3bd37")
+texture_normal = ExtResource("9_5ngmb")
+texture_pressed = ExtResource("10_pldo4")
+texture_disabled = ExtResource("9_5ngmb")
 texture_click_mask = ExtResource("10_la5cr")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Middleground/Buttons/ButtonPlay" index="0"]
@@ -229,15 +232,17 @@ stream = ExtResource("11_bhmck")
 bus = &"SFX"
 
 [node name="ButtonQuit" type="TextureButton" parent="Middleground/Buttons" index="1"]
+texture_filter = 1
 layout_mode = 0
 offset_left = 240.0
 offset_top = 401.0
 offset_right = 560.0
 offset_bottom = 481.0
+scale = Vector2(0.5, 0.5)
 mouse_default_cursor_shape = 2
-texture_normal = ExtResource("12_8q8qv")
-texture_pressed = ExtResource("13_woddg")
-texture_disabled = ExtResource("12_8q8qv")
+texture_normal = ExtResource("13_kk3gu")
+texture_pressed = ExtResource("14_k2skl")
+texture_disabled = ExtResource("13_kk3gu")
 texture_click_mask = ExtResource("10_la5cr")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Middleground/Buttons/ButtonQuit" index="0"]

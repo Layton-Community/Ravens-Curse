@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cux262s3fyrvx"
-path="res://.godot/imported/bg_layton.png-21565585e4a93a33307d26e5594d3906.ctex"
+uid="uid://ccutqyddo81a6"
+path="res://.godot/imported/btn_quit_normal.svg-90c8257f5744a775cf607ac1103d7ee6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://a_sprites/ui_loading/bg_layton.png"
-dest_files=["res://.godot/imported/bg_layton.png-21565585e4a93a33307d26e5594d3906.ctex"]
+source_file="res://a_sprites/ui_title/btn_quit_normal.svg"
+dest_files=["res://.godot/imported/btn_quit_normal.svg-90c8257f5744a775cf607ac1103d7ee6.ctex"]
 
 [params]
 
@@ -32,3 +32,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=2.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false

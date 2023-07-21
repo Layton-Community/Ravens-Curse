@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dofm4j7kdfysk"
-path="res://.godot/imported/bg_trunk_text_en.png-edfa6f9d806a95413ba95ae99a51e00d.ctex"
+uid="uid://d1n35amsoa1hn"
+path="res://.godot/imported/logo_layton_title_en.svg-30c90d42ca479a954d9c990bf592ea8d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://a_sprites/game_trunk/bg_trunk_text_en.png"
-dest_files=["res://.godot/imported/bg_trunk_text_en.png-edfa6f9d806a95413ba95ae99a51e00d.ctex"]
+source_file="res://a_sprites/ui_title/logo_layton_title_en.svg"
+dest_files=["res://.godot/imported/logo_layton_title_en.svg-30c90d42ca479a954d9c990bf592ea8d.ctex"]
 
 [params]
 
@@ -32,3 +32,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=2.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false

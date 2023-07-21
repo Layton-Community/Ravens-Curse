@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=3 uid="uid://c871hinlivynt"]
 
 [ext_resource type="PackedScene" uid="uid://c5d4hyuvs1fwr" path="res://d_scenes/ui/ui_base.tscn" id="1_dgabt"]
-[ext_resource type="Texture2D" uid="uid://bks6ota08grdd" path="res://a_sprites/ui_loading/bg_legal.png" id="2_5gqat"]
 [ext_resource type="Script" path="res://p_scripts/ui/Loading.cs" id="2_ox0uw"]
-[ext_resource type="Texture2D" uid="uid://cux262s3fyrvx" path="res://a_sprites/ui_loading/bg_layton.png" id="3_fyyuv"]
-[ext_resource type="Texture2D" uid="uid://25u2pfw50lxb" path="res://a_sprites/ui_loading/bg_godot.png" id="4_xunoe"]
+[ext_resource type="Texture2D" uid="uid://q6f584prpxoi" path="res://a_sprites/ui_loading/bg_legal.svg" id="3_hsav3"]
+[ext_resource type="Texture2D" uid="uid://cddw5rnjkeaij" path="res://a_sprites/ui_loading/bg_layton.svg" id="4_2kbgo"]
 [ext_resource type="AudioStream" uid="uid://muhq5o1q8wpg" path="res://a_audio/ui_loading/jingle_community.wav" id="5_ax8dr"]
+[ext_resource type="Texture2D" uid="uid://bail3ip1r6yrg" path="res://a_sprites/ui_loading/bg_godot.svg" id="6_8joe7"]
 
 [node name="UiLoading" node_paths=PackedStringArray("sfxBgLayton", "logosContainer") instance=ExtResource("1_dgabt")]
 script = ExtResource("2_ox0uw")
@@ -18,13 +18,15 @@ logosContainer = NodePath("Middleground")
 layout_mode = 0
 offset_right = 1280.0
 offset_bottom = 720.0
-texture = ExtResource("2_5gqat")
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_hsav3")
 
 [node name="BgLayton" type="TextureRect" parent="Middleground" index="1"]
 layout_mode = 0
 offset_right = 1280.0
 offset_bottom = 720.0
-texture = ExtResource("3_fyyuv")
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_2kbgo")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Middleground/BgLayton" index="0"]
 stream = ExtResource("5_ax8dr")
@@ -33,4 +35,5 @@ stream = ExtResource("5_ax8dr")
 layout_mode = 0
 offset_right = 1280.0
 offset_bottom = 720.0
-texture = ExtResource("4_xunoe")
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("6_8joe7")

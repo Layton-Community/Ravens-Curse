@@ -71,4 +71,5 @@ text = "Delete user saves"
 
 [node name="CheckBox" type="CheckBox" parent="VBoxContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2
+button_pressed = true
 text = "Encript saves"

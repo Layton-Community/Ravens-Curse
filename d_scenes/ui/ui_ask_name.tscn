@@ -166,6 +166,7 @@ offset_bottom = 600.0
 stream = ExtResource("15_ptx7m")
 
 [node name="ButtonBack" parent="Middleground/BgPanel" index="3" instance=ExtResource("16_v7fpe")]
+texture_filter = 0
 layout_mode = 0
 offset_left = -180.0
 offset_top = 540.0
