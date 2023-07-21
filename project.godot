@@ -70,6 +70,10 @@ naming/scene_name_casing=1
 
 enabled=PackedStringArray("res://addons/debug_tools/plugin.cfg")
 
+[game]
+
+saves/encript_saves=true
+
 [rendering]
 
 occlusion_culling/bvh_build_quality=1

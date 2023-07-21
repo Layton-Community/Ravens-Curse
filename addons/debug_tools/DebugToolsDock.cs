@@ -4,42 +4,74 @@ namespace Com.LaytonCommunity.RavensCurse.Addons;
 [Tool]
 public partial class DebugToolsDock : BaseDock
 {
-	private const string USER_PATH = "user://save/";
-
 	// Constants
+	private const string USER_PATH = "user://save/";
+	private const string ENCRIPT_PATH = "game/saves/encript_saves";
 
 	// Enums
 
 	// Signal
 
 	// Export variables
+	[Export] private ConfirmationDialog confirmationDialog;
 	[Export] private Button buttonDeleteSaves;
-	[Export] private ConfirmationDialog dialogDeleteSaves;
+	[Export] private string textButtonDeleteSaves;
+	[Export] private Button buttonOpenSaves;
+	[Export] private CheckBox checkBoxEncriptSaves;
 	
 	// Member variables
+	private string globalPath;
+	private Action debugEvent;
 	
 	public override void _Ready()
 	{
+		globalPath = ProjectSettings.GlobalizePath(USER_PATH);
+		checkBoxEncriptSaves.ButtonPressed = (bool)ProjectSettings.GetSetting(ENCRIPT_PATH);
+		
+		confirmationDialog.Confirmed += OnConfirmationDialog_Confirmed;
 		buttonDeleteSaves.Pressed += OnButtonDeleteSaves_Pressed;
-		dialogDeleteSaves.Confirmed += OnDialogDeleteSaves_Confirmed;
-	}
-	
-	private void OnButtonDeleteSaves_Pressed()
-	{
-		dialogDeleteSaves.PopupWindow = true;
-		dialogDeleteSaves.Popup();
+		buttonOpenSaves.Pressed += OnButtonOpenSaves_Pressed;
+		checkBoxEncriptSaves.Pressed += OnCheckBoxEncriptSaves_Pressed;
 	}
 
-	private void OnDialogDeleteSaves_Confirmed()
+	private void OnConfirmationDialog_Confirmed()
 	{
-		Print("Deleting user saves!");
-		
-		if (DirAccess.DirExistsAbsolute(USER_PATH))
+		debugEvent?.Invoke();
+	}
+
+	private void OnButtonDeleteSaves_Pressed()
+	{
+		debugEvent = () =>
 		{
-			OS.MoveToTrash(ProjectSettings.GlobalizePath(USER_PATH));
+			Print("Deleting user saves!");
+		
+			if (DirAccess.DirExistsAbsolute(globalPath))
+			{
+				OS.MoveToTrash(globalPath);
+			}
+			
+			DirAccess.MakeDirAbsolute(globalPath);	
+			confirmationDialog.DialogText = string.Empty;
+		};
+		
+		confirmationDialog.DialogText = textButtonDeleteSaves;
+		confirmationDialog.Popup();
+	}
+	
+	private void OnButtonOpenSaves_Pressed()
+	{
+		if (!DirAccess.DirExistsAbsolute(globalPath))
+		{
+			DirAccess.MakeDirAbsolute(globalPath);
 		}
 		
-		DirAccess.MakeDirAbsolute(ProjectSettings.GlobalizePath(USER_PATH));
+		OS.ShellOpen(globalPath/* .Replace('/', '\\') */);
+	}
+
+	private void OnCheckBoxEncriptSaves_Pressed()
+	{
+		ProjectSettings.SetSetting(ENCRIPT_PATH, checkBoxEncriptSaves.ButtonPressed);
+		Print($"Saves encryption {((bool)ProjectSettings.GetSetting(ENCRIPT_PATH) ? "enabled" : "disabled")}!");
 	}
 }
 #endif

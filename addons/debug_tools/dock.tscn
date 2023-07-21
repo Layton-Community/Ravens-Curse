@@ -1,8 +1,22 @@
-[gd_scene load_steps=2 format=3 uid="uid://lnbinse16mng"]
+[gd_scene load_steps=4 format=3 uid="uid://lnbinse16mng"]
 
 [ext_resource type="Script" path="res://addons/debug_tools/DebugToolsDock.cs" id="1_mg13h"]
 
-[node name="DebugTools" type="Control" node_paths=PackedStringArray("buttonDeleteSaves", "dialogDeleteSaves")]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7oh6l"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0.3, 0.3, 0.3, 1)
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+
+[sub_resource type="Theme" id="Theme_8irrh"]
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_7oh6l")
+
+[node name="DebugTools" type="Control" node_paths=PackedStringArray("confirmationDialog", "buttonDeleteSaves", "buttonOpenSaves", "checkBoxEncriptSaves")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -10,8 +24,11 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_mg13h")
-buttonDeleteSaves = NodePath("VBoxContainer/ButtonDeleteSaves")
-dialogDeleteSaves = NodePath("VBoxContainer/ConfirmationDialog")
+confirmationDialog = NodePath("VBoxContainer/ConfirmationDialog")
+buttonDeleteSaves = NodePath("VBoxContainer/PanelContainer/VBoxContainer/ButtonDeleteSaves")
+textButtonDeleteSaves = "Do you really want to delete the user saves? "
+buttonOpenSaves = NodePath("VBoxContainer/PanelContainer/VBoxContainer/ButtonOpenSaves")
+checkBoxEncriptSaves = NodePath("VBoxContainer/PanelContainer/VBoxContainer/CheckBox")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -21,16 +38,37 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ButtonDeleteSaves" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-text = "Delete user saves"
-
 [node name="ConfirmationDialog" type="ConfirmationDialog" parent="VBoxContainer"]
 mode = 2
 initial_position = 5
 size = Vector2i(360, 100)
 unresizable = true
+popup_window = true
 ok_button_text = "Yes"
-dialog_text = "Do you really want to delete the user saves? "
 dialog_autowrap = true
 cancel_button_text = "No"
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_8irrh")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Saves"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ButtonOpenSaves" type="Button" parent="VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Open saves folder"
+
+[node name="ButtonDeleteSaves" type="Button" parent="VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Delete user saves"
+
+[node name="CheckBox" type="CheckBox" parent="VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Encript saves"
