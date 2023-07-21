@@ -10,6 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://blfqgn3wujlw7" path="res://a_sprites/game_location/icon_move_pressed_1.png" id="4_cl83n"]
 
 [node name="GameLocation" node_paths=PackedStringArray("buttonTrunk", "buttonMove") instance=ExtResource("1_o8f23")]
+offset_top = 1.0
+offset_bottom = 1.0
 script = ExtResource("2_2kkwt")
 trunkPressed1 = ExtResource("3_q7kyd")
 movePressed0 = ExtResource("2_5jmee")
