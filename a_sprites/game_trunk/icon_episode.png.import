@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b4bdlxe48wx64"
-path="res://.godot/imported/bg_trunk_text_en.svg-06b38637877fe72dc0d29c37e1436c97.ctex"
+uid="uid://dgu5ug6qxyrm1"
+path="res://.godot/imported/icon_episode.png-9a9dd0412a19015c4e1d6a3f591a6882.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://a_sprites/game_trunk/bg_trunk_text_en.svg"
-dest_files=["res://.godot/imported/bg_trunk_text_en.svg-06b38637877fe72dc0d29c37e1436c97.ctex"]
+source_file="res://a_sprites/game_trunk/icon_episode.png"
+dest_files=["res://.godot/imported/icon_episode.png-9a9dd0412a19015c4e1d6a3f591a6882.ctex"]
 
 [params]
 
@@ -32,6 +32,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=2.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false

@@ -1,11 +1,27 @@
-[gd_scene load_steps=5 format=3 uid="uid://flvdq1kilxul"]
+[gd_scene load_steps=17 format=3 uid="uid://flvdq1kilxul"]
 
 [ext_resource type="PackedScene" uid="uid://c5d4hyuvs1fwr" path="res://d_scenes/ui/ui_base.tscn" id="1_ag4um"]
 [ext_resource type="Texture2D" uid="uid://bb6gn1d6l82h8" path="res://a_sprites/game_trunk/bg_trunk.png" id="2_60hhd"]
+[ext_resource type="Script" path="res://p_scripts/game/Trunk.cs" id="2_k2ek2"]
 [ext_resource type="Texture2D" uid="uid://c65qgd0hht66i" path="res://a_sprites/game_trunk/bg_floor.png" id="2_mamcd"]
-[ext_resource type="Texture2D" uid="uid://dbg5s441urvah" path="res://a_sprites/game_trunk/bg_trunk_text_en.svg" id="3_onqyj"]
+[ext_resource type="Texture2D" uid="uid://b4bdlxe48wx64" path="res://a_sprites/game_trunk/bg_trunk_text_en.svg" id="3_onqyj"]
+[ext_resource type="PackedScene" uid="uid://c34dh3vbfnh7h" path="res://d_scenes/ui_buttons/button_trunk.tscn" id="4_5y77y"]
+[ext_resource type="Texture2D" uid="uid://bhaw12wacjr82" path="res://a_sprites/game_trunk/icon_journal.png" id="5_nn5ve"]
+[ext_resource type="Texture2D" uid="uid://cighwl84vxle2" path="res://a_sprites/game_trunk/icon_mysteries.png" id="6_8yjou"]
+[ext_resource type="Texture2D" uid="uid://dtajvind0s5yr" path="res://a_sprites/game_trunk/icon_puzzles.png" id="7_qbkax"]
+[ext_resource type="Texture2D" uid="uid://faqs2t0v72a0" path="res://a_sprites/game_trunk/icon_save.png" id="8_50thg"]
+[ext_resource type="Texture2D" uid="uid://dgu5ug6qxyrm1" path="res://a_sprites/game_trunk/icon_episode.png" id="9_quri6"]
+[ext_resource type="Texture2D" uid="uid://c8e3pr411ibmo" path="res://a_sprites/game_trunk/icon_collection.png" id="10_6x8s2"]
+[ext_resource type="Texture2D" uid="uid://bna7ua8j7te2o" path="res://a_sprites/game_trunk/icon_minigame.png" id="11_oyx8b"]
+[ext_resource type="FontFile" uid="uid://ulsa4jbbxqsw" path="res://a_fonts/roboto_medium.ttf" id="13_6udsw"]
+[ext_resource type="Texture2D" uid="uid://bajxh6umkh56v" path="res://a_sprites/game_location/icon_trunk_pressed_0.png" id="13_k72ug"]
+[ext_resource type="Texture2D" uid="uid://bw2md4b8jslm" path="res://a_sprites/game_location/icon_trunk_normal.png" id="14_mrj8d"]
 
-[node name="GameTrunk" instance=ExtResource("1_ag4um")]
+[node name="GameTrunk" node_paths=PackedStringArray("buttonClose") instance=ExtResource("1_ag4um")]
+script = ExtResource("2_k2ek2")
+sceneLocation = "res://d_scenes/game/game_location.tscn"
+buttonClose = NodePath("Middleground/Buttons/ButtonClose")
+metadata/_edit_lock_ = true
 
 [node name="Background" parent="." index="0"]
 anchors_preset = 0
@@ -23,9 +39,240 @@ layout_mode = 0
 offset_right = 2560.0
 offset_bottom = 1440.0
 texture = ExtResource("2_60hhd")
+metadata/_edit_lock_ = true
 
-[node name="TextureText" type="TextureRect" parent="Background" index="1"]
+[node name="Buttons" type="Control" parent="Middleground" index="0"]
+anchors_preset = 0
+metadata/_edit_lock_ = true
+
+[node name="ButtonJournal" parent="Middleground/Buttons" index="0" instance=ExtResource("4_5y77y")]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 695.0
+offset_top = 115.0
+offset_right = 835.0
+offset_bottom = 255.0
+texture_normal = ExtResource("5_nn5ve")
+
+[node name="ButtonMysteries" parent="Middleground/Buttons" index="1" instance=ExtResource("4_5y77y")]
+layout_mode = 0
+offset_left = 850.0
+offset_top = 115.0
+offset_right = 990.0
+offset_bottom = 255.0
+texture_normal = ExtResource("6_8yjou")
+
+[node name="ButtonPuzzles" parent="Middleground/Buttons" index="2" instance=ExtResource("4_5y77y")]
+layout_mode = 0
+offset_left = 1005.0
+offset_top = 115.0
+offset_right = 1145.0
+offset_bottom = 255.0
+texture_normal = ExtResource("7_qbkax")
+
+[node name="ButtonSave" parent="Middleground/Buttons" index="3" instance=ExtResource("4_5y77y")]
+layout_mode = 0
+offset_left = 695.0
+offset_top = 270.0
+offset_right = 835.0
+offset_bottom = 410.0
+texture_normal = ExtResource("8_50thg")
+
+[node name="ButtonEpisodes" parent="Middleground/Buttons" index="4" instance=ExtResource("4_5y77y")]
+layout_mode = 0
+offset_left = 850.0
+offset_top = 270.0
+offset_right = 990.0
+offset_bottom = 410.0
+texture_normal = ExtResource("9_quri6")
+
+[node name="ButtonCollection" parent="Middleground/Buttons" index="5" instance=ExtResource("4_5y77y")]
+layout_mode = 0
+offset_left = 1005.0
+offset_top = 270.0
+offset_right = 1145.0
+offset_bottom = 410.0
+texture_normal = ExtResource("10_6x8s2")
+
+[node name="ButtonMinigame_0" parent="Middleground/Buttons" index="6" instance=ExtResource("4_5y77y")]
+layout_mode = 0
+offset_left = 695.0
+offset_top = 425.0
+offset_right = 835.0
+offset_bottom = 565.0
+texture_normal = ExtResource("11_oyx8b")
+
+[node name="ButtonMinigame_1" parent="Middleground/Buttons" index="7" instance=ExtResource("4_5y77y")]
+layout_mode = 0
+offset_left = 850.0
+offset_top = 425.0
+offset_right = 990.0
+offset_bottom = 565.0
+texture_normal = ExtResource("11_oyx8b")
+
+[node name="ButtonMinigame_2" parent="Middleground/Buttons" index="8" instance=ExtResource("4_5y77y")]
+layout_mode = 0
+offset_left = 1005.0
+offset_top = 425.0
+offset_right = 1145.0
+offset_bottom = 565.0
+texture_normal = ExtResource("11_oyx8b")
+
+[node name="ButtonClose" type="TextureButton" parent="Middleground/Buttons" index="9"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 1025.0
+offset_top = 605.0
+offset_right = 1053.0
+offset_bottom = 635.0
+grow_horizontal = 0
+scale = Vector2(1.5, 1.5)
+texture_normal = ExtResource("13_k72ug")
+texture_pressed = ExtResource("14_mrj8d")
+texture_disabled = ExtResource("13_k72ug")
+
+[node name="TextureText" type="TextureRect" parent="Middleground" index="1"]
+layout_mode = 0
+offset_right = 2560.0
+offset_bottom = 1440.0
+scale = Vector2(0.5, 0.5)
+mouse_filter = 2
 texture = ExtResource("3_onqyj")
+metadata/_edit_lock_ = true
+
+[node name="TextValues" type="Control" parent="Middleground" index="2"]
+anchors_preset = 0
+metadata/_edit_lock_ = true
+
+[node name="LabelLocation" type="Label" parent="Middleground/TextValues" index="0"]
+layout_mode = 0
+offset_left = 280.0
+offset_top = 80.0
+offset_right = 600.0
+offset_bottom = 160.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("13_6udsw")
+theme_override_font_sizes/font_size = 26
+text = "Location"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LabelPuzzleSolved" type="Label" parent="Middleground/TextValues" index="1"]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 240.0
+offset_right = 260.0
+offset_bottom = 360.0
+theme_override_colors/font_color = Color(0.980392, 0.6, 0.254902, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("13_6udsw")
+theme_override_font_sizes/font_size = 64
+text = "152"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LabelPuzzleFound" type="Label" parent="Middleground/TextValues" index="2"]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 440.0
+offset_right = 260.0
+offset_bottom = 560.0
+theme_override_colors/font_color = Color(0.980392, 0.6, 0.254902, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("13_6udsw")
+theme_override_font_sizes/font_size = 64
+text = "152"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LabelScore" type="Label" parent="Middleground/TextValues" index="3"]
+layout_mode = 0
+offset_left = 280.0
+offset_top = 460.0
+offset_right = 480.0
+offset_bottom = 560.0
+theme_override_colors/font_color = Color(0.980392, 0.6, 0.254902, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_fonts/font = ExtResource("13_6udsw")
+theme_override_font_sizes/font_size = 64
+text = "26"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LabelTimeHours" type="Label" parent="Middleground/TextValues" index="4"]
+layout_mode = 0
+offset_left = 300.0
+offset_top = 354.0
+offset_right = 457.0
+offset_bottom = 388.0
+theme_override_colors/font_color = Color(0.980392, 0.6, 0.254902, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("13_6udsw")
+theme_override_font_sizes/font_size = 25
+text = "269999"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="LabelTimeMinutes" type="Label" parent="Middleground/TextValues" index="5"]
+layout_mode = 0
+offset_left = 494.0
+offset_top = 354.0
+offset_right = 522.0
+offset_bottom = 388.0
+theme_override_colors/font_color = Color(0.980392, 0.6, 0.254902, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("13_6udsw")
+theme_override_font_sizes/font_size = 25
+text = "59"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="LabelCoinsCurrent" type="Label" parent="Middleground/TextValues" index="6"]
+layout_mode = 0
+offset_left = 478.0
+offset_top = 236.0
+offset_right = 520.0
+offset_bottom = 270.0
+theme_override_colors/font_color = Color(0.980392, 0.6, 0.254902, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("13_6udsw")
+theme_override_font_sizes/font_size = 25
+text = "999"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="LabelCoinsFound" type="Label" parent="Middleground/TextValues" index="7"]
+layout_mode = 0
+offset_left = 548.0
+offset_top = 236.0
+offset_right = 590.0
+offset_bottom = 270.0
+theme_override_colors/font_color = Color(0.980392, 0.6, 0.254902, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("13_6udsw")
+theme_override_font_sizes/font_size = 25
+text = "999"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="LabelGoTo" type="Label" parent="Middleground/TextValues" index="8"]
+layout_mode = 0
+offset_left = 240.0
+offset_top = 580.0
+offset_right = 600.0
+offset_bottom = 640.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("13_6udsw")
+theme_override_font_sizes/font_size = 26
+text = "Location"
+horizontal_alignment = 1
+vertical_alignment = 1

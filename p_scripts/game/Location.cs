@@ -10,9 +10,9 @@ public partial class Location : Ui.UiBase
 	
 	// Export variables
 	[ExportGroup("Imports")]
-	[Export] protected Texture2D trunkPressed1;
-	[Export] protected Texture2D movePressed0;
-	[Export] protected Texture2D movePressed1;
+	[Export(PropertyHint.File,"*.tscn")] private string sceneTrunk;
+	[Export] protected Texture2D textureTrunkDust;
+	[Export] protected Texture2D textureMoveDust;
 	[Export] protected TextureButton buttonTrunk;
 	[Export] protected TextureButton buttonMove;
 	
@@ -30,10 +30,11 @@ public partial class Location : Ui.UiBase
 	private void OnButtonTrunk_Pressed()
 	{
 		buttonTrunk.Disabled = true;
-		buttonTrunk.TextureDisabled = trunkPressed1;
+		buttonTrunk.TextureDisabled = textureTrunkDust;
 		animations.AnimationFinished += (_) =>
 		{
-			Print.Info("Show trunk");
+			AddSibling(sceneTrunk.InstantiateFromPath(), true);
+			QueueFree();
 		};
 		
 		GetTree().CreateTimer(0.2).Timeout += () => animations.Play(ANIM_FADE_OUT);
@@ -43,13 +44,13 @@ public partial class Location : Ui.UiBase
 	{
 		buttonTrunk.Disabled = true;
 		buttonMove.Disabled = true;
-		buttonMove.TextureDisabled = movePressed1;
+		buttonMove.TextureDisabled = buttonMove.TexturePressed;
 		
-		GetTree().CreateTimer(0.2).Timeout += () =>
+		GetTree().CreateTimer(0.15).Timeout += () =>
 		{
-			buttonMove.TextureDisabled = movePressed0;
+			buttonMove.TextureDisabled = textureMoveDust;
 			
-			GetTree().CreateTimer(0.2).Timeout += () =>
+			GetTree().CreateTimer(0.3).Timeout += () =>
 			{
 				buttonTrunk.Visible = false;
 				buttonMove.Visible = false;

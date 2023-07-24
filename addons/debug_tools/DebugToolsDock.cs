@@ -6,7 +6,7 @@ public partial class DebugToolsDock : BaseDock
 {
 	// Constants
 	private const string USER_PATH = "user://save/";
-	private const string ENCRIPT_PATH = "game/saves/encript_saves";
+	private const string ENCRYPT_PATH = "game/saves/encript_saves";
 
 	// Enums
 
@@ -14,6 +14,7 @@ public partial class DebugToolsDock : BaseDock
 
 	// Export variables
 	[Export] private ConfirmationDialog confirmationDialog;
+	[Export] private PanelContainer panelSaves;
 	[Export] private Button buttonDeleteSaves;
 	[Export] private string textButtonDeleteSaves;
 	[Export] private Button buttonOpenSaves;
@@ -26,7 +27,7 @@ public partial class DebugToolsDock : BaseDock
 	public override void _Ready()
 	{
 		globalPath = ProjectSettings.GlobalizePath(USER_PATH);
-		checkBoxEncriptSaves.ButtonPressed = (bool)ProjectSettings.GetSetting(ENCRIPT_PATH);
+		checkBoxEncriptSaves.ButtonPressed = (bool)ProjectSettings.GetSetting(ENCRYPT_PATH);
 		
 		confirmationDialog.Confirmed += OnConfirmationDialog_Confirmed;
 		buttonDeleteSaves.Pressed += OnButtonDeleteSaves_Pressed;
@@ -43,7 +44,7 @@ public partial class DebugToolsDock : BaseDock
 	{
 		debugEvent = () =>
 		{
-			Print("Deleting user saves!");
+			Print.Warn(nameof(DebugTools), "Deleting user saves!");
 		
 			if (DirAccess.DirExistsAbsolute(globalPath))
 			{
@@ -65,13 +66,16 @@ public partial class DebugToolsDock : BaseDock
 			DirAccess.MakeDirAbsolute(globalPath);
 		}
 		
-		OS.ShellOpen(globalPath/* .Replace('/', '\\') */);
+		OS.ShellOpen(globalPath);
 	}
 
 	private void OnCheckBoxEncriptSaves_Pressed()
 	{
-		ProjectSettings.SetSetting(ENCRIPT_PATH, checkBoxEncriptSaves.ButtonPressed);
-		Print($"Saves encryption {((bool)ProjectSettings.GetSetting(ENCRIPT_PATH) ? "enabled" : "disabled")}!");
+		ProjectSettings.SetSetting(ENCRYPT_PATH, checkBoxEncriptSaves.ButtonPressed);
+		
+		string encryption = (bool)ProjectSettings.GetSetting(ENCRYPT_PATH) ? "enabled" : "disabled";
+		
+		Print.Info(nameof(DebugTools), $"Saves encryption {encryption}!");
 	}
 }
 #endif

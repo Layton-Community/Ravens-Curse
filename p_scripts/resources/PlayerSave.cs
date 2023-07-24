@@ -42,7 +42,7 @@ public partial class PlayerSave : Resource
 		}
 		else
 		{
-			Print.Warn($"Save with id: {id} does not exist! Returning an empty save!");
+			Print.Warn(nameof(PlayerSave), $"Save with id: {id} does not exist! Returning an empty save!");
 			
 			return new PlayerSave()
 			{
@@ -70,7 +70,7 @@ public partial class PlayerSave : Resource
 		
 		if (error != Error.Ok)
 		{
-			Print.Error($"Could not save user save: {error}");
+			Print.Error(nameof(PlayerSave), $"Could not save user save: {error}");
 		}
 	}
 		
@@ -85,7 +85,7 @@ public partial class PlayerSave : Resource
 		
 		typeof(PlayerSave).GetFields().ToList().ForEach((e) =>
 		{
-			Print.Info(string.Format("{0,-15}{1}", e.Name + ':', e.GetValue(Singleton)));
+			Print.Info(nameof(PlayerSave), string.Format("{0,-20}{1}", e.Name + ':', e.GetValue(Singleton)));
 		});
 	}
 }

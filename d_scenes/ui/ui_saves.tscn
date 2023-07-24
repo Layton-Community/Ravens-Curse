@@ -14,7 +14,7 @@
 script = ExtResource("2_1njle")
 sceneTitle = "res://d_scenes/ui/ui_title.tscn"
 sceneAskName = "res://d_scenes/ui/ui_ask_name.tscn"
-sceneGame = ""
+sceneGame = "res://d_scenes/game/game_location.tscn"
 buttonBack = NodePath("Middleground/ButtonBack")
 
 [node name="Background" parent="." index="0"]

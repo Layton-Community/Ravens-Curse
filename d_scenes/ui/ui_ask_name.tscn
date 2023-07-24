@@ -40,7 +40,7 @@ spacing_glyph = 19
 [node name="UiAskName" node_paths=PackedStringArray("buttonOk", "buttonOkSfxForbidden", "buttonBack", "username") instance=ExtResource("1_q872w")]
 script = ExtResource("2_k6wf4")
 sceneSaves = "res://d_scenes/ui/ui_saves.tscn"
-sceneGame = ""
+sceneGame = "res://d_scenes/game/game_location.tscn"
 buttonOk = NodePath("Middleground/BgPanel/ButtonOk")
 buttonOkSfxForbidden = NodePath("Middleground/BgPanel/ButtonOk/SfxForbidden")
 buttonBack = NodePath("Middleground/BgPanel/ButtonBack")

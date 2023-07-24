@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b4bdlxe48wx64"
-path="res://.godot/imported/bg_trunk_text_en.svg-06b38637877fe72dc0d29c37e1436c97.ctex"
+uid="uid://cighwl84vxle2"
+path="res://.godot/imported/icon_mysteries.png-d3ea3132a4d607a7fa0e6008ebffed7b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://a_sprites/game_trunk/bg_trunk_text_en.svg"
-dest_files=["res://.godot/imported/bg_trunk_text_en.svg-06b38637877fe72dc0d29c37e1436c97.ctex"]
+source_file="res://a_sprites/game_trunk/icon_mysteries.png"
+dest_files=["res://.godot/imported/icon_mysteries.png-d3ea3132a4d607a7fa0e6008ebffed7b.ctex"]
 
 [params]
 
@@ -32,6 +32,3 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
-svg/scale=2.0
-editor/scale_with_editor_scale=false
-editor/convert_colors_with_editor_theme=false
