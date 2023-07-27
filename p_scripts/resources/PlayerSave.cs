@@ -1,5 +1,6 @@
 namespace Com.LaytonCommunity.RavensCurse.Resources;
 
+[Tool]
 public partial class PlayerSave : Resource
 {
 	// Constants
@@ -36,7 +37,7 @@ public partial class PlayerSave : Resource
 		if (Exist(id))
 		{
 			var pathRessource = PATH_SAVE_DIR + id.ToString() + PATH_SAVE_EXT;
-			var save = ResourceLoader.Load<PlayerSave>(pathRessource, null).Duplicate() as PlayerSave;
+			var save = ResourceLoader.Load<PlayerSave>(pathRessource, null, ResourceLoader.CacheMode.Ignore);
 			
 			return save;
 		}
@@ -124,6 +125,16 @@ public partial class PlayerSave : Resource
 		this.puzzleFound = puzzleFound;
 		this.coinsCurrent = coinsCurrent;
 		this.coinsFound = coinsFound;
+	}
+	
+	public void PrintDbg()
+	{
+		foreach (var fieldInfo in typeof(PlayerSave).GetFields())
+		{
+			Print.Info(nameof(PlayerSave), string.Format("{0,-20}{1}", $"{fieldInfo.Name}:", fieldInfo.GetValue(this)));
+		}
+		
+		GD.Print();
 	}
 }
 

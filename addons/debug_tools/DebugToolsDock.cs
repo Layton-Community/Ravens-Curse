@@ -14,11 +14,12 @@ public partial class DebugToolsDock : BaseDock
 
 	// Export variables
 	[Export] private ConfirmationDialog confirmationDialog;
-	[Export] private PanelContainer panelSaves;
+	[Export] private AcceptDialog popupChooseSaves;
 	[Export] private Button buttonDeleteSaves;
-	[Export] private string textButtonDeleteSaves;
 	[Export] private Button buttonOpenSaves;
+	[Export] private Button buttonEditSaves;
 	[Export] private CheckBox checkBoxEncriptSaves;
+	[Export] private string buttonDeleteSavesText;
 	
 	// Member variables
 	private string globalPath;
@@ -32,6 +33,7 @@ public partial class DebugToolsDock : BaseDock
 		confirmationDialog.Confirmed += OnConfirmationDialog_Confirmed;
 		buttonDeleteSaves.Pressed += OnButtonDeleteSaves_Pressed;
 		buttonOpenSaves.Pressed += OnButtonOpenSaves_Pressed;
+		buttonEditSaves.Pressed += OnButtonEditSaves_Pressed;
 		checkBoxEncriptSaves.Pressed += OnCheckBoxEncriptSaves_Pressed;
 	}
 
@@ -55,7 +57,7 @@ public partial class DebugToolsDock : BaseDock
 			confirmationDialog.DialogText = string.Empty;
 		};
 		
-		confirmationDialog.DialogText = textButtonDeleteSaves;
+		confirmationDialog.DialogText = buttonDeleteSavesText;
 		confirmationDialog.Popup();
 	}
 	
@@ -67,6 +69,12 @@ public partial class DebugToolsDock : BaseDock
 		}
 		
 		OS.ShellOpen(globalPath);
+	}
+	
+	private void OnButtonEditSaves_Pressed()
+	{
+		(popupChooseSaves as DebugToolsChooseSave).UpdateSaveLabel();
+		popupChooseSaves.Show();
 	}
 
 	private void OnCheckBoxEncriptSaves_Pressed()

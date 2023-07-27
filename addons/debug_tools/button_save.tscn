@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b6ivhrv15rrgn"]
+
+[ext_resource type="Script" path="res://addons/debug_tools/DebugToolsChooseSaveButton.cs" id="1_rdxfk"]
+
+[node name="ButtonSave_0" type="Button"]
+script = ExtResource("1_rdxfk")
