@@ -99,23 +99,31 @@ public partial class PlayerSave : Resource
 	// Export variables
 	[Export] public uint id;
 	[Export] public string username;
-	[Export] public string currentLocation;
+	[Export] public string locationCurrent;
+	[Export] public string locationGoto;
 	[Export] public double timePlayed;
+	[Export] public uint picarats;
 	[Export] public uint puzzleCompleted;
 	[Export] public uint puzzleFound;
+	[Export] public uint coinsCurrent;
+	[Export] public uint coinsFound;
 	
 	// Member variables
 	
-	public PlayerSave() : this(0, "", "", 0, 0, 0) {}
+	public PlayerSave() : this(0, "", "", "", 0, 0, 0, 0, 0, 0) {}
 
-	public PlayerSave(uint id, string username, string currentLocation, double timePlayed, uint puzzleCompleted, uint puzzleFound)
+	public PlayerSave(uint id, string username, string locationCurrent, string locationGoto, double timePlayed, uint picarats, uint puzzleCompleted, uint puzzleFound, uint coinsCurrent, uint coinsFound)
 	{
 		this.id = id;
 		this.username = username;
-		this.currentLocation = currentLocation;
+		this.locationCurrent = locationCurrent;
+		this.locationGoto = locationGoto;
 		this.timePlayed = timePlayed;
+		this.picarats = picarats;
 		this.puzzleCompleted = puzzleCompleted;
 		this.puzzleFound = puzzleFound;
+		this.coinsCurrent = coinsCurrent;
+		this.coinsFound = coinsFound;
 	}
 }
 

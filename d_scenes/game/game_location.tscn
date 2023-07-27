@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b65axi7awqa8d"]
+[gd_scene load_steps=10 format=3 uid="uid://b65axi7awqa8d"]
 
 [ext_resource type="PackedScene" uid="uid://c5d4hyuvs1fwr" path="res://d_scenes/ui/ui_base.tscn" id="1_o8f23"]
 [ext_resource type="Script" path="res://p_scripts/game/Location.cs" id="2_2kkwt"]
@@ -8,8 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://ehj8rudldt6j" path="res://a_sprites/game_location/icon_move_pressed_0.png" id="3_nttt8"]
 [ext_resource type="Texture2D" uid="uid://bvff8s3qw1qsu" path="res://a_sprites/game_location/icon_trunk_pressed_1.png" id="3_q7kyd"]
 [ext_resource type="Texture2D" uid="uid://blfqgn3wujlw7" path="res://a_sprites/game_location/icon_move_pressed_1.png" id="4_cl83n"]
+[ext_resource type="AudioStream" uid="uid://drhrbmaqspcdk" path="res://a_audio/game_location/sfx_button_trunk.wav" id="7_r3qdm"]
 
-[node name="GameLocation" node_paths=PackedStringArray("buttonTrunk", "buttonMove") instance=ExtResource("1_o8f23")]
+[node name="GameLocation" node_paths=PackedStringArray("buttonTrunk", "buttonMove", "buttonTrunkSfx", "buttonMoveSfx") instance=ExtResource("1_o8f23")]
 offset_top = 1.0
 offset_bottom = 1.0
 script = ExtResource("2_2kkwt")
@@ -18,6 +19,8 @@ textureTrunkDust = ExtResource("3_q7kyd")
 textureMoveDust = ExtResource("4_cl83n")
 buttonTrunk = NodePath("Middleground/Buttons/ButtonTrunk")
 buttonMove = NodePath("Middleground/Buttons/ButtonMove")
+buttonTrunkSfx = NodePath("Middleground/Buttons/ButtonTrunk/AudioStreamPlayer")
+buttonMoveSfx = NodePath("Middleground/Buttons/ButtonMove/AudioStreamPlayer")
 
 [node name="Background" parent="." index="0"]
 texture = null
@@ -47,6 +50,9 @@ texture_normal = ExtResource("2_wfxno")
 texture_pressed = ExtResource("3_04bkt")
 texture_disabled = ExtResource("2_wfxno")
 
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Middleground/Buttons/ButtonTrunk" index="0"]
+stream = ExtResource("7_r3qdm")
+
 [node name="ButtonMove" type="TextureButton" parent="Middleground/Buttons" index="1"]
 texture_filter = 1
 layout_mode = 1
@@ -65,3 +71,6 @@ scale = Vector2(3, 3)
 texture_normal = ExtResource("2_5jmee")
 texture_pressed = ExtResource("3_nttt8")
 texture_disabled = ExtResource("2_5jmee")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Middleground/Buttons/ButtonMove" index="0"]
+stream = ExtResource("7_r3qdm")

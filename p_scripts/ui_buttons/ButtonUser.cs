@@ -38,7 +38,7 @@ public partial class ButtonUser : TextureButton
 			var timeSpan = TimeSpan.FromMilliseconds(save.timePlayed);
 				
 			labelName.Text = save.username;
-			labelLocation.Text = save.currentLocation;
+			labelLocation.Text = save.locationCurrent;
 			labelHours.Text = timeSpan.Hours.ToString(labelHours.Text);
 			labelMinutes.Text = timeSpan.Minutes.ToString(labelMinutes.Text);
 			labelPuzzleFound.Text = save.puzzleFound.ToString();

@@ -15,6 +15,8 @@ public partial class Location : Ui.UiBase
 	[Export] protected Texture2D textureMoveDust;
 	[Export] protected TextureButton buttonTrunk;
 	[Export] protected TextureButton buttonMove;
+	[Export] protected AudioStreamPlayer buttonTrunkSfx;
+	[Export] protected AudioStreamPlayer buttonMoveSfx;
 	
 	// Member variables
 	
@@ -31,13 +33,20 @@ public partial class Location : Ui.UiBase
 	{
 		buttonTrunk.Disabled = true;
 		buttonTrunk.TextureDisabled = textureTrunkDust;
-		animations.AnimationFinished += (_) =>
-		{
-			AddSibling(sceneTrunk.InstantiateFromPath(), true);
-			QueueFree();
-		};
 		
-		GetTree().CreateTimer(0.2).Timeout += () => animations.Play(ANIM_FADE_OUT);
+		buttonTrunkSfx.Play();
+		foreground.Show();
+		
+		GetTree().CreateTimer(0.2).Timeout += () =>
+		{
+			animations.AnimationFinished += (_) =>
+			{
+				AddSibling(sceneTrunk.InstantiateFromPath(), true);
+				QueueFree();
+			};
+			
+			animations.Play(ANIM_FADE_OUT);
+		};
 	}
 
 	private void OnButtonMove_Pressed()
@@ -45,6 +54,9 @@ public partial class Location : Ui.UiBase
 		buttonTrunk.Disabled = true;
 		buttonMove.Disabled = true;
 		buttonMove.TextureDisabled = buttonMove.TexturePressed;
+		
+		buttonMoveSfx.Play();
+		foreground.Show();
 		
 		GetTree().CreateTimer(0.15).Timeout += () =>
 		{
