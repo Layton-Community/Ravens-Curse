@@ -34,7 +34,7 @@ public partial class Trunk : Ui.UiBase
 		animations.SpeedScale = 2;
 		
 		var currentSave = Resources.PlayerSave.Singleton ?? new Resources.PlayerSave();
-		var timePlayed = TimeSpan.FromMilliseconds(currentSave.timePlayed);
+		var timePlayed = TimeSpan.FromSeconds(currentSave.timePlayed);
 
 		labelLocationCurrent.Text = currentSave.locationCurrent;
 		labelLocationGoto.Text = currentSave.locationGoto;
