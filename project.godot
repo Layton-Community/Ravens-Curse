@@ -69,6 +69,10 @@ naming/scene_name_casing=1
 
 enabled=PackedStringArray("res://addons/debug_tools/plugin.cfg")
 
+[filesystem]
+
+import/blender/enabled=false
+
 [game]
 
 saves/encript_saves=true
