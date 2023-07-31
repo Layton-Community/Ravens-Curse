@@ -1,0 +1,88 @@
+[gd_scene load_steps=8 format=3 uid="uid://wat2iqvd7pti"]
+
+[ext_resource type="Script" path="res://p_scripts/characters/CharacterBase.cs" id="1_eed7b"]
+[ext_resource type="Texture2D" uid="uid://cu6ujdor0l75u" path="res://a_sprites/characters/dummy/dummy_base_none.png" id="2_on42m"]
+[ext_resource type="Script" path="res://p_scripts/components/AutoPivot.cs" id="3_0mkxx"]
+[ext_resource type="Texture2D" uid="uid://boc22fgvdrq6a" path="res://a_sprites/map/icon_exclamation.svg" id="3_nyjcg"]
+[ext_resource type="Texture2D" uid="uid://bxgxbljm0rmg4" path="res://a_sprites/map/icon_talk0.svg" id="5_am2lc"]
+[ext_resource type="Texture2D" uid="uid://qtco1ich3ycd" path="res://a_sprites/map/icon_talk1.svg" id="6_v1l63"]
+[ext_resource type="AnimationLibrary" uid="uid://brjool06ywo0g" path="res://a_animations/characters/anim_character.tres" id="7_2bm0q"]
+
+[node name="CharacterBase" type="Control" node_paths=PackedStringArray("button", "animation")]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_eed7b")
+button = NodePath("ButtonCharacter")
+animation = NodePath("AnimationPlayer")
+
+[node name="ButtonCharacter" type="TextureButton" parent="."]
+layout_mode = 0
+offset_right = 239.0
+offset_bottom = 590.0
+pivot_offset = Vector2(119.5, 295)
+texture_normal = ExtResource("2_on42m")
+
+[node name="AutoPivot" type="Node" parent="ButtonCharacter"]
+editor_description = "Automatically centres the pivot of the parent control."
+script = ExtResource("3_0mkxx")
+
+[node name="TextureExclamation" type="TextureRect" parent="ButtonCharacter"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 75.5
+offset_top = 207.5
+offset_right = 163.5
+offset_bottom = 382.501
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(44, 87.5005)
+texture = ExtResource("3_nyjcg")
+
+[node name="AutoPivot" type="Node" parent="ButtonCharacter/TextureExclamation"]
+editor_description = "Automatically centres the pivot of the parent control."
+script = ExtResource("3_0mkxx")
+
+[node name="IconsTalk" type="Control" parent="ButtonCharacter"]
+anchors_preset = 0
+
+[node name="TextureTalk0" type="TextureRect" parent="ButtonCharacter/IconsTalk"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 24.5
+offset_top = 200.0
+offset_right = 174.5
+offset_bottom = 350.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_am2lc")
+
+[node name="TextureTalk1" type="TextureRect" parent="ButtonCharacter/IconsTalk"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 24.5
+offset_top = 200.0
+offset_right = 174.5
+offset_bottom = 350.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_v1l63")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": ExtResource("7_2bm0q")
+}

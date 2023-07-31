@@ -1,10 +1,5 @@
 namespace Com.LaytonCommunity.RavensCurse.Components;
 
-public partial class Logger : Component
-{
-
-}
-
 [GlobalClass]
 public partial class Logger : Component
 {

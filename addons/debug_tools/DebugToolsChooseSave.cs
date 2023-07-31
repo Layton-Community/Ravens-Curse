@@ -21,7 +21,7 @@ public partial class DebugToolsChooseSave : AcceptDialog
 	
 	public override void _Ready()
 	{
-		Assert._(saveButtons.Length != saveLabels.Length);
+		Assert._(saveButtons.Length == saveLabels.Length);
 		
 		saveButtonList = saveButtons
 			.Cast<DebugToolsChooseSaveButton>()

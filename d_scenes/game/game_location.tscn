@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://b65axi7awqa8d"]
+[gd_scene load_steps=11 format=3 uid="uid://b65axi7awqa8d"]
 
 [ext_resource type="PackedScene" uid="uid://c5d4hyuvs1fwr" path="res://d_scenes/ui/ui_base.tscn" id="1_o8f23"]
 [ext_resource type="Script" path="res://p_scripts/game/Location.cs" id="2_2kkwt"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bvff8s3qw1qsu" path="res://a_sprites/game_location/icon_trunk_pressed_1.png" id="3_q7kyd"]
 [ext_resource type="Texture2D" uid="uid://blfqgn3wujlw7" path="res://a_sprites/game_location/icon_move_pressed_1.png" id="4_cl83n"]
 [ext_resource type="AudioStream" uid="uid://drhrbmaqspcdk" path="res://a_audio/game_location/sfx_button_trunk.wav" id="7_r3qdm"]
+[ext_resource type="PackedScene" uid="uid://wat2iqvd7pti" path="res://d_scenes/characters/character_base.tscn" id="10_ol8g3"]
 
 [node name="GameLocation" node_paths=PackedStringArray("buttonTrunk", "buttonMove", "buttonTrunkSfx", "buttonMoveSfx") instance=ExtResource("1_o8f23")]
 offset_top = 1.0
@@ -74,3 +75,15 @@ texture_disabled = ExtResource("2_5jmee")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Middleground/Buttons/ButtonMove" index="0"]
 stream = ExtResource("7_r3qdm")
+
+[node name="Npcs" type="Control" parent="Middleground" index="1"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CharacterBase" parent="Middleground/Npcs" index="0" instance=ExtResource("10_ol8g3")]
+offset_left = 704.0
+offset_top = 116.0
+offset_right = 704.0
+offset_bottom = 116.0
+scale = Vector2(0.5, 0.5)

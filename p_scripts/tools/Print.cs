@@ -1,6 +1,7 @@
 namespace Com.LaytonCommunity.RavensCurse;
 
 /// <summary> Use this class only for non-instanciable objects, for others use the Logger component! </summary>
+[Tool]
 public static class Print
 {
 	public static void Info(string scriptName, string what)

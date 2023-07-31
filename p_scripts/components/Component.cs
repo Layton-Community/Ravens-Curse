@@ -16,33 +16,43 @@ public abstract partial class Component : Node
 	
 	public override void _Ready()
 	{
-		parent = GetParent();
+		parent = FindComponentParent();
 		
+		if (parent != null)
+		{
+			ReadyComponent();
+		}
+	}
+
+	protected Node FindComponentParent()
+	{
+		var parent = GetParent();
+
 		if (parent == null)
 		{
 			NoParentDestructor();
-			return;
+			return null;
 		}
-		// Check if the node is under a node named "Component" (To make the tree less cluttered)
-		else if (parent.Name == nameof(Component))
+		// Check if the node is under a node named "Components" (To make the tree less cluttered)
+		else if (parent.Name == "Components")
 		{
 			parent = parent.GetParent();
-			
+
 			if (parent == null)
 			{
 				NoParentDestructor();
-				return;
+				return null;
 			}
 		}
 		
-		ReadyComponent();
+		return parent;
 	}
-	
+
 	protected virtual void NoParentDestructor()
 	{
 		var msg = "I cannot work without a parent! Destroying!";
 		
-		GD.PrintRich($"[color=ffdd65][{GetType().Name}][{Name}] {msg}[/color]");
+		Print.Warn(GetType().Name, msg);
 		QueueFree();
 	}
 	
