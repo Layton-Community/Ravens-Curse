@@ -4,37 +4,42 @@ namespace Com.LaytonCommunity.RavensCurse.Components;
 [GlobalClass]
 public partial class AutoPivot : Component
 {
-	private const string EDITOR_DESCRIPTION = "Automatically centres the pivot of the parent control.";
 
 	// Constants
+	private const string EDITOR_DESCRIPTION = "Automatically centres the pivot of the parent control.";
 
 	// Enums
 
 	// Signal
 
 	// Export variables
+	[Export] private string target;
 
 	// Member variables
 	private Control parentControl;
+	private bool isPrinting = false;
 
-	public override async void _Ready()
+	public override void _Ready()
 	{
 		if (Engine.IsEditorHint())
 		{
 			EditorDescription = EDITOR_DESCRIPTION;
 			
-			await ToSignal(GetTree().CreateTimer(1), Timer.SignalName.Timeout);
-			
-			TreeEntered += On_TreeEntered;
-			
-			On_TreeEntered();	
+			base._Ready();
 		}
 		else
 		{
 			QueueFree();
 		}
 	}
-	
+
+	protected override void ReadyComponent()
+	{
+		TreeEntered += On_TreeEntered;
+		
+		On_TreeEntered();
+	}
+
 	private void On_TreeEntered()
 	{
 		if (parentControl != null)
@@ -42,8 +47,7 @@ public partial class AutoPivot : Component
 			if (parentControl.IsConnected(Control.SignalName.Resized, Callable.From(OnTarget_Resized)))
 			{
 				parentControl.Disconnect(Control.SignalName.Resized, Callable.From(OnTarget_Resized));
-				
-				Print.Info(GetType().Name, $"Removal of \"{parent.Name}\" as the target!");
+				PrintInfo($"Removal of \"{parent.Name}\" as the target!");
 			}
 		}
 		
@@ -52,20 +56,31 @@ public partial class AutoPivot : Component
 		
 		if (parentControl != null)
 		{
-			parentControl.Connect(Control.SignalName.Resized, Callable.From(OnTarget_Resized));
+			target = parent.Name;
 			
 			OnTarget_Resized();
-			Print.Info(GetType().Name, $"Setting \"{parent.Name}\" as the target!");
+			parentControl.Connect(Control.SignalName.Resized, Callable.From(OnTarget_Resized));
+			PrintInfo($"Setting \"{parent.Name}\" as the target!");
 		}
 		else
 		{
-			Print.Warn(GetType().Name, $"Parent \"{parent.Name}\" is not a Control node!");
+			PrintWarn($"Parent \"{parent.Name}\" is not a Control node!");
 		}
 	}
 
 	private void OnTarget_Resized()
 	{
 		parentControl.PivotOffset = parentControl.Size / 2;
+	}
+	
+	private void PrintInfo(string msg)
+	{
+		if (isPrinting) Print.Info(GetType().Name, msg);
+	}
+	
+	private void PrintWarn(string msg)
+	{
+		if (isPrinting) Print.Warn(GetType().Name, msg);
 	}
 }
 

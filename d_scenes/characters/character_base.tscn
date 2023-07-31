@@ -25,6 +25,7 @@ texture_normal = ExtResource("2_on42m")
 [node name="AutoPivot" type="Node" parent="ButtonCharacter"]
 editor_description = "Automatically centres the pivot of the parent control."
 script = ExtResource("3_0mkxx")
+target = "ButtonCharacter"
 
 [node name="TextureExclamation" type="TextureRect" parent="ButtonCharacter"]
 visible = false
@@ -46,6 +47,7 @@ texture = ExtResource("3_nyjcg")
 [node name="AutoPivot" type="Node" parent="ButtonCharacter/TextureExclamation"]
 editor_description = "Automatically centres the pivot of the parent control."
 script = ExtResource("3_0mkxx")
+target = "TextureExclamation"
 
 [node name="IconsTalk" type="Control" parent="ButtonCharacter"]
 anchors_preset = 0
