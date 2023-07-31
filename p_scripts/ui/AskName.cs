@@ -19,11 +19,8 @@ public partial class AskName : UiBase
 
 	// Member variables
 
-	public override void _EnterTree()
-	{
-		buttonOk.Pressed += OnButtonOk_Pressed;
-	}
-	
+	public override void _EnterTree() => buttonOk.Pressed += OnButtonOk_Pressed;
+
 	public override void _Ready()
 	{
 		base._Ready();

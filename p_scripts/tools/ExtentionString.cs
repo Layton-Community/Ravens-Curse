@@ -21,10 +21,8 @@ public static class ExtentionString
 		
 		return ResourceLoader.Load<PackedScene>(str).Instantiate<T>();
 	}
-	
-	public static Node InstantiateFromPath(this string str)
-	{
-		return InstantiateFromPath<Node>(str);
-	}
+
+	public static Node InstantiateFromPath(this string str) => 
+		InstantiateFromPath<Node>(str);
 }
 

@@ -35,14 +35,8 @@ public partial class ButtonLarge : TextureButton
 		}
 	}
 
-	private void On_ButtonDown()
-	{
-		image.Position = Vector2.One * 4;
-	}
+	private void On_ButtonDown() => image.Position = Vector2.One * 4;
 
-	private void On_ButtonUp()
-	{
-		image.Position = Vector2.Zero;
-	}
+	private void On_ButtonUp() => image.Position = Vector2.Zero;
 }
 

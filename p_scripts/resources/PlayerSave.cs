@@ -73,12 +73,9 @@ public partial class PlayerSave : Resource
 			Print.Error($"Could not save user save: {error}");
 		}
 	}
-		
-	public static void LoadToSingleton(uint id)
-	{
-		Singleton = LoadFromDisk(id);
-	}
-	
+
+	public static void LoadToSingleton(uint id) => Singleton = LoadFromDisk(id);
+
 	public static void StoreSingleton()
 	{
 		StoreToDisk(Singleton);

@@ -22,10 +22,8 @@ public partial class BaseAddons : EditorPlugin
 		RemoveControlFromDocks(dock);
 		dock.Free();
 	}
-	
-	protected void Print(string what)
-	{
+
+	protected void Print(string what) => 
 		GD.PrintRich($"[color=8b8b8b][{GetType().Name}] {what}[/color]");
-	}
 }
 #endif
