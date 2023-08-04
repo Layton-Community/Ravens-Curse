@@ -16,6 +16,7 @@ offset_top = 1.0
 offset_bottom = 1.0
 script = ExtResource("2_2kkwt")
 sceneTrunk = "res://d_scenes/game/game_trunk.tscn"
+sceneDialogue = "res://d_scenes/game/game_dialogue.tscn"
 textureTrunkDust = ExtResource("3_q7kyd")
 textureMoveDust = ExtResource("4_cl83n")
 buttonTrunk = NodePath("Middleground/Buttons/ButtonTrunk")
