@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://qtco1ich3ycd" path="res://a_sprites/map/icon_talk1.svg" id="6_v1l63"]
 [ext_resource type="AnimationLibrary" uid="uid://brjool06ywo0g" path="res://a_animations/characters/anim_character.tres" id="7_2bm0q"]
 
-[node name="CharacterBase" type="Control" node_paths=PackedStringArray("button", "animation")]
+[node name="CharacterBase" type="Control" node_paths=PackedStringArray("button", "animation") groups=["NPCs"]]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_eed7b")
@@ -23,7 +23,8 @@ pivot_offset = Vector2(119.5, 295)
 texture_normal = ExtResource("2_on42m")
 
 [node name="AutoPivot" type="Node" parent="ButtonCharacter"]
-editor_description = "Automatically centres the pivot of the parent control."
+editor_description = "Automatically centres the pivot of the parent control.
+You cannot change the value of the exported string Target, its purpose is to show you which target the AutoPivot is working on."
 script = ExtResource("3_0mkxx")
 target = "ButtonCharacter"
 
@@ -38,14 +39,15 @@ anchor_bottom = 0.5
 offset_left = 75.5
 offset_top = 207.5
 offset_right = 163.5
-offset_bottom = 382.501
+offset_bottom = 382.502
 grow_horizontal = 2
 grow_vertical = 2
-pivot_offset = Vector2(44, 87.5005)
+pivot_offset = Vector2(44, 87.5008)
 texture = ExtResource("3_nyjcg")
 
 [node name="AutoPivot" type="Node" parent="ButtonCharacter/TextureExclamation"]
-editor_description = "Automatically centres the pivot of the parent control."
+editor_description = "Automatically centres the pivot of the parent control.
+You cannot change the value of the exported string Target, its purpose is to show you which target the AutoPivot is working on."
 script = ExtResource("3_0mkxx")
 target = "TextureExclamation"
 

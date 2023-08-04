@@ -6,10 +6,12 @@ public partial class CharacterBase : Control
 	// Constants
 	private const string TALK = "talk";
 	private const string FIRST_TALK = "first_talk";
+	public const string GROUP = "NPCs";
 	
 	// Enums
 	
-	// Signal
+	// Signa
+	[Signal] public delegate void PressedNpcEventHandler(string NpcName);
 	
 	// Export variables
 	[Export] private Texture2D Texture 
@@ -48,5 +50,14 @@ public partial class CharacterBase : Control
 		animation.Play(hasSpoken ? TALK : FIRST_TALK);
 		
 		hasSpoken = true;
+		
+		animation.AnimationFinished += OnAnimation_AnimationFinished;
+	}
+
+	private void OnAnimation_AnimationFinished(StringName animName)
+	{
+		animation.AnimationFinished -= OnAnimation_AnimationFinished;
+		
+		EmitSignal(SignalName.PressedNpc, nameof(CharacterBase));
 	}
 }

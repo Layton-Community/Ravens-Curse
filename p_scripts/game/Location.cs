@@ -11,6 +11,7 @@ public partial class Location : Ui.UiBase
 	// Export variables
 	[ExportGroup("Imports")]
 	[Export(PropertyHint.File,"*.tscn")] private string sceneTrunk;
+	[Export(PropertyHint.File,"*.tscn")] private string sceneDialogue;
 	[Export] protected Texture2D textureTrunkDust;
 	[Export] protected Texture2D textureMoveDust;
 	[Export] protected TextureButton buttonTrunk;
@@ -24,9 +25,16 @@ public partial class Location : Ui.UiBase
 	{
 		base._Ready();
 
-		animations.SpeedScale = 2;
 		buttonTrunk.Pressed += OnButtonTrunk_Pressed;
 		buttonMove.Pressed += OnButtonMove_Pressed;
+
+		animations.SpeedScale = 2;
+		var npcs = GetTree().GetNodesInGroup(CharacterBase.GROUP).Cast<CharacterBase>();
+		
+		foreach (var npc in npcs)
+		{
+			npc.PressedNpc += OnNpc_PressedNpc;
+		}
 	}
 
 	private void OnButtonTrunk_Pressed()
@@ -69,5 +77,11 @@ public partial class Location : Ui.UiBase
 			};
 		};
 	}
+	
+	private void OnNpc_PressedNpc(string NpcName)
+	{
+		var instance = sceneDialogue.InstantiateFromPath();
+		
+		AddSibling(instance);
+	}
 }
-
