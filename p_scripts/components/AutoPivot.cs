@@ -1,12 +1,12 @@
 namespace Com.LaytonCommunity.RavensCurse.Components;
-
+	
 [Tool]
 [GlobalClass]
 public partial class AutoPivot : Component
 {
-
+	
 	// Constants
-	private const string EDITOR_DESCRIPTION = "Automatically centres the pivot of the parent control.";
+	private const string EDITOR_DESCRIPTION = "Automatically centres the pivot of the parent control.\nYou cannot change the value of the exported string Target, its purpose is to show you which target the AutoPivot is working on.";
 
 	// Enums
 
@@ -17,6 +17,7 @@ public partial class AutoPivot : Component
 
 	// Member variables
 	private Control parentControl;
+	private Callable callback;
 	private bool isPrinting = false;
 
 	public override void _Ready()
@@ -24,6 +25,7 @@ public partial class AutoPivot : Component
 		if (Engine.IsEditorHint())
 		{
 			EditorDescription = EDITOR_DESCRIPTION;
+			callback = Callable.From(OnTarget_Resized);
 			
 			base._Ready();
 		}
@@ -42,11 +44,13 @@ public partial class AutoPivot : Component
 
 	private void On_TreeEntered()
 	{
-		if (parentControl != null)
+		var signalResized = Control.SignalName.Resized;
+		
+		if (parentControl != null && IsInstanceValid(parentControl) && parentControl.IsInsideTree())
 		{
-			if (parentControl.IsConnected(Control.SignalName.Resized, Callable.From(OnTarget_Resized)))
+			if (parentControl.IsConnected(signalResized, callback))
 			{
-				parentControl.Disconnect(Control.SignalName.Resized, Callable.From(OnTarget_Resized));
+				parentControl.Disconnect(signalResized, callback);
 				PrintInfo($"Removal of \"{parent.Name}\" as the target!");
 			}
 		}
@@ -59,7 +63,7 @@ public partial class AutoPivot : Component
 			target = parent.Name;
 			
 			OnTarget_Resized();
-			parentControl.Connect(Control.SignalName.Resized, Callable.From(OnTarget_Resized));
+			parentControl.Connect(signalResized, callback);
 			PrintInfo($"Setting \"{parent.Name}\" as the target!");
 		}
 		else
