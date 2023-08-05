@@ -39,23 +39,26 @@ public partial class CharacterBase : Control
 	
 	public override void _Ready()
 	{
-		button.Pressed += OnButton_Pressed;
-		animation.AnimationFinished += (_) => button.Pressed += OnButton_Pressed;
+		if (!Engine.IsEditorHint())
+		{
+			button.Pressed += OnButton_Pressed;
+		}
 	}
 	
 	private void OnButton_Pressed()
 	{
-		button.Pressed -= OnButton_Pressed;
-		
-		animation.Play(hasSpoken ? TALK : FIRST_TALK);
-		
+		button.Disabled = true;
 		hasSpoken = true;
 		
 		animation.AnimationFinished += OnAnimation_AnimationFinished;
+		
+		animation.Play(hasSpoken ? TALK : FIRST_TALK);
 	}
 
 	private void OnAnimation_AnimationFinished(StringName animName)
 	{
+		button.Disabled = false;
+		
 		animation.AnimationFinished -= OnAnimation_AnimationFinished;
 		
 		EmitSignal(SignalName.PressedNpc, nameof(CharacterBase));
