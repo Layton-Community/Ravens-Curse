@@ -1,3 +1,4 @@
+/*
 namespace Com.LaytonCommunity.RavensCurse.Components;
 
 [GlobalClass]
@@ -15,9 +16,9 @@ public partial class Logger : Component
 	// Member variables
 	private string parentScriptName;
 
-	protected override void ReadyComponent()
+	public override void _Ready()
 	{
-		parentScriptName = parent.GetType().Name;
+		parentScriptName = FindComponentParent(this)?.GetType().Name;
 	}
 	
 	public void Info(string what)
@@ -38,4 +39,4 @@ public partial class Logger : Component
 		Print.Error(parentScriptName, what);
 	}
 }
-
+*/
