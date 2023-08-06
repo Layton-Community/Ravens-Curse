@@ -6,16 +6,14 @@ extends Component
 # Signals
 
 # Constants
-const EditorDescription: String = "Automatically centres the pivot of the parent control.\n\
-You cannot change the value of the exported string Target, \
-its purpose is to show you which target the AutoPivot is working on."
+const EditorDescription: String = "Automatically centres the pivot of the parent control.\nYou cannot change the value of the exported string Target, its purpose is to show you which target the AutoPivot is working on."
+const IS_PRINTING: bool = false
+const IS_PRINTING_DBG: bool = false
 
 # Enums
 
 # Export variables
 @export var target: String
-@export var is_printing: bool = false
-@export var is_printing_dbg: bool = false
 
 # OnReady variables
 
@@ -37,12 +35,12 @@ func _ready():
 
 
 func _print(what: String):
-	if is_printing:
+	if IS_PRINTING:
 		print_rich("[color=8b8b8b][" + script_name + "] " + what + " " + "[/color]")
 
 
 func _print_dbg(what: String):
-	if is_printing_dbg:
+	if IS_PRINTING_DBG:
 		_print(what)
 
 
