@@ -83,6 +83,10 @@ csv_translation={
 "delimiter": 2
 }
 
+[internationalization]
+
+locale/translations=PackedStringArray("res://a_dialogues/localization.de.translation", "res://a_dialogues/localization.en.translation", "res://a_dialogues/localization.es.translation", "res://a_dialogues/localization.fr.translation")
+
 [rendering]
 
 occlusion_culling/bvh_build_quality=1

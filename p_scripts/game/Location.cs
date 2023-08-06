@@ -20,6 +20,7 @@ public partial class Location : Ui.UiBase
 	[Export] protected TextureButton buttonMove;
 	[Export] protected AudioStreamPlayer buttonTrunkSfx;
 	[Export] protected AudioStreamPlayer buttonMoveSfx;
+	[Export] protected TextureRect background;
 	
 	// Member variables
 	
@@ -65,10 +66,22 @@ public partial class Location : Ui.UiBase
 		// Show arrows 
 	}
 	
-	private void OnNpc_PressedNpc(string NpcName)
+	private void OnNpc_PressedNpc(string npcName)
 	{
-		var instance = sceneDialogue.InstantiateFromPath();
+		if (background.Texture == null)
+		{
+			Print.Warn(GetType().Name, "The background has no texture!");
+			return;
+		}
 		
+		npcName = npcName.ToUpper();
+		var locationName = background
+			.Texture.ResourceFileName()
+			.Replace("bg_", "").ToUpper();
+		
+		var instance = sceneDialogue.InstantiateFromPath<Dialogue>();
+		instance.key = $"{locationName}_NPC_{npcName}";
+				
 		AddSibling(instance);
 	}
 }

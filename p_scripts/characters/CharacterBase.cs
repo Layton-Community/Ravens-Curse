@@ -30,7 +30,7 @@ public partial class CharacterBase : Control
 	
 	private void SetTexture(Texture2D newTexture)
 	{
-		if (!Engine.IsEditorHint() || button == null) return;
+		if (!Engine.IsEditorHint() || newTexture == null|| button == null) return;
 		
 		texture = newTexture;
 		button.TextureNormal = texture;
@@ -39,20 +39,19 @@ public partial class CharacterBase : Control
 	
 	public override void _Ready()
 	{
-		if (!Engine.IsEditorHint())
-		{
-			button.Pressed += OnButton_Pressed;
-		}
+		if (Engine.IsEditorHint()) return;
+		
+		button.Pressed += OnButton_Pressed;
 	}
 	
 	private void OnButton_Pressed()
 	{
-		button.Disabled = true;
-		hasSpoken = true;
-		
 		animation.AnimationFinished += OnAnimation_AnimationFinished;
 		
 		animation.Play(hasSpoken ? TALK : FIRST_TALK);
+		
+		button.Disabled = true;
+		hasSpoken = true;
 	}
 
 	private void OnAnimation_AnimationFinished(StringName animName)
@@ -61,6 +60,16 @@ public partial class CharacterBase : Control
 		
 		animation.AnimationFinished -= OnAnimation_AnimationFinished;
 		
-		EmitSignal(SignalName.PressedNpc, nameof(CharacterBase));
+		if (button.TextureNormal == null)
+		{
+			Print.Warn(GetType().Name, "Npc has no texture!");
+			return;
+		}
+		
+		var fileName = button
+			.TextureNormal.ResourceFileName()
+			.Split('_')[0];
+		
+		EmitSignal(SignalName.PressedNpc, fileName);
 	}
 }
