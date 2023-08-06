@@ -77,6 +77,12 @@ import/blender/enabled=false
 
 saves/encript_saves=true
 
+[importer_defaults]
+
+csv_translation={
+"delimiter": 2
+}
+
 [rendering]
 
 occlusion_culling/bvh_build_quality=1
