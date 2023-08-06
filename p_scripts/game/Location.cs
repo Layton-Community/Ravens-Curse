@@ -3,6 +3,8 @@ namespace Com.LaytonCommunity.RavensCurse.Game;
 public partial class Location : Ui.UiBase
 {
 	// Constants
+	public const string ANIM_TRUNK = "game_location/open_trunk";
+	public const string ANIM_MOVEMENT = "game_location/open_movement";
 	
 	// Enums
 	
@@ -39,43 +41,28 @@ public partial class Location : Ui.UiBase
 
 	private void OnButtonTrunk_Pressed()
 	{
-		buttonTrunk.Disabled = true;
-		buttonTrunk.TextureDisabled = textureTrunkDust;
-		
-		buttonTrunkSfx.Play();
-		foreground.Show();
-		
-		GetTree().CreateTimer(0.2).Timeout += () =>
+		animations.Play(ANIM_TRUNK);
+	}
+	
+	private void OnTrunk_AnimationFinished()
+	{
+		animations.AnimationFinished += (_) =>
 		{
-			animations.AnimationFinished += (_) =>
-			{
-				AddSibling(sceneTrunk.InstantiateFromPath(), true);
-				QueueFree();
-			};
-			
-			animations.Play(ANIM_FADE_OUT);
+			AddSibling(sceneTrunk.InstantiateFromPath(), true);
+			QueueFree();
 		};
+		
+		animations.Play(ANIM_FADE_OUT);
 	}
 
 	private void OnButtonMove_Pressed()
 	{
-		buttonTrunk.Disabled = true;
-		buttonMove.Disabled = true;
-		buttonMove.TextureDisabled = buttonMove.TexturePressed;
-		
-		buttonMoveSfx.Play();
-		foreground.Show();
-		
-		GetTree().CreateTimer(0.15).Timeout += () =>
-		{
-			buttonMove.TextureDisabled = textureMoveDust;
-			
-			GetTree().CreateTimer(0.3).Timeout += () =>
-			{
-				buttonTrunk.Visible = false;
-				buttonMove.Visible = false;
-			};
-		};
+		animations.Play(ANIM_MOVEMENT);
+	}
+	
+	private void OnMove_AnimationFinished()
+	{
+		// Show arrows 
 	}
 	
 	private void OnNpc_PressedNpc(string NpcName)
