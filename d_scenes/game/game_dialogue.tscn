@@ -1,12 +1,15 @@
-[gd_scene load_steps=10 format=3 uid="uid://dcc113ycd4l7b"]
+[gd_scene load_steps=13 format=3 uid="uid://dcc113ycd4l7b"]
 
 [ext_resource type="PackedScene" uid="uid://c5d4hyuvs1fwr" path="res://d_scenes/ui/ui_base.tscn" id="1_ytbq4"]
-[ext_resource type="AnimationLibrary" uid="uid://cg6koj605m63r" path="res://a_animations/game/anim_game_dialogue.tres" id="2_mw8ux"]
+[ext_resource type="AnimationLibrary" uid="uid://dp8piwdpjrrub" path="res://a_animations/game/anim_game_dialogue.tres" id="2_mw8ux"]
 [ext_resource type="Texture2D" uid="uid://1am58ekot3ck" path="res://a_sprites/game_dialogue/bg_dialogue.svg" id="2_vc4dk"]
 [ext_resource type="Script" path="res://p_scripts/game/Dialogue.cs" id="2_x36sq"]
 [ext_resource type="Texture2D" uid="uid://cr326pc622rw5" path="res://a_sprites/game_dialogue/bg_dialogue_name.svg" id="3_s8pmg"]
+[ext_resource type="Script" path="res://p_scripts/components/Logger.cs" id="3_vuklg"]
 [ext_resource type="FontFile" uid="uid://dmjgigmwvc4ai" path="res://a_fonts/roboto_mono_medium.ttf" id="4_hat8s"]
+[ext_resource type="RichTextEffect" uid="uid://w3m4rpmfxm8h" path="res://d_resources/game_dialogue_effect.tres" id="6_1le6t"]
 [ext_resource type="FontFile" uid="uid://ulsa4jbbxqsw" path="res://a_fonts/roboto_medium.ttf" id="6_g8rum"]
+[ext_resource type="AnimationLibrary" uid="uid://dhuww56rydajy" path="res://a_animations/game/anim_game_dialogue_base.tres" id="7_m23c1"]
 
 [sub_resource type="Animation" id="Animation_qyl0f"]
 length = 0.001
@@ -64,10 +67,19 @@ _data = {
 "RESET": SubResource("Animation_qyl0f")
 }
 
-[node name="GameDialogue" instance=ExtResource("1_ytbq4")]
+[node name="GameDialogue" node_paths=PackedStringArray("logger", "labelName", "labelText", "buttonNext") instance=ExtResource("1_ytbq4")]
 script = ExtResource("2_x36sq")
+textEffect = ExtResource("6_1le6t")
+logger = NodePath("Logger")
+labelName = NodePath("Middleground/CanvasGroup/BgDialogueName/LabelName")
+labelText = NodePath("Middleground/CanvasGroup/BgDialogue/LabelText")
+buttonNext = NodePath("Middleground/ButtonNext")
 
-[node name="Background" parent="." index="0"]
+[node name="Logger" type="Node" parent="." index="0"]
+script = ExtResource("3_vuklg")
+enabled = true
+
+[node name="Background" parent="." index="1"]
 modulate = Color(1, 1, 1, 0)
 
 [node name="CanvasGroup" type="CanvasGroup" parent="Middleground" index="0"]
@@ -77,7 +89,7 @@ texture_filter = 1
 position = Vector2(640, 620)
 texture = ExtResource("2_vc4dk")
 
-[node name="LabelText" type="Label" parent="Middleground/CanvasGroup/BgDialogue" index="0"]
+[node name="LabelText" type="RichTextLabel" parent="Middleground/CanvasGroup/BgDialogue" index="0"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -87,12 +99,17 @@ offset_right = -385.0
 offset_bottom = -120.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("4_hat8s")
-theme_override_font_sizes/font_size = 24
+auto_translate = false
+localize_numeral_system = false
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("4_hat8s")
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
 text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis venenatis eget ante sit amet pharetra. Nulla facilisi. Nunc suscipit mauris eu euismod tincidunt. Aenean in."
-autowrap_mode = 2
-text_overrun_behavior = 1
+scroll_active = false
+shortcut_keys_enabled = false
+meta_underlined = false
+hint_underlined = false
 
 [node name="BgDialogueName" type="Sprite2D" parent="Middleground/CanvasGroup" index="1"]
 texture_filter = 1
@@ -104,11 +121,13 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -81.5
-offset_top = -21.5
+offset_top = -20.5
 offset_right = -84.5
 offset_bottom = -24.5
 grow_horizontal = 2
 grow_vertical = 2
+auto_translate = false
+localize_numeral_system = false
 theme_override_fonts/font = ExtResource("6_g8rum")
 theme_override_font_sizes/font_size = 20
 text = "Lorem Ipsum"
@@ -116,6 +135,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ButtonNext" type="Button" parent="Middleground" index="1"]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -124,8 +144,9 @@ grow_horizontal = 2
 grow_vertical = 2
 flat = true
 
-[node name="AnimationPlayer" parent="." index="3"]
+[node name="AnimationPlayer" parent="." index="4"]
 libraries = {
 "": SubResource("AnimationLibrary_vabcm"),
-"ui_base": ExtResource("2_mw8ux")
+"game_dialogue": ExtResource("2_mw8ux"),
+"ui_base": ExtResource("7_m23c1")
 }
