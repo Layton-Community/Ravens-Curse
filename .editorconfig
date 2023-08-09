@@ -5,4 +5,5 @@ root = true
 dotnet_diagnostic.CA1822.severity = silent
 dotnet_diagnostic.CS0219.severity = silent
 dotnet_diagnostic.IDE0017.severity = silent
+dotnet_diagnostic.IDE0044.severity = silent
 dotnet_diagnostic.IDE0059.severity = silent

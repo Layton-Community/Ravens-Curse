@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="Ravens Curse"
+config/tags=PackedStringArray("github")
 run/main_scene="res://d_scenes/ui/ui_loading.tscn"
 config/features=PackedStringArray("4.1", "C#", "Mobile")
 run/max_fps=90
@@ -53,6 +54,7 @@ gdscript/warnings/confusable_identifier=2
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
+window/size/always_on_top=true
 window/stretch/mode="canvas_items"
 
 [dotnet]
