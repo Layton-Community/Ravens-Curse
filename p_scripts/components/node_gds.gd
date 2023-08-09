@@ -1,4 +1,5 @@
-class_name Component
+@icon("res://a_sprites/icons/node_custom.svg")
+class_name NodeGDS
 extends Node
 
 

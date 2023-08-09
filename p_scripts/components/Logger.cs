@@ -1,8 +1,8 @@
-/*
 namespace Com.LaytonCommunity.RavensCurse.Components;
 
 [GlobalClass]
-public partial class Logger : Component
+[Icon("res://a_sprites/icons/node_custom.svg")]
+public partial class Logger : NodeCS
 {
 	// Constants
 	
@@ -11,14 +11,14 @@ public partial class Logger : Component
 	// Signal
 	
 	// Export variables
-	[Export] private bool enabled = false;
+	[Export] public bool enabled = false;
 	
 	// Member variables
 	private string parentScriptName;
 
-	public override void _Ready()
+	protected override void ReadyComponent()
 	{
-		parentScriptName = FindComponentParent(this)?.GetType().Name;
+		parentScriptName = parent.GetType().Name;
 	}
 	
 	public void Info(string what)
@@ -39,4 +39,3 @@ public partial class Logger : Component
 		Print.Error(parentScriptName, what);
 	}
 }
-*/

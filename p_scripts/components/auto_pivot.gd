@@ -1,6 +1,7 @@
 @tool
+@icon("res://a_sprites/icons/node_custom.svg")
 class_name AutoPivot
-extends Component
+extends NodeGDS
 
 
 # Signals
