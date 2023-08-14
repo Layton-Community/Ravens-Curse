@@ -63,7 +63,8 @@ project/assembly_name="Ravens Curse"
 
 [editor]
 
-movie_writer/movie_file="res://builds/movies/out.avi"
+movie_writer/mjpeg_quality=0.9
+movie_writer/movie_file="res://x_builds/movies/out.avi"
 naming/node_name_num_separator=2
 naming/scene_name_casing=1
 
