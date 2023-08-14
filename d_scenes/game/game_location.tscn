@@ -195,8 +195,11 @@ stream = ExtResource("7_r3qdm")
 
 [node name="Npcs" type="Control" parent="Middleground" index="1"]
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+metadata/_edit_lock_ = true
+
+[node name="HintCoins" type="Control" parent="Middleground" index="2"]
+anchors_preset = 0
+metadata/_edit_lock_ = true
 
 [node name="AnimationPlayer" parent="." index="3"]
 libraries = {
