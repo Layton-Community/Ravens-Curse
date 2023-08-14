@@ -27,5 +27,22 @@ public partial class UiBase : Control
 		foreground.Show();
 		foreground.Color = Colors.Transparent;
 	}
+	
+	protected T ChangeSceneToFile<T>(string filePath, bool forceReadableName = false)
+	where
+		T : Node
+	{
+		var scene = filePath.InstantiateFromPath<T>();
+		
+		AddSibling(scene, forceReadableName);
+		QueueFree();
+		
+		return scene;
+	}
+	
+	protected Node ChangeSceneToFile(string filePath, bool forceReadableName = false)
+	{
+		return ChangeSceneToFile<Node>(filePath, forceReadableName);
+	}
 }
 

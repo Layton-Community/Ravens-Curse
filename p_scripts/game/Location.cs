@@ -33,10 +33,16 @@ public partial class Location : Ui.UiBase
 
 		animations.SpeedScale = 2;
 		var npcs = GetTree().GetNodesInGroup(CharacterBase.GROUP).Cast<CharacterBase>();
+		var coins = GetTree().GetNodesInGroup(HintCoins.GROUP).Cast<HintCoins>();
 		
 		foreach (var npc in npcs)
 		{
 			npc.PressedNpc += OnNpc_PressedNpc;
+		}
+		
+		foreach (var coin in coins)
+		{
+			coin.Collected += OnCoin_Collected;
 		}
 	}
 
@@ -49,8 +55,7 @@ public partial class Location : Ui.UiBase
 	{
 		animations.AnimationFinished += (_) =>
 		{
-			AddSibling(sceneTrunk.InstantiateFromPath(), true);
-			QueueFree();
+			ChangeSceneToFile(sceneTrunk, true);
 		};
 		
 		animations.Play(ANIM_FADE_OUT);
@@ -83,5 +88,10 @@ public partial class Location : Ui.UiBase
 		instance.key = $"{locationName}_NPC_{npcName}";
 				
 		AddSibling(instance);
+	}
+
+	private void OnCoin_Collected()
+	{
+		// save coin
 	}
 }

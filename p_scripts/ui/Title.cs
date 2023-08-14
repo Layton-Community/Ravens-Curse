@@ -62,8 +62,7 @@ public partial class Title : UiBase
 	{
 		buttonPlaySfx.Finished += () =>
 		{
-			AddSibling(sceneSaves.InstantiateFromPath(), true);
-			QueueFree();
+			ChangeSceneToFile(sceneSaves, true);
 		};
 		
 		animations.Play(ANIM_FADE_OUT);

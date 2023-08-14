@@ -59,8 +59,7 @@ public partial class Trunk : Ui.UiBase
 		{
 			animations.AnimationFinished += (_) =>
 			{
-				AddSibling(sceneLocation.InstantiateFromPath(), true);
-				QueueFree();
+				ChangeSceneToFile(sceneLocation, true);
 			};
 				
 			animations.Play(ANIM_FADE_OUT);

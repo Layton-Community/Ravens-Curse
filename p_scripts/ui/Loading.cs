@@ -72,8 +72,7 @@ public partial class Loading : UiBase
 			}
 			else
 			{
-				AddSibling(sceneTitle.InstantiateFromPath(), true);
-				QueueFree();
+				ChangeSceneToFile(sceneTitle, true);
 			}
 		}
 	}
