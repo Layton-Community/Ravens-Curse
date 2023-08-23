@@ -15,7 +15,9 @@ config/tags=PackedStringArray("github")
 run/main_scene="res://d_scenes/ui/ui_loading.tscn"
 config/features=PackedStringArray("4.1", "C#", "Mobile")
 run/max_fps=90
+boot_splash/show_image=false
 config/icon="res://a_sprites/icons/icon_game.png"
+boot_splash/bg_color.release=Color(0, 0, 0, 1)
 
 [audio]
 
@@ -94,3 +96,4 @@ locale/translations=PackedStringArray("res://a_dialogues/localization.de.transla
 
 occlusion_culling/bvh_build_quality=1
 renderer/rendering_method="mobile"
+environment/defaults/default_clear_color.release=Color(0, 0, 0, 1)
