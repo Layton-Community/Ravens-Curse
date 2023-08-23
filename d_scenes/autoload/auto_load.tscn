@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cqgmyo6iaewnw"]
+
+[ext_resource type="Script" path="res://p_scripts/autoload/AutoLoad.cs" id="1_pbhlf"]
+[ext_resource type="Script" path="res://p_scripts/autoload/DialogueFactory.cs" id="2_jtr3d"]
+
+[node name="AutoLoad" type="Node"]
+script = ExtResource("1_pbhlf")
+
+[node name="DialogueFactory" type="Node" parent="."]
+script = ExtResource("2_jtr3d")
+sceneDialogue = "res://d_scenes/game/game_dialogue.tscn"

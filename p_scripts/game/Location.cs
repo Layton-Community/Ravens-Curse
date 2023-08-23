@@ -32,18 +32,11 @@ public partial class Location : Ui.UiBase
 		buttonMove.Pressed += OnButtonMove_Pressed;
 
 		animations.SpeedScale = 2;
-		var npcs = GetTree().GetNodesInGroup(CharacterBase.GROUP).Cast<CharacterBase>();
-		var coins = GetTree().GetNodesInGroup(HintCoins.GROUP).Cast<HintCoins>();
+		var npcs = GetTree().GetNodesInGroup(CharacterBase.GROUP).Cast<CharacterBase>().ToList();
+		var coins = GetTree().GetNodesInGroup(HintCoins.GROUP).Cast<HintCoins>().ToList();
 		
-		foreach (var npc in npcs)
-		{
-			npc.PressedNpc += OnNpc_PressedNpc;
-		}
-		
-		foreach (var coin in coins)
-		{
-			coin.Collected += OnCoin_Collected;
-		}
+		npcs.ForEach((npc) => npc.PressedNpc += OnNpc_PressedNpc);
+		coins.ForEach((coin) => coin.Collected += OnCoin_Collected);
 	}
 
 	private void OnButtonTrunk_Pressed()
@@ -84,10 +77,8 @@ public partial class Location : Ui.UiBase
 			.Texture.ResourceFileName()
 			.Replace("bg_", "").ToUpper();
 		
-		var instance = sceneDialogue.InstantiateFromPath<Dialogue>();
-		instance.key = $"{locationName}_NPC_{npcName}";
-				
-		AddSibling(instance);
+		AutoLoad.GetSingleton<DialogueFactory>()
+			.Create(locationName, Dialogue.Type.NPC, npcName);
 	}
 
 	private void OnCoin_Collected()

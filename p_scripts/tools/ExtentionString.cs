@@ -26,5 +26,13 @@ public static class ExtentionString
 	{
 		return InstantiateFromPath<Node>(str);
 	}
+	
+	/// <summary> Equivalent to string.IsNullOrWhiteSpace(str) </summary>
+	public static bool IsEmpty(this string str)
+	{
+		return string.IsNullOrWhiteSpace(str);
+	}
+	
+	
 }
 

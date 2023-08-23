@@ -27,10 +27,7 @@ public partial class DebugToolsChooseSave : AcceptDialog
 			.Cast<DebugToolsChooseSaveButton>()
 			.ToList();
 		
-		saveButtonList.ForEach((buttonSave) =>
-		{
-			buttonSave.PressedId += OnButtonSave_Pressed;
-		});
+		saveButtonList.ForEach((buttonSave) => buttonSave.PressedId += OnButtonSave_Pressed);
 	}
 	
 	public void UpdateSaveLabel()

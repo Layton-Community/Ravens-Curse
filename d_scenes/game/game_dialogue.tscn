@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dcc113ycd4l7b"]
+[gd_scene load_steps=14 format=3 uid="uid://dcc113ycd4l7b"]
 
 [ext_resource type="PackedScene" uid="uid://c5d4hyuvs1fwr" path="res://d_scenes/ui/ui_base.tscn" id="1_ytbq4"]
 [ext_resource type="AnimationLibrary" uid="uid://dp8piwdpjrrub" path="res://a_animations/game/anim_game_dialogue.tres" id="2_mw8ux"]
@@ -9,6 +9,7 @@
 [ext_resource type="FontFile" uid="uid://dmjgigmwvc4ai" path="res://a_fonts/roboto_mono_medium.ttf" id="4_hat8s"]
 [ext_resource type="RichTextEffect" uid="uid://w3m4rpmfxm8h" path="res://d_resources/game_dialogue_effect.tres" id="6_1le6t"]
 [ext_resource type="FontFile" uid="uid://ulsa4jbbxqsw" path="res://a_fonts/roboto_medium.ttf" id="6_g8rum"]
+[ext_resource type="Script" path="res://p_scripts/game_dialogue/LabelBox.cs" id="7_kth88"]
 [ext_resource type="AnimationLibrary" uid="uid://dhuww56rydajy" path="res://a_animations/game/anim_game_dialogue_base.tres" id="7_m23c1"]
 
 [sub_resource type="Animation" id="Animation_qyl0f"]
@@ -67,12 +68,12 @@ _data = {
 "RESET": SubResource("Animation_qyl0f")
 }
 
-[node name="GameDialogue" node_paths=PackedStringArray("logger", "labelName", "labelText", "buttonNext") instance=ExtResource("1_ytbq4")]
+[node name="GameDialogue" node_paths=PackedStringArray("logger", "labelName", "labelBox", "buttonNext") instance=ExtResource("1_ytbq4")]
 script = ExtResource("2_x36sq")
-textEffect = ExtResource("6_1le6t")
+sceneDialogue = ""
 logger = NodePath("Logger")
 labelName = NodePath("Middleground/CanvasGroup/BgDialogueName/LabelName")
-labelText = NodePath("Middleground/CanvasGroup/BgDialogue/LabelText")
+labelBox = NodePath("Middleground/CanvasGroup/BgDialogue/LabelBox")
 buttonNext = NodePath("Middleground/ButtonNext")
 
 [node name="Logger" type="Node" parent="." index="0"]
@@ -89,7 +90,8 @@ texture_filter = 1
 position = Vector2(640, 620)
 texture = ExtResource("2_vc4dk")
 
-[node name="LabelText" type="RichTextLabel" parent="Middleground/CanvasGroup/BgDialogue" index="0"]
+[node name="LabelBox" type="RichTextLabel" parent="Middleground/CanvasGroup/BgDialogue" index="0"]
+texture_filter = 2
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -108,8 +110,8 @@ bbcode_enabled = true
 text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis venenatis eget ante sit amet pharetra. Nulla facilisi. Nunc suscipit mauris eu euismod tincidunt. Aenean in."
 scroll_active = false
 shortcut_keys_enabled = false
-meta_underlined = false
-hint_underlined = false
+script = ExtResource("7_kth88")
+textEffect = ExtResource("6_1le6t")
 
 [node name="BgDialogueName" type="Sprite2D" parent="Middleground/CanvasGroup" index="1"]
 texture_filter = 1
@@ -117,6 +119,7 @@ position = Vector2(371.3, 521.3)
 texture = ExtResource("3_s8pmg")
 
 [node name="LabelName" type="Label" parent="Middleground/CanvasGroup/BgDialogueName" index="0"]
+texture_filter = 2
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

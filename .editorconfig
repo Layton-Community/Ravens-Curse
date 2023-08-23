@@ -1,9 +1,9 @@
 root = true
 
 [*.cs]
-# dotnet_diagnostic.IDE____.severity = silent
-dotnet_diagnostic.CA1822.severity = silent
-dotnet_diagnostic.CS0219.severity = silent
-dotnet_diagnostic.IDE0017.severity = silent
-dotnet_diagnostic.IDE0044.severity = silent
-dotnet_diagnostic.IDE0059.severity = silent
+dotnet_diagnostic.CA1822.severity = silent # Mark members as static
+dotnet_diagnostic.CA2211.severity = silent # Non-constant fields should not be visible
+dotnet_diagnostic.CS0219.severity = silent # The variable is assigned but its value is never used
+dotnet_diagnostic.IDE0017.severity = silent # Use object initializers 
+dotnet_diagnostic.IDE0044.severity = silent # Add readonly modifier 
+dotnet_diagnostic.IDE0059.severity = silent # Remove unnecessary value assignment 

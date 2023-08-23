@@ -30,7 +30,7 @@ public partial class CharacterBase : Control
 	
 	private void SetTexture(Texture2D newTexture)
 	{
-		if (!Engine.IsEditorHint() || newTexture == null|| button == null) return;
+		if (!Engine.IsEditorHint() || newTexture == null || button == null) return;
 		
 		texture = newTexture;
 		button.TextureNormal = texture;
