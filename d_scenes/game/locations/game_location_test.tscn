@@ -10,6 +10,10 @@
 [node name="Background" parent="." index="0"]
 texture = ExtResource("2_pnckm")
 
+[node name="ButtonTrunk" parent="Middleground/Buttons" index="0"]
+offset_top = 0.0
+offset_bottom = 30.0
+
 [node name="CharacterBase" parent="Middleground/Npcs" index="0" instance=ExtResource("2_sx557")]
 offset_left = 620.0
 offset_top = 244.0

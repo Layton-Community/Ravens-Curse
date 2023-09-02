@@ -23,9 +23,7 @@ public partial class DebugToolsChooseSave : AcceptDialog
 	{
 		Assert._(saveButtons.Length == saveLabels.Length);
 		
-		saveButtonList = saveButtons
-			.Cast<DebugToolsChooseSaveButton>()
-			.ToList();
+		saveButtonList = saveButtons.ToList<DebugToolsChooseSaveButton>();
 		
 		saveButtonList.ForEach((buttonSave) => buttonSave.PressedId += OnButtonSave_Pressed);
 	}

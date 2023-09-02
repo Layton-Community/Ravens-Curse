@@ -33,7 +33,7 @@ public partial class Loading : UiBase
 		
 		await ToSignal(GetTree().CreateTimer(FIRST_LOAD_WAIT), Timer.SignalName.Timeout);
 		
-		logos = logosContainer.GetChildren().Cast<CanvasItem>().ToList();
+		logos = logosContainer.GetChildren().ToList<CanvasItem>();
  		logos.ForEach((logo) => logo.Hide());
 		logos.First().Show();
 		

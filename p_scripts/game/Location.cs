@@ -23,6 +23,7 @@ public partial class Location : Ui.UiBase
 	[Export] protected TextureRect background;
 	
 	// Member variables
+	private string locationName;
 	
 	public override void _Ready()
 	{
@@ -32,11 +33,18 @@ public partial class Location : Ui.UiBase
 		buttonMove.Pressed += OnButtonMove_Pressed;
 
 		animations.SpeedScale = 2;
-		var npcs = GetTree().GetNodesInGroup(CharacterBase.GROUP).Cast<CharacterBase>().ToList();
-		var coins = GetTree().GetNodesInGroup(HintCoins.GROUP).Cast<HintCoins>().ToList();
+		var npcs = GetTree().GetNodesInGroup(CharacterBase.GROUP).ToList<CharacterBase>();
+		var coins = GetTree().GetNodesInGroup(HintCoins.GROUP).ToList<HintCoins>();
 		
 		npcs.ForEach((npc) => npc.PressedNpc += OnNpc_PressedNpc);
 		coins.ForEach((coin) => coin.Collected += OnCoin_Collected);
+		
+		locationName = background
+			.Texture.ResourceFileName()
+			.Replace("bg_", "").ToUpper();
+			
+		AutoLoad.GetSingleton<DialogueFactory>()
+			.Create(locationName, Dialogue.Type.ENTRY);
 	}
 
 	private void OnButtonTrunk_Pressed()
@@ -73,9 +81,6 @@ public partial class Location : Ui.UiBase
 		}
 		
 		npcName = npcName.ToUpper();
-		var locationName = background
-			.Texture.ResourceFileName()
-			.Replace("bg_", "").ToUpper();
 		
 		AutoLoad.GetSingleton<DialogueFactory>()
 			.Create(locationName, Dialogue.Type.NPC, npcName);

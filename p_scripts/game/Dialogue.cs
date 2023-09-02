@@ -14,6 +14,7 @@ public partial class Dialogue : Ui.UiBase
 	[ExportGroup("Imports")]
 	[Export(PropertyHint.File,"*.tscn")] private string sceneDialogue;
 	[Export] private Components.Logger logger;
+	[Export] private Sprite2D spriteNameBox;
 	[Export] private Label labelName;
 	[Export] private LabelBox labelBox;
 	[Export] private Button buttonNext;
@@ -31,10 +32,15 @@ public partial class Dialogue : Ui.UiBase
 	{
 		base._Ready();
 		
-		if (key.IsEmpty() || npcName.IsEmpty())
+		if (key.IsEmpty())
 		{
-			logger.Warn("The dialogue key or name is empty!");
+			logger.Warn("The dialogue key is empty!");
 			return;
+		}
+		
+		if (npcName.IsEmpty())
+		{
+			spriteNameBox.Hide();
 		}
 		
 		logger.Info($"Key: {key}");
@@ -42,7 +48,12 @@ public partial class Dialogue : Ui.UiBase
 		
 		if (dialogues.Count == 0)
 		{
-			logger.Warn($"There is no dialogues for the key: \"{key}\"!");
+			// It is normal for a location to have no dialogue.
+			if (key.Find(Type.ENTRY.ToString()) == -1)
+			{
+				logger.Warn($"There is no dialogues for the key: \"{key}\"!");
+			}
+			
 			return;
 		}
 		

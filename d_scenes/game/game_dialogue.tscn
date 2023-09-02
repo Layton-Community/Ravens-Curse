@@ -68,10 +68,11 @@ _data = {
 "RESET": SubResource("Animation_qyl0f")
 }
 
-[node name="GameDialogue" node_paths=PackedStringArray("logger", "labelName", "labelBox", "buttonNext") instance=ExtResource("1_ytbq4")]
+[node name="GameDialogue" node_paths=PackedStringArray("logger", "spriteNameBox", "labelName", "labelBox", "buttonNext") instance=ExtResource("1_ytbq4")]
 script = ExtResource("2_x36sq")
 sceneDialogue = ""
 logger = NodePath("Logger")
+spriteNameBox = NodePath("Middleground/CanvasGroup/BgDialogueName")
 labelName = NodePath("Middleground/CanvasGroup/BgDialogueName/LabelName")
 labelBox = NodePath("Middleground/CanvasGroup/BgDialogue/LabelBox")
 buttonNext = NodePath("Middleground/ButtonNext")

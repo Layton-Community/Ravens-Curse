@@ -49,7 +49,6 @@ public partial class AutoLoad : Singleton
 				singletons.Add(node.GetType(), node);
 				logger.Info($"Found singleton: {node.Name}");
 			}
-			
 		});
 	}
 }

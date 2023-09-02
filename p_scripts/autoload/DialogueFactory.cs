@@ -14,12 +14,14 @@ public partial class DialogueFactory : Singleton
 	
 	// Member variables
 	
-	public void Create(string locationName, Dialogue.Type type, string npcName, string version = "")
+	public void Create(string locationName, Dialogue.Type type, string npcName = "", string version = "")
 	{
 		var instance = sceneDialogue.InstantiateFromPath<Dialogue>();
-		instance.key = $"{locationName}_{type}_{npcName}";
+		instance.key = $"{locationName}_{type}"
+			+ (npcName.IsEmpty() ? string.Empty : $"_{npcName}")
+			+ (version.IsEmpty() ? string.Empty : $"_V{version}");
 		instance.npcName = npcName;
 		
-		GetTree().Root.AddChild(instance);
+		this.CallDeferred(() => GetTree().Root.AddChild(instance));
 	}
 }

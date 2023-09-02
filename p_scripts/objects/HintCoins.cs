@@ -14,6 +14,7 @@ public partial class HintCoins : Control
 	[Signal] public delegate void CollectedEventHandler();
 	
 	// Export variables
+	[ExportGroup("Imports")]
 	[Export] private TextureButton button;
 	[Export] private AnimationPlayer animations;
 
