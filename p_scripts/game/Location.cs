@@ -34,7 +34,7 @@ public partial class Location : Ui.UiBase
 
 		animations.SpeedScale = 2;
 		var npcs = GetTree().GetNodesInGroup(CharacterBase.GROUP).ToList<CharacterBase>();
-		var coins = GetTree().GetNodesInGroup(HintCoins.GROUP).ToList<HintCoins>();
+		var coins = GetTree().GetNodesInGroup(HintCoin.GROUP).ToList<HintCoin>();
 		
 		npcs.ForEach((npc) => npc.PressedNpc += OnNpc_PressedNpc);
 		coins.ForEach((coin) => coin.Collected += OnCoin_Collected);

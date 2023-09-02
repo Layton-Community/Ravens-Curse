@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://qtco1ich3ycd"
-path="res://.godot/imported/icon_talk1.svg-1e212442e482e5c40596e1e57c4a5d9b.ctex"
+uid="uid://bxgxbljm0rmg4"
+path="res://.godot/imported/icon_talk0.svg-733dd9f40c8a0e37116693a82bb74fd0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://a_sprites/map/icon_talk1.svg"
-dest_files=["res://.godot/imported/icon_talk1.svg-1e212442e482e5c40596e1e57c4a5d9b.ctex"]
+source_file="res://a_sprites/characters_effects/icon_talk0.svg"
+dest_files=["res://.godot/imported/icon_talk0.svg-733dd9f40c8a0e37116693a82bb74fd0.ctex"]
 
 [params]
 

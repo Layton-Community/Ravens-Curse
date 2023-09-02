@@ -1,8 +1,8 @@
 namespace Com.LaytonCommunity.RavensCurse.Game;
 
 [GlobalClass]
-[Icon("res://a_sprites/objects/hint_coin.png")]
-public partial class HintCoins : Control
+[Icon("res://a_sprites/game_objects/hint_coin.png")]
+public partial class HintCoin : Control
 {
 	// Constants
 	private const string ANIM_SPIN = "spin";

@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://b65axi7awqa8d" path="res://d_scenes/game/game_location.tscn" id="1_cnyll"]
 [ext_resource type="Texture2D" uid="uid://by5ifkj72nbry" path="res://a_sprites/game_location/backgrounds/bg_test.png" id="2_pnckm"]
-[ext_resource type="PackedScene" uid="uid://wat2iqvd7pti" path="res://d_scenes/characters/character_base.tscn" id="2_sx557"]
-[ext_resource type="PackedScene" uid="uid://bmcvoln445rjb" path="res://d_scenes/objects/hint_coins.tscn" id="4_vk6ul"]
+[ext_resource type="PackedScene" uid="uid://wat2iqvd7pti" path="res://d_scenes/game_characters/character_base.tscn" id="2_sx557"]
+[ext_resource type="PackedScene" uid="uid://bmcvoln445rjb" path="res://d_scenes/game_objects/hint_coin.tscn" id="4_vk6ul"]
 
 [node name="GameLocationTest" instance=ExtResource("1_cnyll")]
 
@@ -14,12 +14,14 @@ texture = ExtResource("2_pnckm")
 offset_top = 0.0
 offset_bottom = 30.0
 
-[node name="CharacterBase" parent="Middleground/Npcs" index="0" instance=ExtResource("2_sx557")]
+[node name="CharacterBase" parent="Middleground/Npcs" index="0" node_paths=PackedStringArray("button", "animation") instance=ExtResource("2_sx557")]
 offset_left = 620.0
 offset_top = 244.0
 offset_right = 620.0
 offset_bottom = 244.0
 scale = Vector2(0.5, 0.5)
+button = NodePath("")
+animation = NodePath("")
 
 [node name="HintCoins" parent="Middleground/HintCoins" index="0" instance=ExtResource("4_vk6ul")]
 layout_mode = 1

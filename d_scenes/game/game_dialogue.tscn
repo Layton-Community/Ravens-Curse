@@ -9,7 +9,7 @@
 [ext_resource type="FontFile" uid="uid://dmjgigmwvc4ai" path="res://a_fonts/roboto_mono_medium.ttf" id="4_hat8s"]
 [ext_resource type="RichTextEffect" uid="uid://w3m4rpmfxm8h" path="res://d_resources/game_dialogue_effect.tres" id="6_1le6t"]
 [ext_resource type="FontFile" uid="uid://ulsa4jbbxqsw" path="res://a_fonts/roboto_medium.ttf" id="6_g8rum"]
-[ext_resource type="Script" path="res://p_scripts/game_dialogue/LabelBox.cs" id="7_kth88"]
+[ext_resource type="Script" path="res://p_scripts/game/dialogue/LabelBox.cs" id="7_kth88"]
 [ext_resource type="AnimationLibrary" uid="uid://dhuww56rydajy" path="res://a_animations/game/anim_game_dialogue_base.tres" id="7_m23c1"]
 
 [sub_resource type="Animation" id="Animation_qyl0f"]
