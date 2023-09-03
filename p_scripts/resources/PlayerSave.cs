@@ -9,6 +9,7 @@ public partial class PlayerSave : Resource
 	private const string PATH_SAVE_EXT = ".tres";
 	
 	// Statics
+	// REFACTOR TO AUTOLOAD
 	public static PlayerSave Singleton { get; private set; } = null;
 	
 	// Enums
