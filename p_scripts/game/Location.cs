@@ -33,6 +33,9 @@ public partial class Location : Ui.UiBase
 		buttonMove.Pressed += OnButtonMove_Pressed;
 
 		animations.SpeedScale = 2;
+		
+		if (background.Texture == null) { return; }
+		
 		var npcs = GetTree().GetNodesInGroup(CharacterBase.GROUP).ToList<CharacterBase>();
 		var coins = GetTree().GetNodesInGroup(HintCoin.GROUP).ToList<HintCoin>();
 		
@@ -74,12 +77,6 @@ public partial class Location : Ui.UiBase
 	
 	private void OnNpc_PressedNpc(string npcName)
 	{
-		if (background.Texture == null)
-		{
-			Print.Warn(GetType().Name, "The background has no texture!");
-			return;
-		}
-		
 		npcName = npcName.ToUpper();
 		
 		AutoLoad.GetSingleton<DialogueFactory>()

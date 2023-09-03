@@ -14,18 +14,18 @@ texture = ExtResource("2_pnckm")
 offset_top = 0.0
 offset_bottom = 30.0
 
-[node name="CharacterBase" parent="Middleground/Npcs" index="0" node_paths=PackedStringArray("button", "animation") instance=ExtResource("2_sx557")]
+[node name="CharacterBase" parent="Middleground/Npcs" index="0" instance=ExtResource("2_sx557")]
 offset_left = 620.0
 offset_top = 244.0
 offset_right = 620.0
 offset_bottom = 244.0
 scale = Vector2(0.5, 0.5)
-button = NodePath("")
-animation = NodePath("")
 
-[node name="HintCoins" parent="Middleground/HintCoins" index="0" instance=ExtResource("4_vk6ul")]
+[node name="HintCoins" parent="Middleground/HintCoins" index="0" node_paths=PackedStringArray("button", "animations") instance=ExtResource("4_vk6ul")]
 layout_mode = 1
 offset_left = 319.0
 offset_top = 199.0
 offset_right = 319.0
 offset_bottom = 199.0
+button = NodePath("")
+animations = NodePath("")
