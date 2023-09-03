@@ -54,6 +54,7 @@ public partial class Dialogue : Ui.UiBase
 				logger.Warn($"There is no dialogues for the key: \"{key}\"!");
 			}
 			
+			QueueFree();
 			return;
 		}
 		

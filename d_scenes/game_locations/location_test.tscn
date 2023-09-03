@@ -1,11 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://bcux1xp6c3myo"]
+[gd_scene load_steps=7 format=3 uid="uid://bcux1xp6c3myo"]
 
 [ext_resource type="PackedScene" uid="uid://b65axi7awqa8d" path="res://d_scenes/game/game_location.tscn" id="1_cnyll"]
 [ext_resource type="Texture2D" uid="uid://by5ifkj72nbry" path="res://a_sprites/game_location/backgrounds/bg_test.png" id="2_pnckm"]
 [ext_resource type="PackedScene" uid="uid://wat2iqvd7pti" path="res://d_scenes/game_characters/character_base.tscn" id="2_sx557"]
+[ext_resource type="PackedScene" uid="uid://c8gdi0thuho20" path="res://d_scenes/game_objects/arrow.tscn" id="3_k5wya"]
+[ext_resource type="Texture2D" uid="uid://i77wcx4ad1ll" path="res://a_sprites/game_objects/arrow_right_0.png" id="4_emhuk"]
 [ext_resource type="PackedScene" uid="uid://bmcvoln445rjb" path="res://d_scenes/game_objects/hint_coin.tscn" id="4_vk6ul"]
 
-[node name="GameLocationTest" instance=ExtResource("1_cnyll")]
+[node name="LocationTest" instance=ExtResource("1_cnyll")]
 
 [node name="Background" parent="." index="0"]
 texture = ExtResource("2_pnckm")
@@ -14,6 +16,16 @@ texture = ExtResource("2_pnckm")
 offset_top = 0.0
 offset_bottom = 30.0
 
+[node name="Arrow" parent="Middleground/Arrows" index="0" instance=ExtResource("3_k5wya")]
+layout_mode = 0
+offset_left = 1007.0
+offset_top = 309.0
+offset_right = 1031.0
+offset_bottom = 349.0
+texture_normal = ExtResource("4_emhuk")
+pathArrowScene = "res://d_scenes/game_locations/location_test2.tscn"
+ArrowDirection = 3
+
 [node name="CharacterBase" parent="Middleground/Npcs" index="0" instance=ExtResource("2_sx557")]
 offset_left = 620.0
 offset_top = 244.0
@@ -21,11 +33,9 @@ offset_right = 620.0
 offset_bottom = 244.0
 scale = Vector2(0.5, 0.5)
 
-[node name="HintCoins" parent="Middleground/HintCoins" index="0" node_paths=PackedStringArray("button", "animations") instance=ExtResource("4_vk6ul")]
+[node name="HintCoins" parent="Middleground/HintCoins" index="0" instance=ExtResource("4_vk6ul")]
 layout_mode = 1
 offset_left = 319.0
 offset_top = 199.0
 offset_right = 319.0
 offset_bottom = 199.0
-button = NodePath("")
-animations = NodePath("")

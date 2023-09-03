@@ -24,6 +24,7 @@ public partial class Location : Ui.UiBase
 	
 	// Member variables
 	private string locationName;
+	private List<Arrow> arrows;
 	
 	public override void _Ready()
 	{
@@ -31,6 +32,7 @@ public partial class Location : Ui.UiBase
 
 		buttonTrunk.Pressed += OnButtonTrunk_Pressed;
 		buttonMove.Pressed += OnButtonMove_Pressed;
+		animations.AnimationFinished += On_ReadyAnimationFinished;
 
 		animations.SpeedScale = 2;
 		
@@ -38,9 +40,16 @@ public partial class Location : Ui.UiBase
 		
 		var npcs = GetTree().GetNodesInGroup(CharacterBase.GROUP).ToList<CharacterBase>();
 		var coins = GetTree().GetNodesInGroup(HintCoin.GROUP).ToList<HintCoin>();
+		arrows = GetTree().GetNodesInGroup(Arrow.GROUP).ToList<Arrow>();
 		
 		npcs.ForEach((npc) => npc.PressedNpc += OnNpc_PressedNpc);
 		coins.ForEach((coin) => coin.Collected += OnCoin_Collected);
+		arrows.ForEach((arrow) => arrow.Hide());
+	}
+
+	private void On_ReadyAnimationFinished(StringName _)
+	{
+		animations.AnimationFinished -= On_ReadyAnimationFinished;
 		
 		locationName = background
 			.Texture.ResourceFileName()
@@ -67,9 +76,18 @@ public partial class Location : Ui.UiBase
 
 	private void OnButtonMove_Pressed()
 	{
+		animations.AnimationFinished += ShowArrows;
+		
 		animations.Play(ANIM_MOVEMENT);
 	}
-	
+
+	private void ShowArrows(StringName animName)
+	{
+		animations.AnimationFinished -= ShowArrows;
+		
+		arrows.ForEach((arrow) => arrow.Show());
+	}
+
 	private void OnMove_AnimationFinished()
 	{
 		// Show arrows 

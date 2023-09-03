@@ -138,16 +138,12 @@ _data = {
 "spin": SubResource("Animation_3yu54")
 }
 
-[node name="HintCoin" type="Control" groups=["coins"]]
+[node name="HintCoin" type="Control" node_paths=PackedStringArray("button", "animations") groups=["coins"]]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_mcp32")
-button = Object(TextureButton,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","visible":true,"modulate":Color(1, 1, 1, 1),"self_modulate":Color(1, 1, 1, 1),"show_behind_parent":false,"top_level":false,"clip_children":0,"light_mask":1,"visibility_layer":1,"z_index":0,"z_as_relative":true,"y_sort_enabled":false,"texture_filter":1,"texture_repeat":0,"material":null,"use_parent_material":false,"clip_contents":false,"custom_minimum_size":Vector2(0, 0),"layout_direction":0,"layout_mode":3,"anchors_preset":0,"anchor_left":0.0,"anchor_top":0.0,"anchor_right":0.0,"anchor_bottom":0.0,"offset_left":-9.5,"offset_top":-9.5,"offset_right":9.5,"offset_bottom":9.5,"grow_horizontal":1,"grow_vertical":1,"rotation":0.0,"scale":Vector2(1.5, 1.5),"pivot_offset":Vector2(9.5, 9.5),"size_flags_horizontal":1,"size_flags_vertical":1,"size_flags_stretch_ratio":1.0,"auto_translate":true,"localize_numeral_system":true,"tooltip_text":"","focus_neighbor_left":NodePath(""),"focus_neighbor_top":NodePath(""),"focus_neighbor_right":NodePath(""),"focus_neighbor_bottom":NodePath(""),"focus_next":NodePath(""),"focus_previous":NodePath(""),"focus_mode":2,"mouse_filter":0,"mouse_force_pass_scroll_events":true,"mouse_default_cursor_shape":0,"shortcut_context":null,"theme":null,"theme_type_variation":&"","disabled":false,"toggle_mode":false,"button_pressed":false,"action_mode":1,"button_mask":1,"keep_pressed_outside":false,"button_group":null,"shortcut":null,"shortcut_feedback":true,"shortcut_in_tooltip":true,"texture_normal":ExtResource("2_gi33j"),"texture_pressed":null,"texture_hover":null,"texture_disabled":null,"texture_focused":null,"texture_click_mask":null,"ignore_texture_size":false,"stretch_mode":2,"flip_h":false,"flip_v":false,"script":null)
-
-animations = Object(AnimationPlayer,"_import_path":NodePath(""),"unique_name_in_owner":false,"process_mode":0,"process_priority":0,"process_physics_priority":0,"process_thread_group":0,"editor_description":"","root_node":NodePath(".."),"autoplay":"","reset_on_save":true,"playback_process_mode":1,"playback_default_blend_time":0.0,"speed_scale":1.0,"method_call_mode":0,"audio_max_polyphony":32,"movie_quit_on_finish":false,"libraries":{
-"": SubResource("AnimationLibrary_dmm23")
-},"blend_times":[],"script":null)
-
+button = NodePath("TextureCoins")
+animations = NodePath("AnimationPlayer")
 
 [node name="TextureCoins" type="TextureButton" parent="."]
 texture_filter = 1

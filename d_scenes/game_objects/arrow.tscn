@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://c8gdi0thuho20"]
+
+[ext_resource type="Texture2D" uid="uid://c5ksek54oj4wb" path="res://a_sprites/game_objects/arrow_up_0.png" id="1_gdj1k"]
+[ext_resource type="Script" path="res://p_scripts/game_objects/Arrow.cs" id="1_ycuta"]
+
+[node name="Arrow" type="TextureButton" groups=["arrow"]]
+scale = Vector2(2.5, 2.5)
+texture_normal = ExtResource("1_gdj1k")
+script = ExtResource("1_ycuta")
+pathArrowSprites = "res://a_sprites/game_objects"
