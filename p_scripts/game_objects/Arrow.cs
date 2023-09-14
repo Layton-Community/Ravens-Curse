@@ -9,11 +9,8 @@ public partial class Arrow : TextureButton
 	// Constants
 	public const string GROUP = "arrow";
 	
-	private const string FILE_PREFIX = "arrow";
-	private const string FILE_IMPORT = ".import";
-	
 	// Enums
-	enum Direction { Up, Down, Left, Right, Back, BackLeft, BackRight, Hand }
+	public enum Direction { Up, Down, Left, Right, Back, BackLeft, BackRight, Hand }
 	
 	// Signal
 	
@@ -26,11 +23,10 @@ public partial class Arrow : TextureButton
 	}
 
 	[ExportGroup("Imports")]
-	[Export(PropertyHint.Dir)] private string pathArrowSprites;
+	[Export] private ArrowDictionary arrowDictionary;
 	
 	// Member variables
 	private Direction arrowDirection;
-	private Dictionary<Direction, Texture2D> directionTextures;
 	
 	public override void _Ready()
 	{
@@ -48,51 +44,19 @@ public partial class Arrow : TextureButton
 	{
 		arrowDirection = newDirection;
 		
-		string dirSnakeCase = newDirection.ToString().ToSnakeCase();
-		string textureName = TextureNormal.ResourceFileName();
+		// If the script is not in the engine, return
+		if (!Engine.IsEditorHint() || arrowDictionary == null) return;
 		
-		// If the script is not in the engine or the direction enum is the same as the texture, return
-		if (!Engine.IsEditorHint() || textureName.Find(dirSnakeCase) != -1) return;
-		
-		if (directionTextures == null)
+		if (TextureNormal != null)
 		{
-			var error = InitDirectionTextures();
+			string dirSnakeCase = newDirection.ToString().ToSnakeCase();
+			string textureName = TextureNormal.ResourceFileName();
 			
-			if (error != Error.Ok) return;
+			// If the direction enum is the same as the texture, return
+			if (textureName.Find(dirSnakeCase) != -1) return;
 		}
 		
-		TextureNormal = directionTextures[arrowDirection];
-	}
-
-	private Error InitDirectionTextures()
-	{
-		if (pathArrowSprites == null) return Error.FileBadPath;
-		
-		var directions = (Enum.GetValues(typeof(Direction)) as Direction[]).ToList();
-		var files = DirAccess.Open(pathArrowSprites)
-			.GetFiles()
-			.ToList()
-			.FindAll(str => str.Find(FILE_PREFIX) != -1)
-			.FindAll(str => str.Find(FILE_IMPORT) == -1)
-			.FindAll(str => str.Find("0") != -1);
-
-		var names = new List<string>(files)
-			.Select(str => str.Replace($"{FILE_PREFIX}_", string.Empty))
-			.Select(str => str.Remove(str.LastIndexOf('_')))
-			.Select(str => string.Join(string.Empty, str.Split('_').Select(str => str.ToPascalCase())))
-			.ToList();
-
-		directionTextures = new();
-
-		for (int i = 0; i < files.Count; i++)
-		{
-			directionTextures.Add(
-				directions.Find(str => str.ToString() == names[i]),
-				GD.Load<Texture2D>($"{pathArrowSprites}/{files[i]}")
-			);
-		}
-		
-		return Error.Ok;
+		TextureNormal = arrowDictionary.GetValue(arrowDirection).Item1;
 	}
 }
 
