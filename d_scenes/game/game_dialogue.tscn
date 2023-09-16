@@ -68,18 +68,17 @@ _data = {
 "RESET": SubResource("Animation_qyl0f")
 }
 
-[node name="GameDialogue" node_paths=PackedStringArray("logger", "spriteNameBox", "labelName", "labelBox", "buttonNext") instance=ExtResource("1_ytbq4")]
+[node name="GameDialogue" node_paths=PackedStringArray("logger", "spriteNameBox", "labelName", "labelBox", "buttonNext", "buttonSkip") instance=ExtResource("1_ytbq4")]
 script = ExtResource("2_x36sq")
-sceneDialogue = ""
 logger = NodePath("Logger")
 spriteNameBox = NodePath("Middleground/CanvasGroup/BgDialogueName")
 labelName = NodePath("Middleground/CanvasGroup/BgDialogueName/LabelName")
 labelBox = NodePath("Middleground/CanvasGroup/BgDialogue/LabelBox")
 buttonNext = NodePath("Middleground/ButtonNext")
+buttonSkip = NodePath("Middleground/ButtonSkip")
 
 [node name="Logger" type="Node" parent="." index="0"]
 script = ExtResource("3_vuklg")
-enabled = true
 
 [node name="Background" parent="." index="1"]
 modulate = Color(1, 1, 1, 0)
@@ -139,6 +138,16 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="ButtonNext" type="Button" parent="Middleground" index="1"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+
+[node name="ButtonSkip" type="Button" parent="Middleground" index="2"]
 visible = false
 layout_mode = 1
 anchors_preset = 15

@@ -16,19 +16,32 @@ public partial class LabelBox : RichTextLabel
 	[Export] private RichTextEffectDialogue textEffect;
 	
 	// Member variables
+	private string currentText;
+	
+	
 	
 	public void AddDialogue(string newText)
 	{
-		Text = $"[{EFFECT}]{newText}[/{EFFECT}]";
+		currentText = newText;
+		Text = $"[{EFFECT}]{currentText}[/{EFFECT}]";
 		var effect = textEffect.Duplicate() as RichTextEffectDialogue;
 		effect.textLength = newText.Length;
-		effect.FinishedEffect += () =>
-		{
-			CustomEffects.Clear();
-			EmitSignal(SignalName.FinishedEffect);
-		};
-		
+		effect.FinishedEffect += OnEffect_Finished;
+
 		InstallEffect(effect);
+	}
+	
+	public void SkipDialogues()
+	{
+		Text = currentText;
+		
+		OnEffect_Finished();
+	}
+	
+	private void OnEffect_Finished()
+	{
+		CustomEffects.Clear();
+		EmitSignal(SignalName.FinishedEffect);
 	}
 }
 

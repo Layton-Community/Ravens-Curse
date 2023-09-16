@@ -12,12 +12,12 @@ public partial class Dialogue : Ui.UiBase
 
 	// Export variables
 	[ExportGroup("Imports")]
-	[Export(PropertyHint.File,"*.tscn")] private string sceneDialogue;
 	[Export] private Components.Logger logger;
 	[Export] private Sprite2D spriteNameBox;
 	[Export] private Label labelName;
 	[Export] private LabelBox labelBox;
 	[Export] private Button buttonNext;
+	[Export] private Button buttonSkip;
 	
 	// Member variables
 	public string key = string.Empty;
@@ -59,8 +59,10 @@ public partial class Dialogue : Ui.UiBase
 		}
 		
 		buttonNext.Pressed += OnButtonNext_Pressed;
+		buttonSkip.Pressed += OnButtonSkip_Pressed;
 		labelBox.FinishedEffect += OnLabelBox_FinishedEffect;
 		buttonNext.Visible = false;
+		buttonSkip.Visible = false;
 		labelName.Text = npcName;
 		
 		UpdateDialogueText();
@@ -92,6 +94,7 @@ public partial class Dialogue : Ui.UiBase
 		{
 			labelBox.AddDialogue(dialogues[index]);
 			
+			buttonSkip.Visible = true;
 			index += 1;
 		}
 		else
@@ -99,10 +102,18 @@ public partial class Dialogue : Ui.UiBase
 			animations.Play(ANIM_FADE_OUT);
 		}
 	}
+
+	private void OnButtonSkip_Pressed()
+	{
+		buttonSkip.Visible = false;
+		
+		labelBox.SkipDialogues();
+	}
 	
 	private void OnLabelBox_FinishedEffect()
 	{
 		buttonNext.Visible = true;
+		buttonSkip.Visible = false;
 	}
 
 	private void OnButtonNext_Pressed()
