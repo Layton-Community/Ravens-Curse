@@ -20,10 +20,10 @@ offset_bottom = 30.0
 
 [node name="Arrow" parent="Middleground/Arrows" index="0" instance=ExtResource("3_8pmvh")]
 layout_mode = 0
-offset_left = 143.0
-offset_top = 330.0
-offset_right = 167.0
-offset_bottom = 370.0
+offset_left = 148.0
+offset_top = 329.0
+offset_right = 172.0
+offset_bottom = 369.0
 texture_normal = ExtResource("4_hawfo")
 pathArrowScene = "res://d_scenes/game_locations/location_test.tscn"
 ArrowDirection = 2

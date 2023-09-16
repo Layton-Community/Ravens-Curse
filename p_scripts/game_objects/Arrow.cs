@@ -1,4 +1,5 @@
-using System.Text.RegularExpressions;
+using System.ComponentModel.DataAnnotations;
+using Com.LaytonCommunity.RavensCurse.Components;
 
 namespace Com.LaytonCommunity.RavensCurse.Game;
 
@@ -9,6 +10,9 @@ public partial class Arrow : TextureButton
 	// Constants
 	public const string GROUP = "arrow";
 	
+	private const string ANIM_IDLE = "anim_arrow/idle";
+	private const string ANIM_PRESSED = "anim_arrow/pressed";
+
 	// Enums
 	public enum Direction { Up, Down, Left, Right, Back, BackLeft, BackRight, Hand }
 	
@@ -24,21 +28,14 @@ public partial class Arrow : TextureButton
 
 	[ExportGroup("Imports")]
 	[Export] private ArrowDictionary arrowDictionary;
+	[Export] private AnimationPlayer animation;
+	[Export] private Logger logger;
 	
 	// Member variables
 	private Direction arrowDirection;
+	private Location location;
 	
-	public override void _Ready()
-	{
-		Pressed += On_Pressed;
-	}
-
-	private void On_Pressed()
-	{
-		if (string.IsNullOrEmpty(pathArrowScene)) return;
-		
-		GetTree().ChangeSceneToFile(pathArrowScene);
-	}
+	
 	
 	private void SetDirection(Direction newDirection)
 	{
@@ -58,5 +55,60 @@ public partial class Arrow : TextureButton
 		
 		TextureNormal = arrowDictionary.GetValue(arrowDirection).Item1;
 	}
+	
+	
+	
+	public void OnLocation_ShowArrows(Location instance)
+	{
+		if (!animation.IsPlaying())
+		{
+			Pressed += OnThis_Pressed;
+			
+			location = instance;
+			
+			Show();
+			animation.Play(ANIM_IDLE);
+		}
+	}
+	
+	private void OnThis_Pressed()
+	{
+		Pressed -= OnThis_Pressed;
+		animation.AnimationFinished += OnAnimationPressed_Finished;
+		
+		animation.Play(ANIM_PRESSED);
+	}
+	
+	private void OnAnimationPressed_SetSprite(int id)
+	{
+		var value = arrowDictionary.GetValue(arrowDirection);
+		
+		TextureNormal = id == 0 ? value.Item1 : value.Item2;
+	}
+
+	private void OnAnimationPressed_Finished(StringName _)
+	{
+		animation.AnimationFinished -= OnAnimationPressed_Finished;
+		
+		if (string.IsNullOrEmpty(pathArrowScene))
+		{
+			logger.Error("The path to the scene is empty!");
+			return;
+		}
+		
+		location.OnArrow_Pressed(pathArrowScene);
+	}
 }
 
+/*
+	private void OnAnimationPressed_Finished(StringName _)
+	{
+		if (string.IsNullOrEmpty(pathArrowScene))
+		{
+			logger.Error("The path to the scene is empty!");
+			return;
+		}
+		
+		GetTree().ChangeSceneToFile(pathArrowScene);
+	}
+*/

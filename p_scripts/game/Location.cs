@@ -58,7 +58,19 @@ public partial class Location : Ui.UiBase
 		AutoLoad.GetSingleton<DialogueFactory>()
 			.Create(locationName, Dialogue.Type.ENTRY);
 	}
-
+	
+	
+	
+	private void OnNpc_PressedNpc(string npcName)
+	{
+		npcName = npcName.ToUpper();
+		
+		AutoLoad.GetSingleton<DialogueFactory>()
+			.Create(locationName, Dialogue.Type.NPC, npcName);
+	}
+	
+	
+	
 	private void OnButtonTrunk_Pressed()
 	{
 		animations.Play(ANIM_TRUNK);
@@ -73,34 +85,35 @@ public partial class Location : Ui.UiBase
 		
 		animations.Play(ANIM_FADE_OUT);
 	}
-
+	
+	
+	
 	private void OnButtonMove_Pressed()
 	{
-		animations.AnimationFinished += ShowArrows;
+		animations.AnimationFinished += OnAnimationMove_Finished;
 		
 		animations.Play(ANIM_MOVEMENT);
 	}
 
-	private void ShowArrows(StringName animName)
+	private void OnAnimationMove_Finished(StringName _)
 	{
-		animations.AnimationFinished -= ShowArrows;
+		animations.AnimationFinished -= OnAnimationMove_Finished;
 		
-		arrows.ForEach((arrow) => arrow.Show());
+		arrows.ForEach((arrow) => arrow.OnLocation_ShowArrows(this));
 	}
 
-	private void OnMove_AnimationFinished()
+	public void OnArrow_Pressed(string pathArrow)
 	{
-		// Show arrows 
+		animations.AnimationFinished += (_) =>
+		{
+			ChangeSceneToFile(pathArrow, true);
+		};
+		
+		animations.Play(ANIM_FADE_OUT);
 	}
 	
-	private void OnNpc_PressedNpc(string npcName)
-	{
-		npcName = npcName.ToUpper();
-		
-		AutoLoad.GetSingleton<DialogueFactory>()
-			.Create(locationName, Dialogue.Type.NPC, npcName);
-	}
-
+	
+	
 	private void OnCoin_Collected()
 	{
 		// save coin

@@ -1,6 +1,8 @@
 **/*builds
 **/*save.key
 **/*.old*
+**/out/*
+todo.txt
 
 ####
 

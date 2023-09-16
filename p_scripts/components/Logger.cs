@@ -1,5 +1,6 @@
 namespace Com.LaytonCommunity.RavensCurse.Components;
 
+[Tool]
 [GlobalClass]
 [Icon("res://a_sprites/icons/node_custom.svg")]
 public partial class Logger : NodeCS
