@@ -152,7 +152,7 @@ _data = {
 "RESET": SubResource("Animation_qyl0f")
 }
 
-[node name="GameLocation" node_paths=PackedStringArray("buttonTrunk", "buttonMove", "buttonTrunkSfx", "buttonMoveSfx", "background") instance=ExtResource("1_o8f23")]
+[node name="GameLocation" node_paths=PackedStringArray("buttonTrunk", "buttonMove", "buttonCursor", "buttonTrunkSfx", "buttonMoveSfx", "background") instance=ExtResource("1_o8f23")]
 offset_top = 1.0
 offset_bottom = 1.0
 script = ExtResource("2_2kkwt")
@@ -162,9 +162,27 @@ textureTrunkDust = ExtResource("3_q7kyd")
 textureMoveDust = ExtResource("4_cl83n")
 buttonTrunk = NodePath("Middleground/Buttons/ButtonTrunk")
 buttonMove = NodePath("Middleground/Buttons/ButtonMove")
+buttonCursor = NodePath("Background/ButtonCursor")
 buttonTrunkSfx = NodePath("Middleground/Buttons/ButtonTrunk/AudioStreamPlayer")
 buttonMoveSfx = NodePath("Middleground/Buttons/ButtonMove/AudioStreamPlayer")
 background = NodePath("Background")
+
+[node name="Background" parent="." index="0"]
+metadata/_edit_group_ = true
+
+[node name="ButtonCursor" type="Button" parent="Background" index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+action_mode = 0
+flat = true
+
+[node name="Middleground" parent="." index="1"]
+mouse_filter = 2
 
 [node name="Buttons" type="Control" parent="Middleground" index="0"]
 layout_mode = 1
@@ -173,6 +191,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 metadata/_edit_lock_ = true
 
 [node name="ButtonTrunk" type="TextureButton" parent="Middleground/Buttons" index="0"]
@@ -216,18 +235,22 @@ stream = ExtResource("7_r3qdm")
 
 [node name="Arrows" type="Control" parent="Middleground" index="1"]
 anchors_preset = 0
+mouse_filter = 2
 metadata/_edit_lock_ = true
 
 [node name="Popups" type="Control" parent="Middleground" index="2"]
 anchors_preset = 0
+mouse_filter = 2
 metadata/_edit_lock_ = true
 
 [node name="Npcs" type="Control" parent="Middleground" index="3"]
 anchors_preset = 0
+mouse_filter = 2
 metadata/_edit_lock_ = true
 
 [node name="HintCoins" type="Control" parent="Middleground" index="4"]
 anchors_preset = 0
+mouse_filter = 2
 metadata/_edit_lock_ = true
 
 [node name="AnimationPlayer" parent="." index="3"]

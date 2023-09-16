@@ -16,7 +16,8 @@ public partial class Singleton : Node
 	public override void _Ready()
 	{
 		logger = new Logger();
+		logger.Name = nameof(Logger);
 		
-		AddChild(logger, true);
+		AddChild(logger);
 	}
 }

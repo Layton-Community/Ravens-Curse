@@ -18,22 +18,29 @@ public partial class Location : Ui.UiBase
 	[Export] protected Texture2D textureMoveDust;
 	[Export] protected TextureButton buttonTrunk;
 	[Export] protected TextureButton buttonMove;
+	[Export] protected Button buttonCursor;
 	[Export] protected AudioStreamPlayer buttonTrunkSfx;
 	[Export] protected AudioStreamPlayer buttonMoveSfx;
 	[Export] protected TextureRect background;
 	
 	// Member variables
 	private string locationName;
+	
 	private List<Arrow> arrows;
+	private Cursor cursor;
+	
+	
 	
 	public override void _Ready()
 	{
 		base._Ready();
-
+		
 		buttonTrunk.Pressed += OnButtonTrunk_Pressed;
 		buttonMove.Pressed += OnButtonMove_Pressed;
+		buttonCursor.Pressed += OnButtonClick_Pressed;
 		animations.AnimationFinished += On_ReadyAnimationFinished;
-
+		
+		cursor = AutoLoad.GetSingleton<Cursor>();
 		animations.SpeedScale = 2;
 		
 		if (background.Texture == null) { return; }
@@ -46,7 +53,7 @@ public partial class Location : Ui.UiBase
 		coins.ForEach((coin) => coin.Collected += OnCoin_Collected);
 		arrows.ForEach((arrow) => arrow.Hide());
 	}
-
+	
 	private void On_ReadyAnimationFinished(StringName _)
 	{
 		animations.AnimationFinished -= On_ReadyAnimationFinished;
@@ -57,6 +64,13 @@ public partial class Location : Ui.UiBase
 			
 		AutoLoad.GetSingleton<DialogueFactory>()
 			.Create(locationName, Dialogue.Type.ENTRY);
+	}
+	
+	
+	
+	private void OnButtonClick_Pressed()
+	{
+		cursor.ClickEffect();
 	}
 	
 	
@@ -94,14 +108,14 @@ public partial class Location : Ui.UiBase
 		
 		animations.Play(ANIM_MOVEMENT);
 	}
-
+	
 	private void OnAnimationMove_Finished(StringName _)
 	{
 		animations.AnimationFinished -= OnAnimationMove_Finished;
 		
 		arrows.ForEach((arrow) => arrow.OnLocation_ShowArrows(this));
 	}
-
+	
 	public void OnArrow_Pressed(string pathArrow)
 	{
 		animations.AnimationFinished += (_) =>

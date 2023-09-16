@@ -1,3 +1,5 @@
+using Com.LaytonCommunity.RavensCurse.Components;
+
 namespace Com.LaytonCommunity.RavensCurse;
 
 public partial class AutoLoad : Singleton
@@ -42,14 +44,13 @@ public partial class AutoLoad : Singleton
 		instanciated = true;
 		logger.enabled = isLogging;
 		
-		GetChildren().ToList().ForEach((node) =>
-		{
-			if (node is Singleton)
+		GetChildren().ToList()
+			.FindAll(node => node is not Logger)
+			.ForEach((node) =>
 			{
 				singletons.Add(node.GetType(), node);
 				logger.Info($"Found singleton: {node.Name}");
-			}
-		});
+			});
 	}
 }
 

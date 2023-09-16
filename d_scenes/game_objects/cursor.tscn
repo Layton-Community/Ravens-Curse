@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=3 uid="uid://bbx4wvo4nku7f"]
+
+[ext_resource type="Script" path="res://p_scripts/game_objects/Cursor.cs" id="1_4iypv"]
+[ext_resource type="Texture2D" uid="uid://dq15hlur3f00p" path="res://a_sprites/game_objects/touch_0.png" id="1_ietpo"]
+[ext_resource type="Texture2D" uid="uid://cblj2gyyipxdu" path="res://a_sprites/game_objects/touch_1.png" id="2_41m5x"]
+[ext_resource type="Texture2D" uid="uid://biwqkfp044q3y" path="res://a_sprites/game_objects/touch_2.png" id="3_ax8ak"]
+[ext_resource type="Texture2D" uid="uid://c4fxnhqjc6wcd" path="res://a_sprites/game_objects/touch_3.png" id="4_pwwnf"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_evjmg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ietpo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_41m5x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ax8ak")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_pwwnf")
+}],
+"loop": false,
+"name": &"default",
+"speed": 15.0
+}]
+
+[node name="Cursor" type="CanvasLayer" node_paths=PackedStringArray("sprites")]
+script = ExtResource("1_4iypv")
+sprites = NodePath("AnimatedSprite2D")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_evjmg")
+offset = Vector2(0.5, 0)
