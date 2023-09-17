@@ -1,12 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://cu21k5614gqv6"]
+[gd_scene load_steps=3 format=3 uid="uid://cu21k5614gqv6"]
 
-[ext_resource type="Script" path="res://p_scripts/game_objects/Popup.cs" id="1_tm60t"]
+[ext_resource type="Script" path="res://p_scripts/game_objects/PopupZone.cs" id="1_2866a"]
+[ext_resource type="PackedScene" uid="uid://dmvel320fhsvc" path="res://d_scenes/game/game_popup.tscn" id="2_ttwlp"]
 
-[node name="Popup" type="TextureButton" node_paths=PackedStringArray("colorRect")]
+[node name="PopupZone" type="TextureButton" node_paths=PackedStringArray("colorRect") groups=["popup_zone"]]
 offset_right = 300.0
 offset_bottom = 200.0
-script = ExtResource("1_tm60t")
+script = ExtResource("1_2866a")
 colorRect = NodePath("ColorRect")
+popupScene = ExtResource("2_ttwlp")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1

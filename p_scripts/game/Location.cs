@@ -47,10 +47,12 @@ public partial class Location : Ui.UiBase
 		
 		var npcs = GetTree().GetNodesInGroup(CharacterBase.GROUP).ToList<CharacterBase>();
 		var coins = GetTree().GetNodesInGroup(HintCoin.GROUP).ToList<HintCoin>();
+		var popups = GetTree().GetNodesInGroup(PopupZone.GROUP).ToList<PopupZone>();
 		arrows = GetTree().GetNodesInGroup(Arrow.GROUP).ToList<Arrow>();
 		
 		npcs.ForEach((npc) => npc.PressedNpc += OnNpc_PressedNpc);
 		coins.ForEach((coin) => coin.Collected += OnCoin_Collected);
+		popups.ForEach((popup) => popup.ZonePressed += OnPopupZone_Pressed);
 		arrows.ForEach((arrow) => arrow.Hide());
 	}
 	
@@ -131,5 +133,12 @@ public partial class Location : Ui.UiBase
 	private void OnCoin_Collected()
 	{
 		// save coin
+	}
+	
+	
+	
+	public void OnPopupZone_Pressed(PackedScene popupScene)
+	{
+		AddSibling(popupScene.Instantiate());
 	}
 }
