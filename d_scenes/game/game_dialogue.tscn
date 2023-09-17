@@ -10,7 +10,7 @@
 [ext_resource type="RichTextEffect" uid="uid://w3m4rpmfxm8h" path="res://d_resources/game_dialogue_effect.tres" id="6_1le6t"]
 [ext_resource type="FontFile" uid="uid://ulsa4jbbxqsw" path="res://a_fonts/roboto_medium.ttf" id="6_g8rum"]
 [ext_resource type="Script" path="res://p_scripts/game/dialogue/LabelBox.cs" id="7_kth88"]
-[ext_resource type="AnimationLibrary" uid="uid://dhuww56rydajy" path="res://a_animations/game/anim_game_dialogue_base.tres" id="7_m23c1"]
+[ext_resource type="AnimationLibrary" uid="uid://ndjhj6um5i6o" path="res://a_animations/game/anim_game_popup_base.tres" id="11_qapfc"]
 
 [sub_resource type="Animation" id="Animation_qyl0f"]
 length = 0.001
@@ -161,5 +161,5 @@ flat = true
 libraries = {
 "": SubResource("AnimationLibrary_vabcm"),
 "game_dialogue": ExtResource("2_mw8ux"),
-"ui_base": ExtResource("7_m23c1")
+"ui_base": ExtResource("11_qapfc")
 }
