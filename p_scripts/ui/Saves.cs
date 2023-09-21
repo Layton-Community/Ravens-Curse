@@ -34,12 +34,7 @@ public partial class Saves : UiBase
 	{
 		animations.AnimationFinished += (_) =>
 		{
-			var scene = isSaveEmpty ?
-				sceneAskName.InstantiateFromPath() :
-				sceneGame.InstantiateFromPath();
-			
-			AddSibling(scene);
-			QueueFree();
+			ChangeSceneToFile(isSaveEmpty ? sceneAskName : sceneGame);
 		};
 		
 		animations.Play(ANIM_FADE_OUT);

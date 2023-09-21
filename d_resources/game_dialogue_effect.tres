@@ -1,0 +1,8 @@
+[gd_resource type="RichTextEffect" script_class="RichTextEffectDialogue" load_steps=2 format=3 uid="uid://w3m4rpmfxm8h"]
+
+[ext_resource type="Script" path="res://p_scripts/resources/RichTextEffectDialogue.cs" id="1_b1ce6"]
+
+[resource]
+script = ExtResource("1_b1ce6")
+fadeLength = 3
+fadeSpeed = 30.0

@@ -1,0 +1,171 @@
+[gd_scene load_steps=8 format=3 uid="uid://bmcvoln445rjb"]
+
+[ext_resource type="Script" path="res://p_scripts/game_objects/HintCoin.cs" id="1_mcp32"]
+[ext_resource type="Script" path="res://p_scripts/components/auto_pivot.gd" id="2_8wk0q"]
+[ext_resource type="Texture2D" uid="uid://cikoyqs5ataoe" path="res://a_sprites/game_objects/hint_coin.png" id="2_gi33j"]
+[ext_resource type="AudioStream" uid="uid://bgtcrcucl10pr" path="res://a_audio/objects/sfx_coin.wav" id="4_7xgi8"]
+
+[sub_resource type="Animation" id="Animation_xx1jb"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureCoins:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextureCoins:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-9.5, -9.5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TextureCoins:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1.5, 1.5)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TextureCoins:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AudioStreamPlayer:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_3yu54"]
+resource_name = "spin"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureCoins:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 1.5708, 3.14159]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextureCoins:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8),
+"transitions": PackedFloat32Array(0.5, 2, 1),
+"update": 0,
+"values": [Vector2(-9.5, -9.5), Vector2(-9.5, -114.25), Vector2(-9.5, -9.5)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TextureCoins:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1.5, 1.5), Vector2(1.5, -1.5), Vector2(1.5, -1.5)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("TextureCoins:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AudioStreamPlayer:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dmm23"]
+_data = {
+"RESET": SubResource("Animation_xx1jb"),
+"spin": SubResource("Animation_3yu54")
+}
+
+[node name="HintCoin" type="Control" node_paths=PackedStringArray("button", "animations") groups=["coins"]]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_mcp32")
+button = NodePath("TextureCoins")
+animations = NodePath("AnimationPlayer")
+
+[node name="TextureCoins" type="TextureButton" parent="."]
+texture_filter = 1
+layout_mode = 0
+offset_left = -9.5
+offset_top = -9.5
+offset_right = 9.5
+offset_bottom = 9.5
+scale = Vector2(1.5, 1.5)
+pivot_offset = Vector2(9.5, 9.5)
+texture_normal = ExtResource("2_gi33j")
+
+[node name="AutoPivot" type="Node" parent="TextureCoins"]
+editor_description = "Automatically centres the pivot of the parent control.
+You cannot change the value of the exported string Target, its purpose is to show you which target the AutoPivot is working on."
+script = ExtResource("2_8wk0q")
+target = "TextureCoins"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_7xgi8")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_dmm23")
+}

@@ -1,0 +1,165 @@
+[gd_scene load_steps=14 format=3 uid="uid://dcc113ycd4l7b"]
+
+[ext_resource type="PackedScene" uid="uid://c5d4hyuvs1fwr" path="res://d_scenes/ui/ui_base.tscn" id="1_ytbq4"]
+[ext_resource type="AnimationLibrary" uid="uid://dp8piwdpjrrub" path="res://a_animations/game/anim_game_dialogue.tres" id="2_mw8ux"]
+[ext_resource type="Texture2D" uid="uid://1am58ekot3ck" path="res://a_sprites/game_dialogue/bg_dialogue.svg" id="2_vc4dk"]
+[ext_resource type="Script" path="res://p_scripts/game/Dialogue.cs" id="2_x36sq"]
+[ext_resource type="Texture2D" uid="uid://cr326pc622rw5" path="res://a_sprites/game_dialogue/bg_dialogue_name.svg" id="3_s8pmg"]
+[ext_resource type="Script" path="res://p_scripts/components/Logger.cs" id="3_vuklg"]
+[ext_resource type="FontFile" uid="uid://dmjgigmwvc4ai" path="res://a_fonts/roboto_mono_medium.ttf" id="4_hat8s"]
+[ext_resource type="RichTextEffect" uid="uid://w3m4rpmfxm8h" path="res://d_resources/game_dialogue_effect.tres" id="6_1le6t"]
+[ext_resource type="FontFile" uid="uid://ulsa4jbbxqsw" path="res://a_fonts/roboto_medium.ttf" id="6_g8rum"]
+[ext_resource type="Script" path="res://p_scripts/game/dialogue/LabelBox.cs" id="7_kth88"]
+[ext_resource type="AnimationLibrary" uid="uid://ndjhj6um5i6o" path="res://a_animations/game/anim_game_popup_base.tres" id="11_qapfc"]
+
+[sub_resource type="Animation" id="Animation_qyl0f"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Foreground:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Foreground:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Background:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Middleground/CanvasGroup:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vabcm"]
+_data = {
+"RESET": SubResource("Animation_qyl0f")
+}
+
+[node name="GameDialogue" node_paths=PackedStringArray("logger", "spriteNameBox", "labelName", "labelBox", "buttonNext", "buttonSkip") instance=ExtResource("1_ytbq4")]
+script = ExtResource("2_x36sq")
+logger = NodePath("Logger")
+spriteNameBox = NodePath("Middleground/CanvasGroup/BgDialogueName")
+labelName = NodePath("Middleground/CanvasGroup/BgDialogueName/LabelName")
+labelBox = NodePath("Middleground/CanvasGroup/BgDialogue/LabelBox")
+buttonNext = NodePath("Middleground/ButtonNext")
+buttonSkip = NodePath("Middleground/ButtonSkip")
+
+[node name="Logger" type="Node" parent="." index="0"]
+script = ExtResource("3_vuklg")
+
+[node name="Background" parent="." index="1"]
+modulate = Color(1, 1, 1, 0)
+
+[node name="CanvasGroup" type="CanvasGroup" parent="Middleground" index="0"]
+
+[node name="BgDialogue" type="Sprite2D" parent="Middleground/CanvasGroup" index="0"]
+texture_filter = 1
+position = Vector2(640, 620)
+texture = ExtResource("2_vc4dk")
+
+[node name="LabelBox" type="RichTextLabel" parent="Middleground/CanvasGroup/BgDialogue" index="0"]
+texture_filter = 2
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -335.0
+offset_top = -75.0
+offset_right = -385.0
+offset_bottom = -120.0
+grow_horizontal = 2
+grow_vertical = 2
+auto_translate = false
+localize_numeral_system = false
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("4_hat8s")
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis venenatis eget ante sit amet pharetra. Nulla facilisi. Nunc suscipit mauris eu euismod tincidunt. Aenean in."
+scroll_active = false
+shortcut_keys_enabled = false
+script = ExtResource("7_kth88")
+textEffect = ExtResource("6_1le6t")
+
+[node name="BgDialogueName" type="Sprite2D" parent="Middleground/CanvasGroup" index="1"]
+texture_filter = 1
+position = Vector2(371.3, 521.3)
+texture = ExtResource("3_s8pmg")
+
+[node name="LabelName" type="Label" parent="Middleground/CanvasGroup/BgDialogueName" index="0"]
+texture_filter = 2
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -81.5
+offset_top = -20.5
+offset_right = -84.5
+offset_bottom = -24.5
+grow_horizontal = 2
+grow_vertical = 2
+auto_translate = false
+localize_numeral_system = false
+theme_override_fonts/font = ExtResource("6_g8rum")
+theme_override_font_sizes/font_size = 20
+text = "Lorem Ipsum"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ButtonNext" type="Button" parent="Middleground" index="1"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+
+[node name="ButtonSkip" type="Button" parent="Middleground" index="2"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+
+[node name="AnimationPlayer" parent="." index="4"]
+libraries = {
+"": SubResource("AnimationLibrary_vabcm"),
+"game_dialogue": ExtResource("2_mw8ux"),
+"ui_base": ExtResource("11_qapfc")
+}

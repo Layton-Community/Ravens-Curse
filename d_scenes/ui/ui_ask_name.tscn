@@ -11,9 +11,9 @@
 [ext_resource type="FontFile" uid="uid://ulsa4jbbxqsw" path="res://a_fonts/roboto_medium.ttf" id="8_vrvow"]
 [ext_resource type="Texture2D" uid="uid://5dm04ngvgmch" path="res://a_sprites/ui_ask_name/bg_field.png" id="9_6mnkv"]
 [ext_resource type="FontFile" uid="uid://dmjgigmwvc4ai" path="res://a_fonts/roboto_mono_medium.ttf" id="10_1y3c4"]
-[ext_resource type="Script" path="res://p_scripts/ui_ask_name/LineEdit.cs" id="11_t2dos"]
+[ext_resource type="Script" path="res://p_scripts/ui/ask_name/LineEdit.cs" id="11_t2dos"]
 [ext_resource type="AudioStream" uid="uid://bb1fyygt1tlgi" path="res://a_audio/ui_line_edit/sfx_label_input.wav" id="12_e8jl0"]
-[ext_resource type="Script" path="res://p_scripts/ui_ask_name/Caret.cs" id="13_qjmwe"]
+[ext_resource type="Script" path="res://p_scripts/ui/ask_name/Caret.cs" id="13_qjmwe"]
 [ext_resource type="PackedScene" uid="uid://c1lfibm6thgmb" path="res://d_scenes/ui_buttons/button_ok.tscn" id="14_2jni3"]
 [ext_resource type="AudioStream" uid="uid://bxl6obmq7nb2r" path="res://a_audio/ui_buttons/sfx_button_back.wav" id="15_ptx7m"]
 [ext_resource type="PackedScene" uid="uid://cviwnn2oxjuii" path="res://d_scenes/ui_buttons/button_back.tscn" id="16_v7fpe"]
@@ -40,7 +40,7 @@ spacing_glyph = 19
 [node name="UiAskName" node_paths=PackedStringArray("buttonOk", "buttonOkSfxForbidden", "buttonBack", "username") instance=ExtResource("1_q872w")]
 script = ExtResource("2_k6wf4")
 sceneSaves = "res://d_scenes/ui/ui_saves.tscn"
-sceneGame = ""
+sceneGame = "res://d_scenes/game/game_location.tscn"
 buttonOk = NodePath("Middleground/BgPanel/ButtonOk")
 buttonOkSfxForbidden = NodePath("Middleground/BgPanel/ButtonOk/SfxForbidden")
 buttonBack = NodePath("Middleground/BgPanel/ButtonBack")
@@ -166,6 +166,7 @@ offset_bottom = 600.0
 stream = ExtResource("15_ptx7m")
 
 [node name="ButtonBack" parent="Middleground/BgPanel" index="3" instance=ExtResource("16_v7fpe")]
+texture_filter = 0
 layout_mode = 0
 offset_left = -180.0
 offset_top = 540.0

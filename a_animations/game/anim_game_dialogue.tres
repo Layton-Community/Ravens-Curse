@@ -1,0 +1,8 @@
+[gd_resource type="AnimationLibrary" load_steps=2 format=3 uid="uid://dp8piwdpjrrub"]
+
+[sub_resource type="Animation" id="Animation_uexgq"]
+
+[resource]
+_data = {
+"loop": SubResource("Animation_uexgq")
+}

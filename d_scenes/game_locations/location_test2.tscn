@@ -1,0 +1,43 @@
+[gd_scene load_steps=7 format=3 uid="uid://cyx7oegvckmic"]
+
+[ext_resource type="PackedScene" uid="uid://b65axi7awqa8d" path="res://d_scenes/game/game_location.tscn" id="1_63383"]
+[ext_resource type="Texture2D" uid="uid://cuddm13rjy2rb" path="res://a_sprites/game_location/backgrounds/bg_test2.png" id="2_fbunk"]
+[ext_resource type="PackedScene" uid="uid://c8gdi0thuho20" path="res://d_scenes/game_objects/arrow.tscn" id="3_8pmvh"]
+[ext_resource type="PackedScene" uid="uid://wat2iqvd7pti" path="res://d_scenes/game_characters/character_base.tscn" id="3_gcsdi"]
+[ext_resource type="PackedScene" uid="uid://cu21k5614gqv6" path="res://d_scenes/game_objects/popup_zone.tscn" id="3_x4r1u"]
+[ext_resource type="Texture2D" uid="uid://cu3s6roqreji7" path="res://a_sprites/game_objects/arrow_left_0.png" id="4_hawfo"]
+
+[node name="LocationTest2" instance=ExtResource("1_63383")]
+pivot_offset = Vector2(640, 360)
+
+[node name="Background" parent="." index="0"]
+self_modulate = Color(0.807843, 0.878431, 0.866667, 1)
+texture = ExtResource("2_fbunk")
+
+[node name="ButtonTrunk" parent="Middleground/Buttons" index="0"]
+offset_top = 0.0
+offset_bottom = 30.0
+
+[node name="Arrow" parent="Middleground/Arrows" index="0" instance=ExtResource("3_8pmvh")]
+layout_mode = 0
+offset_left = 148.0
+offset_top = 329.0
+offset_right = 172.0
+offset_bottom = 369.0
+texture_normal = ExtResource("4_hawfo")
+pathArrowScene = "res://d_scenes/game_locations/location_test.tscn"
+ArrowDirection = 2
+
+[node name="Popup" parent="Middleground/Popups" index="0" instance=ExtResource("3_x4r1u")]
+layout_mode = 0
+offset_left = 760.0
+offset_top = 262.0
+offset_right = 1092.0
+offset_bottom = 485.0
+
+[node name="CharacterBase" parent="Middleground/Npcs" index="0" instance=ExtResource("3_gcsdi")]
+offset_left = 515.0
+offset_top = 215.0
+offset_right = 515.0
+offset_bottom = 215.0
+scale = Vector2(-0.5, 0.5)

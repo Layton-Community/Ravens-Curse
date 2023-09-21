@@ -3,12 +3,12 @@
 [ext_resource type="AnimationLibrary" uid="uid://danfsfllrsqbx" path="res://a_animations/ui/anim_ui_base.tres" id="1_oq20g"]
 [ext_resource type="Script" path="res://p_scripts/ui/UiBase.cs" id="1_yjseg"]
 
-[sub_resource type="Gradient" id="Gradient_6yhuu"]
-offsets = PackedFloat32Array(0)
+[sub_resource type="Gradient" id="Gradient_iok2m"]
+offsets = PackedFloat32Array(1)
 colors = PackedColorArray(1, 1, 1, 1)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_lsck6"]
-gradient = SubResource("Gradient_6yhuu")
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_74j4s"]
+gradient = SubResource("Gradient_iok2m")
 
 [sub_resource type="Animation" id="Animation_qyl0f"]
 length = 0.001
@@ -60,7 +60,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = SubResource("GradientTexture1D_lsck6")
+texture = SubResource("GradientTexture1D_74j4s")
 metadata/_edit_lock_ = true
 
 [node name="Middleground" type="Control" parent="."]

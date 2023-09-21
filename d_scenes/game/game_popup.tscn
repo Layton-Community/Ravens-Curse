@@ -1,0 +1,116 @@
+[gd_scene load_steps=10 format=3 uid="uid://dmvel320fhsvc"]
+
+[ext_resource type="PackedScene" uid="uid://c5d4hyuvs1fwr" path="res://d_scenes/ui/ui_base.tscn" id="1_guqfa"]
+[ext_resource type="Script" path="res://p_scripts/game/Popup.cs" id="2_b7kj0"]
+[ext_resource type="Texture2D" uid="uid://dbkch62mycyms" path="res://a_sprites/game_popup/bg_popup.svg" id="3_6uq4f"]
+[ext_resource type="Script" path="res://p_scripts/components/Logger.cs" id="3_p2gfh"]
+[ext_resource type="FontFile" uid="uid://dmjgigmwvc4ai" path="res://a_fonts/roboto_mono_medium.ttf" id="5_eltd6"]
+[ext_resource type="Texture2D" uid="uid://kuhy5reu8w1h" path="res://a_sprites/game_popup/icon_layton.png" id="5_fv41y"]
+[ext_resource type="AnimationLibrary" uid="uid://ndjhj6um5i6o" path="res://a_animations/game/anim_game_popup_base.tres" id="7_qb5q8"]
+
+[sub_resource type="Animation" id="Animation_qyl0f"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Foreground:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Foreground:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Middleground/CanvasGroup:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vabcm"]
+_data = {
+"RESET": SubResource("Animation_qyl0f")
+}
+
+[node name="GamePopup" node_paths=PackedStringArray("buttonNext") instance=ExtResource("1_guqfa")]
+script = ExtResource("2_b7kj0")
+buttonNext = NodePath("Middleground/ButtonNext")
+
+[node name="Logger" type="Node" parent="." index="0"]
+script = ExtResource("3_p2gfh")
+
+[node name="Background" parent="." index="1"]
+modulate = Color(0.2401, 0.2401, 0.2401, 0.149)
+
+[node name="CanvasGroup" type="CanvasGroup" parent="Middleground" index="0"]
+
+[node name="BgDialogue" type="Sprite2D" parent="Middleground/CanvasGroup" index="0"]
+texture_filter = 1
+position = Vector2(640, 360)
+texture = ExtResource("3_6uq4f")
+
+[node name="Icon" type="Sprite2D" parent="Middleground/CanvasGroup/BgDialogue" index="0"]
+position = Vector2(-260, 0)
+texture = ExtResource("5_fv41y")
+
+[node name="CenterContainer" type="CenterContainer" parent="Middleground/CanvasGroup/BgDialogue" index="1"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -170.0
+offset_top = -100.0
+offset_right = -440.0
+offset_bottom = -100.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LabelBox" type="RichTextLabel" parent="Middleground/CanvasGroup/BgDialogue/CenterContainer" index="0"]
+texture_filter = 2
+custom_minimum_size = Vector2(450, 0)
+layout_mode = 2
+auto_translate = false
+localize_numeral_system = false
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("5_eltd6")
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+fit_content = true
+scroll_active = false
+shortcut_keys_enabled = false
+
+[node name="ButtonNext" type="Button" parent="Middleground" index="1"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
+
+[node name="AnimationPlayer" parent="." index="4"]
+libraries = {
+"": SubResource("AnimationLibrary_vabcm"),
+"ui_base": ExtResource("7_qb5q8")
+}

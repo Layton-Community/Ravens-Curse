@@ -7,8 +7,10 @@
 [ext_resource type="AudioStream" uid="uid://crj3h3w2ecm54" path="res://a_audio/ui_buttons/sfx_button_ok.wav" id="5_edrrt"]
 
 [node name="ButtonOk" type="TextureButton" node_paths=PackedStringArray("image", "sound")]
+texture_filter = 1
 offset_right = 160.0
 offset_bottom = 60.0
+keep_pressed_outside = true
 texture_normal = ExtResource("1_x231g")
 texture_pressed = ExtResource("2_ygio7")
 texture_disabled = ExtResource("1_x231g")

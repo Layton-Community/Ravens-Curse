@@ -39,11 +39,16 @@ public partial class AskName : UiBase
 		}
 		else
 		{
+			animations.AnimationFinished += (_) =>
+			{
+				AddSibling(sceneGame.InstantiateFromPath(), true);
+				QueueFree();
+			};
+			
 			buttonOk.soundOverride = null;
 			animations.Play(ANIM_FADE_OUT);
 			Resources.PlayerSave.Singleton.username = username.Text;
 			Resources.PlayerSave.StoreSingleton();
-			// load new game
 		}
 	}
 	

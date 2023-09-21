@@ -1,8 +1,261 @@
-[gd_scene load_steps=2 format=3 uid="uid://b65axi7awqa8d"]
+[gd_scene load_steps=14 format=3 uid="uid://b65axi7awqa8d"]
 
 [ext_resource type="PackedScene" uid="uid://c5d4hyuvs1fwr" path="res://d_scenes/ui/ui_base.tscn" id="1_o8f23"]
+[ext_resource type="Script" path="res://p_scripts/game/Location.cs" id="2_2kkwt"]
+[ext_resource type="Texture2D" uid="uid://qmogf75ed8cd" path="res://a_sprites/game_location/icon_move_normal.png" id="2_5jmee"]
+[ext_resource type="Texture2D" uid="uid://bw2md4b8jslm" path="res://a_sprites/game_location/icon_trunk_normal.png" id="2_wfxno"]
+[ext_resource type="Texture2D" uid="uid://bajxh6umkh56v" path="res://a_sprites/game_location/icon_trunk_pressed_0.png" id="3_04bkt"]
+[ext_resource type="Texture2D" uid="uid://ehj8rudldt6j" path="res://a_sprites/game_location/icon_move_pressed_0.png" id="3_nttt8"]
+[ext_resource type="Texture2D" uid="uid://bvff8s3qw1qsu" path="res://a_sprites/game_location/icon_trunk_pressed_1.png" id="3_q7kyd"]
+[ext_resource type="Texture2D" uid="uid://blfqgn3wujlw7" path="res://a_sprites/game_location/icon_move_pressed_1.png" id="4_cl83n"]
+[ext_resource type="AudioStream" uid="uid://drhrbmaqspcdk" path="res://a_audio/game_location/sfx_button_trunk.wav" id="7_r3qdm"]
+[ext_resource type="AnimationLibrary" uid="uid://5ahn8w3t6a8s" path="res://a_animations/game/anim_game_location.tres" id="11_jdy2u"]
+[ext_resource type="AnimationLibrary" uid="uid://danfsfllrsqbx" path="res://a_animations/ui/anim_ui_base.tres" id="12_pfxtj"]
 
-[node name="GameLocation" instance=ExtResource("1_o8f23")]
+[sub_resource type="Animation" id="Animation_qyl0f"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Foreground:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Foreground:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Middleground/Buttons/ButtonTrunk/AudioStreamPlayer:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Middleground/Buttons/ButtonTrunk:texture_normal")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_wfxno")]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Middleground/Buttons/ButtonMove:texture_normal")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_5jmee")]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Middleground/Buttons/ButtonMove:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Middleground/Buttons/ButtonTrunk:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Middleground/Buttons/ButtonMove/AudioStreamPlayer:playing")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Middleground/Npcs:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Middleground/HintCoins:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Middleground/Popups:visible")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vabcm"]
+_data = {
+"RESET": SubResource("Animation_qyl0f")
+}
+
+[node name="GameLocation" node_paths=PackedStringArray("buttonTrunk", "buttonMove", "buttonCursor", "buttonTrunkSfx", "buttonMoveSfx", "background") instance=ExtResource("1_o8f23")]
+offset_top = 1.0
+offset_bottom = 1.0
+script = ExtResource("2_2kkwt")
+sceneTrunk = "res://d_scenes/game/game_trunk.tscn"
+sceneDialogue = "res://d_scenes/game/game_dialogue.tscn"
+textureTrunkDust = ExtResource("3_q7kyd")
+textureMoveDust = ExtResource("4_cl83n")
+buttonTrunk = NodePath("Middleground/Buttons/ButtonTrunk")
+buttonMove = NodePath("Middleground/Buttons/ButtonMove")
+buttonCursor = NodePath("Background/ButtonCursor")
+buttonTrunkSfx = NodePath("Middleground/Buttons/ButtonTrunk/AudioStreamPlayer")
+buttonMoveSfx = NodePath("Middleground/Buttons/ButtonMove/AudioStreamPlayer")
+background = NodePath("Background")
 
 [node name="Background" parent="." index="0"]
-texture = null
+metadata/_edit_group_ = true
+
+[node name="ButtonCursor" type="Button" parent="Background" index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+action_mode = 0
+flat = true
+
+[node name="Middleground" parent="." index="1"]
+mouse_filter = 2
+
+[node name="Buttons" type="Control" parent="Middleground" index="0"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_lock_ = true
+
+[node name="ButtonTrunk" type="TextureButton" parent="Middleground/Buttons" index="0"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -84.0
+offset_top = 5.0
+offset_right = -56.0
+offset_bottom = 35.0
+grow_horizontal = 0
+scale = Vector2(3, 3)
+texture_normal = ExtResource("2_wfxno")
+texture_pressed = ExtResource("3_04bkt")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Middleground/Buttons/ButtonTrunk" index="0"]
+stream = ExtResource("7_r3qdm")
+
+[node name="ButtonMove" type="TextureButton" parent="Middleground/Buttons" index="1"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -82.0
+offset_top = -100.0
+offset_right = -58.0
+offset_bottom = -70.0
+grow_horizontal = 0
+grow_vertical = 0
+scale = Vector2(3, 3)
+texture_normal = ExtResource("2_5jmee")
+texture_pressed = ExtResource("3_nttt8")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Middleground/Buttons/ButtonMove" index="0"]
+stream = ExtResource("7_r3qdm")
+
+[node name="Arrows" type="Control" parent="Middleground" index="1"]
+anchors_preset = 0
+mouse_filter = 2
+metadata/_edit_lock_ = true
+
+[node name="Popups" type="Control" parent="Middleground" index="2"]
+anchors_preset = 0
+mouse_filter = 2
+metadata/_edit_lock_ = true
+
+[node name="Npcs" type="Control" parent="Middleground" index="3"]
+anchors_preset = 0
+mouse_filter = 2
+metadata/_edit_lock_ = true
+
+[node name="HintCoins" type="Control" parent="Middleground" index="4"]
+anchors_preset = 0
+mouse_filter = 2
+metadata/_edit_lock_ = true
+
+[node name="AnimationPlayer" parent="." index="3"]
+libraries = {
+"": SubResource("AnimationLibrary_vabcm"),
+"game_location": ExtResource("11_jdy2u"),
+"ui_base": ExtResource("12_pfxtj")
+}

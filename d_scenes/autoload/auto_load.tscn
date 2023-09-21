@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://cqgmyo6iaewnw"]
+
+[ext_resource type="Script" path="res://p_scripts/autoload/AutoLoad.cs" id="1_pbhlf"]
+[ext_resource type="Script" path="res://p_scripts/autoload/DialogueFactory.cs" id="2_jtr3d"]
+[ext_resource type="PackedScene" uid="uid://bbx4wvo4nku7f" path="res://d_scenes/game_objects/cursor.tscn" id="3_tqkxi"]
+
+[node name="AutoLoad" type="Node"]
+script = ExtResource("1_pbhlf")
+isLogging = true
+
+[node name="DialogueFactory" type="Node" parent="."]
+script = ExtResource("2_jtr3d")
+sceneDialogue = "res://d_scenes/game/game_dialogue.tscn"
+
+[node name="Cursor" parent="." instance=ExtResource("3_tqkxi")]

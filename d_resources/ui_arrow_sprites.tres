@@ -1,0 +1,72 @@
+[gd_resource type="Resource" script_class="ArrowDictionary" load_steps=27 format=3 uid="uid://qne8ucc3hnu4"]
+
+[ext_resource type="Script" path="res://p_scripts/resources/ArrowDictionary.cs" id="1_26f74"]
+[ext_resource type="Script" path="res://p_scripts/resources/ArrowSprite.cs" id="1_fdpbn"]
+[ext_resource type="Texture2D" uid="uid://c5ksek54oj4wb" path="res://a_sprites/game_objects/arrow_up_0.png" id="3_osqy0"]
+[ext_resource type="Texture2D" uid="uid://jqex0chrbu6r" path="res://a_sprites/game_objects/arrow_up_1.png" id="4_ivyen"]
+[ext_resource type="Texture2D" uid="uid://cb8lovm6m017a" path="res://a_sprites/game_objects/arrow_down_0.png" id="5_jwvcb"]
+[ext_resource type="Texture2D" uid="uid://dj5n6t8n5pdmn" path="res://a_sprites/game_objects/arrow_down_1.png" id="6_h0o8d"]
+[ext_resource type="Texture2D" uid="uid://cu3s6roqreji7" path="res://a_sprites/game_objects/arrow_left_0.png" id="7_77wit"]
+[ext_resource type="Texture2D" uid="uid://diynqm5ioo2d" path="res://a_sprites/game_objects/arrow_left_1.png" id="8_q5e8p"]
+[ext_resource type="Texture2D" uid="uid://i77wcx4ad1ll" path="res://a_sprites/game_objects/arrow_right_0.png" id="9_olwno"]
+[ext_resource type="Texture2D" uid="uid://brofpgh1hnk2a" path="res://a_sprites/game_objects/arrow_right_1.png" id="10_xloj2"]
+[ext_resource type="Texture2D" uid="uid://yowwm6wtts6p" path="res://a_sprites/game_objects/arrow_back_0.png" id="11_wde0b"]
+[ext_resource type="Texture2D" uid="uid://b6rgitrl13bvm" path="res://a_sprites/game_objects/arrow_back_1.png" id="12_h5gj0"]
+[ext_resource type="Texture2D" uid="uid://pwxmihob35vy" path="res://a_sprites/game_objects/arrow_back_left_0.png" id="13_7qxy4"]
+[ext_resource type="Texture2D" uid="uid://c4rgdn1kqqi8r" path="res://a_sprites/game_objects/arrow_back_left_1.png" id="14_7re2q"]
+[ext_resource type="Texture2D" uid="uid://c6cmbqkjwcqr1" path="res://a_sprites/game_objects/arrow_back_right_0.png" id="15_tom75"]
+[ext_resource type="Texture2D" uid="uid://cr22n0quy8vjl" path="res://a_sprites/game_objects/arrow_back_right_1.png" id="16_nqoxi"]
+[ext_resource type="Texture2D" uid="uid://c7r8fv520nfs" path="res://a_sprites/game_objects/arrow_hand_0.png" id="17_lmljx"]
+[ext_resource type="Texture2D" uid="uid://bysxsphhat0pn" path="res://a_sprites/game_objects/arrow_hand_1.png" id="18_bnaj5"]
+
+[sub_resource type="Resource" id="Resource_uidq8"]
+script = ExtResource("1_fdpbn")
+key = 0
+value0 = ExtResource("3_osqy0")
+value1 = ExtResource("4_ivyen")
+
+[sub_resource type="Resource" id="Resource_dvudn"]
+script = ExtResource("1_fdpbn")
+key = 1
+value0 = ExtResource("5_jwvcb")
+value1 = ExtResource("6_h0o8d")
+
+[sub_resource type="Resource" id="Resource_fow1e"]
+script = ExtResource("1_fdpbn")
+key = 2
+value0 = ExtResource("7_77wit")
+value1 = ExtResource("8_q5e8p")
+
+[sub_resource type="Resource" id="Resource_5ispd"]
+script = ExtResource("1_fdpbn")
+key = 3
+value0 = ExtResource("9_olwno")
+value1 = ExtResource("10_xloj2")
+
+[sub_resource type="Resource" id="Resource_6vc12"]
+script = ExtResource("1_fdpbn")
+key = 4
+value0 = ExtResource("11_wde0b")
+value1 = ExtResource("12_h5gj0")
+
+[sub_resource type="Resource" id="Resource_kh7dl"]
+script = ExtResource("1_fdpbn")
+key = 5
+value0 = ExtResource("13_7qxy4")
+value1 = ExtResource("14_7re2q")
+
+[sub_resource type="Resource" id="Resource_7xr2l"]
+script = ExtResource("1_fdpbn")
+key = 6
+value0 = ExtResource("15_tom75")
+value1 = ExtResource("16_nqoxi")
+
+[sub_resource type="Resource" id="Resource_u3hwb"]
+script = ExtResource("1_fdpbn")
+key = 7
+value0 = ExtResource("17_lmljx")
+value1 = ExtResource("18_bnaj5")
+
+[resource]
+script = ExtResource("1_26f74")
+values = [SubResource("Resource_uidq8"), SubResource("Resource_dvudn"), SubResource("Resource_fow1e"), SubResource("Resource_5ispd"), SubResource("Resource_6vc12"), SubResource("Resource_kh7dl"), SubResource("Resource_7xr2l"), SubResource("Resource_u3hwb")]

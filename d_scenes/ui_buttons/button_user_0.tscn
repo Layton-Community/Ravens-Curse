@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://d1m48y4426xjc"]
+[gd_scene load_steps=11 format=3 uid="uid://d1m48y4426xjc"]
 
 [ext_resource type="Texture2D" uid="uid://clrv3oyycx74t" path="res://a_sprites/ui_saves/btn_saves_0.png" id="1_kp7vx"]
 [ext_resource type="Script" path="res://p_scripts/ui_buttons/ButtonUser.cs" id="2_rquc4"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://xgolamssq5fh" path="res://a_sprites/ui_saves/btn_saves_0_empty.png" id="4_d2ydr"]
 [ext_resource type="FontFile" uid="uid://ulsa4jbbxqsw" path="res://a_fonts/roboto_medium.ttf" id="5_4guuf"]
 [ext_resource type="Texture2D" uid="uid://cukqtsfopm388" path="res://a_sprites/ui_saves/btn_saves_0_popup.png" id="6_xw86w"]
+[ext_resource type="Texture2D" uid="uid://djsymumfvsvvy" path="res://a_sprites/ui_saves/btn_saves_popup_shadow.png" id="7_80373"]
 [ext_resource type="Texture2D" uid="uid://crk4yarqgq5es" path="res://a_sprites/ui_saves/btn_saves_popup_create_en.png" id="7_o8rxj"]
 [ext_resource type="Texture2D" uid="uid://dmrhxsvkr4ihb" path="res://a_sprites/ui_saves/btn_saves_popup_loading_0_en.png" id="8_ro0rf"]
 [ext_resource type="AudioStream" uid="uid://cjblk13wro778" path="res://a_audio/ui_buttons/sfx_button_user.wav" id="9_gawjb"]
@@ -203,6 +204,13 @@ offset_bottom = 30.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("6_xw86w")
+
+[node name="TextureShadow" type="TextureRect" parent="TexturePopup"]
+show_behind_parent = true
+layout_mode = 0
+offset_right = 418.0
+offset_bottom = 78.0
+texture = ExtResource("7_80373")
 
 [node name="TextureTextCreating" type="TextureRect" parent="TexturePopup"]
 visible = false

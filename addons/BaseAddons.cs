@@ -9,23 +9,23 @@ public partial class BaseAddons : EditorPlugin
 
 	public override void _EnterTree()
 	{
-		Print("Enabled!");
+		PrintInfo("Enabled!");
 		
-		dock = (Control)GD.Load<PackedScene>("addons/debug_tools/dock.tscn").Instantiate();
-		AddControlToDock(DockSlot.LeftBr, dock);
+		dock = (Control)GD.Load<PackedScene>(scenePath).Instantiate();
+		AddControlToDock(DockSlot.LeftUr, dock);
 	}
 
 	public override void _ExitTree()
 	{
-		Print("Disabled!");
+		PrintInfo("Disabled!");
 		
 		RemoveControlFromDocks(dock);
 		dock.Free();
 	}
 	
-	protected void Print(string what)
+	protected void PrintInfo(string what)
 	{
-		GD.PrintRich($"[color=8b8b8b][{GetType().Name}] {what}[/color]");
+		Print.Info(GetType().Name, what);
 	}
 }
 #endif

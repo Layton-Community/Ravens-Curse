@@ -35,12 +35,12 @@ public partial class ButtonUser : TextureButton
 		if (Resources.PlayerSave.Exist(id))
 		{
 			save = Resources.PlayerSave.LoadFromDisk(id);
-			var timeSpan = TimeSpan.FromMilliseconds(save.timePlayed);
-				
+			var timeSpan = TimeSpan.FromSeconds(save.timePlayed);
+			
 			labelName.Text = save.username;
-			labelLocation.Text = save.currentLocation;
-			labelHours.Text = timeSpan.Hours.ToString(labelHours.Text);
-			labelMinutes.Text = timeSpan.Minutes.ToString(labelMinutes.Text);
+			labelLocation.Text = save.locationCurrent;
+			labelHours.Text = timeSpan.Hours.ToString();
+			labelMinutes.Text = timeSpan.Minutes.ToString();
 			labelPuzzleFound.Text = save.puzzleFound.ToString();
 			labelPuzzleCompleted.Text = save.puzzleCompleted.ToString();
 			

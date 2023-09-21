@@ -11,14 +11,21 @@ config_version=5
 [application]
 
 config/name="Ravens Curse"
+config/tags=PackedStringArray("github")
 run/main_scene="res://d_scenes/ui/ui_loading.tscn"
 config/features=PackedStringArray("4.1", "C#", "Mobile")
 run/max_fps=90
+boot_splash/show_image=false
 config/icon="res://a_sprites/icons/icon_game.png"
+boot_splash/bg_color.release=Color(0, 0, 0, 1)
 
 [audio]
 
 buses/default_bus_layout="res://a_audio/default_bus_layout.tres"
+
+[autoload]
+
+AutoLoad="*res://d_scenes/autoload/auto_load.tscn"
 
 [debug]
 
@@ -62,7 +69,8 @@ project/assembly_name="Ravens Curse"
 
 [editor]
 
-movie_writer/movie_file="res://builds/movies/out.avi"
+movie_writer/mjpeg_quality=0.9
+movie_writer/movie_file="res://x_builds/movies/out.avi"
 naming/node_name_num_separator=2
 naming/scene_name_casing=1
 
@@ -70,7 +78,30 @@ naming/scene_name_casing=1
 
 enabled=PackedStringArray("res://addons/debug_tools/plugin.cfg")
 
+[filesystem]
+
+import/blender/enabled=false
+
+[game]
+
+saves/encript_saves=true
+
+[importer_defaults]
+
+csv_translation={
+"delimiter": 2
+}
+
+[internationalization]
+
+locale/translations=PackedStringArray("res://a_dialogues/localization.de.translation", "res://a_dialogues/localization.en.translation", "res://a_dialogues/localization.es.translation", "res://a_dialogues/localization.fr.translation")
+
+[network]
+
+limits/debugger/max_chars_per_second=65536
+
 [rendering]
 
 occlusion_culling/bvh_build_quality=1
 renderer/rendering_method="mobile"
+environment/defaults/default_clear_color.release=Color(0, 0, 0, 1)

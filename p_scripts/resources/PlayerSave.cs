@@ -1,5 +1,6 @@
 namespace Com.LaytonCommunity.RavensCurse.Resources;
 
+[Tool]
 public partial class PlayerSave : Resource
 {
 	// Constants
@@ -8,6 +9,7 @@ public partial class PlayerSave : Resource
 	private const string PATH_SAVE_EXT = ".tres";
 	
 	// Statics
+	// REFACTOR TO AUTOLOAD
 	public static PlayerSave Singleton { get; private set; } = null;
 	
 	// Enums
@@ -36,13 +38,13 @@ public partial class PlayerSave : Resource
 		if (Exist(id))
 		{
 			var pathRessource = PATH_SAVE_DIR + id.ToString() + PATH_SAVE_EXT;
-			var save = ResourceLoader.Load<PlayerSave>(pathRessource, null).Duplicate() as PlayerSave;
+			var save = ResourceLoader.Load<PlayerSave>(pathRessource, null, ResourceLoader.CacheMode.Ignore);
 			
 			return save;
 		}
 		else
 		{
-			Print.Warn($"Save with id: {id} does not exist! Returning an empty save!");
+			Print.Warn(nameof(PlayerSave), $"Save with id: {id} does not exist! Returning an empty save!");
 			
 			return new PlayerSave()
 			{
@@ -70,7 +72,7 @@ public partial class PlayerSave : Resource
 		
 		if (error != Error.Ok)
 		{
-			Print.Error($"Could not save user save: {error}");
+			Print.Error(nameof(PlayerSave), $"Could not save user save: {error}");
 		}
 	}
 		
@@ -85,7 +87,7 @@ public partial class PlayerSave : Resource
 		
 		typeof(PlayerSave).GetFields().ToList().ForEach((e) =>
 		{
-			Print.Info(string.Format("{0,-15}{1}", e.Name + ':', e.GetValue(Singleton)));
+			Print.Info(nameof(PlayerSave), string.Format("{0,-20}{1}", e.Name + ':', e.GetValue(Singleton)));
 		});
 	}
 }
@@ -99,23 +101,41 @@ public partial class PlayerSave : Resource
 	// Export variables
 	[Export] public uint id;
 	[Export] public string username;
-	[Export] public string currentLocation;
+	[Export] public string locationCurrent;
+	[Export] public string locationGoto;
 	[Export] public double timePlayed;
+	[Export] public uint picarats;
 	[Export] public uint puzzleCompleted;
 	[Export] public uint puzzleFound;
+	[Export] public uint coinsCurrent;
+	[Export] public uint coinsFound;
 	
 	// Member variables
 	
-	public PlayerSave() : this(0, "", "", 0, 0, 0) {}
+	public PlayerSave() : this(0, "", "", "", 0, 0, 0, 0, 0, 0) {}
 
-	public PlayerSave(uint id, string username, string currentLocation, double timePlayed, uint puzzleCompleted, uint puzzleFound)
+	public PlayerSave(uint id, string username, string locationCurrent, string locationGoto, double timePlayed, uint picarats, uint puzzleCompleted, uint puzzleFound, uint coinsCurrent, uint coinsFound)
 	{
 		this.id = id;
 		this.username = username;
-		this.currentLocation = currentLocation;
+		this.locationCurrent = locationCurrent;
+		this.locationGoto = locationGoto;
 		this.timePlayed = timePlayed;
+		this.picarats = picarats;
 		this.puzzleCompleted = puzzleCompleted;
 		this.puzzleFound = puzzleFound;
+		this.coinsCurrent = coinsCurrent;
+		this.coinsFound = coinsFound;
+	}
+	
+	public void PrintDbg()
+	{
+		foreach (var fieldInfo in typeof(PlayerSave).GetFields())
+		{
+			Print.Info(nameof(PlayerSave), string.Format("{0,-20}{1}", $"{fieldInfo.Name}:", fieldInfo.GetValue(this)));
+		}
+		
+		GD.Print();
 	}
 }
 
